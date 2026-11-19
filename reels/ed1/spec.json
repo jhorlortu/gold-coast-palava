@@ -1,0 +1,143 @@
+{
+ "transcript": "/home/user/gcp/ed1/work/transcript.json",
+ "vo": "/home/user/gcp/ed1/src/vo.mp3",
+ "subs": "/home/user/gcp/ed1/work/subs.py",
+ "gap": 0.35,
+ "lead_in": 0.15,
+ "tail": 0.0,
+ "items": [
+  {
+   "id": "hook",
+   "vo": [
+    "he asked why he",
+    "stool to sit on."
+   ],
+   "near": 470,
+   "gap": 0.45
+  },
+  {
+   "id": "question",
+   "vo": [
+    "Why is Ghana a powerful nation?",
+    "powerful nation?"
+   ],
+   "gap": 0.3
+  },
+  {
+   "beat": "brand",
+   "id": "brand",
+   "dur": 4.6
+  },
+  {
+   "id": "priest",
+   "vo": [
+    "The priest Okonfu Anoche",
+    "because of a law."
+   ],
+   "gap": 0.3
+  },
+  {
+   "id": "sky",
+   "vo": [
+    "So, according to Asante",
+    "the whole nation."
+   ],
+   "gap": 0.35
+  },
+  {
+   "id": "spirit",
+   "vo": [
+    "And Asante man stepped",
+    "or shot."
+   ],
+   "gap": 0.5
+  },
+  {
+   "id": "drum",
+   "vo": [
+    "the Asante knew that a drum",
+    "is a weapon."
+   ],
+   "gap": 0.35
+  },
+  {
+   "id": "band",
+   "vo": [
+    "Governor McCarthy, with about 500",
+    "survive the afternoon."
+   ],
+   "gap": 0.45
+  },
+  {
+   "id": "power",
+   "vo": [
+    "Power is not invincibility, though.",
+    "invincibility, though."
+   ],
+   "gap": 0.3
+  },
+  {
+   "id": "1896",
+   "vo": [
+    "In January 1896,",
+    "and the Seychelles."
+   ],
+   "gap": 0.45
+  },
+  {
+   "id": "soul",
+   "vo": [
+    "It was as if he",
+    "get husbands."
+   ],
+   "near": 480,
+   "gap": 0.5
+  },
+  {
+   "id": "dig",
+   "vo": [
+    "Three days later, on the 31st,",
+    "crowd waiting."
+   ],
+   "gap": 0.35
+  },
+  {
+   "id": "siege",
+   "vo": [
+    "The fort was besieged",
+    "into its hands."
+   ],
+   "gap": 0.45
+  },
+  {
+   "id": "now",
+   "vo": [
+    "In 2027, Ghana turned 70",
+    "never changed hands."
+   ],
+   "gap": 0.45
+  },
+  {
+   "id": "recall",
+   "vo": [
+    "Of everything you heard",
+    "someone tomorrow?"
+   ],
+   "gap": 0.4
+  },
+  {
+   "id": "chale",
+   "vo": [
+    "Chale,",
+    "the next one."
+   ],
+   "near": 920,
+   "gap": 0.2
+  },
+  {
+   "beat": "endcard",
+   "id": "endcard",
+   "dur": 3.6
+  }
+ ]
+}

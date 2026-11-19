@@ -1,0 +1,23 @@
+{"transcript": "/home/user/gcp/work/transcript.json", "vo": "/home/user/gcp/src/INTRO/Script/INTRO Voice Script.mp3",
+ "subs": "/home/user/gcp/work/subs.py", "gap": 0.35, "lead_in": 0.2, "tail": 0.0,
+ "items": [
+  {"id": "hook", "vo": ["A country that does not know", "have read it."], "gap": 0.4},
+  {"beat": "brand", "id": "brand", "dur": 4.4},
+  {"id": "thisis", "vo": ["This is the Gold Coast Palava.", "Coast Palava."], "gap": 0.45},
+  {"id": "palava", "vo": ["In our part of the world", "any of the three."], "gap": 0.45},
+  {"id": "edition", "vo": ["Each edition, we take one", "who was lying."], "gap": 0.4},
+  {"id": "world", "vo": ["Then, we look at what", "the same week."], "gap": 0.4},
+  {"id": "home", "vo": ["And finally, we bring it home", "on Sunday."], "gap": 0.45},
+  {"id": "desks", "vo": ["We cover four desks", "get their turn."], "gap": 0.35},
+  {"id": "front", "vo": ["And each edition opens", "deep into it."], "gap": 0.4},
+  {"id": "tone", "vo": ["We speak mostly in English", "about everything else."], "gap": 0.5},
+  {"id": "five", "vo": ["So what is in it", "five things."], "gap": 0.35},
+  {"id": "f1", "vo": ["First, the details nobody", "gave you."], "gap": 0.3},
+  {"id": "f2", "vo": ["Second, the world beside us.", "beside us."], "gap": 0.3},
+  {"id": "f3", "vo": ["Third, a way to read", "today's news."], "gap": 0.3},
+  {"id": "f4", "vo": ["Fourth, something to say.", "to say."], "gap": 0.3},
+  {"id": "f5", "vo": ["Fifth, a place to answer back.", "answer back."], "gap": 0.4},
+  {"id": "letters", "vo": ["This is not a lecture", "helping write it."], "gap": 0.4},
+  {"id": "subscribe", "vo": ["Subscribe if you want", "to find you."], "gap": 0.2},
+  {"beat": "endcard", "id": "endcard", "dur": 4.0}
+ ]}

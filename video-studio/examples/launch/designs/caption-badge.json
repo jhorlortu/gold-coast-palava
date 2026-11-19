@@ -1,0 +1,10 @@
+{
+  "name": "caption-badge",
+  "duration": 3,
+  "style": "energetic",
+  "tokens": { "colors": { "brand": "#7c5cff" } },
+  "layers": [
+    { "id": "badge", "type": "rect", "x": 1440, "y": 80, "width": 400, "height": 96, "radius": 48, "fill": "$brand", "shadow": { "y": 10, "blur": 30, "color": "rgba(0,0,0,0.4)" }, "motion": { "preset": "pop", "exit": "scale-out" } },
+    { "id": "badge-text", "type": "text", "text": "NEW FEATURE", "x": 1440, "y": 106, "width": 400, "fontSize": 36, "fontWeight": 800, "align": "center", "letterSpacing": 0.12, "color": "#ffffff", "motion": { "preset": "fade", "delay": 0.25, "exit": "fade" } }
+  ]
+}

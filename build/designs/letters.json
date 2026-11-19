@@ -1,0 +1,184 @@
+{
+  "name": "letters-page",
+  "width": 1920,
+  "height": 1080,
+  "fps": 30,
+  "duration": 19.73,
+  "style": "energetic",
+  "exit": "none",
+  "tokens": {
+    "colors": {
+      "ink": "#1A1612",
+      "paper": "#F7F1E3",
+      "gold": "#C9962F",
+      "red": "#A3242B",
+      "muted": "#6B6253"
+    }
+  },
+  "background": "$paper",
+  "layers": [
+    {
+      "id": "paperbg",
+      "type": "image",
+      "src": "/home/user/gcp/build/assets/paper.jpg",
+      "x": 0,
+      "y": 0,
+      "width": 1920,
+      "height": 1080,
+      "motion": "none"
+    },
+    {
+      "id": "kente",
+      "type": "rect",
+      "x": 0,
+      "y": 0,
+      "width": 1920,
+      "height": 14,
+      "fill": "repeating-linear-gradient(90deg,#C9962F 0 46px,#A3242B 46px 70px,#1A1612 70px 86px)",
+      "motion": "none"
+    },
+    {
+      "id": "icon",
+      "type": "image",
+      "src": "/home/user/gcp/build/assets/gcp-highlight-letters-1080x1080.png",
+      "x": 150,
+      "y": 150,
+      "width": 260,
+      "height": 260,
+      "radius": 130,
+      "motion": {
+        "preset": "pop",
+        "delay": 0.16
+      }
+    },
+    {
+      "id": "kicker",
+      "type": "text",
+      "text": "LETTERS PAGE · QUESTION No. 1",
+      "x": 460,
+      "y": 205,
+      "width": 1200,
+      "fontFamily": "IBM Plex Mono",
+      "fontWeight": 700,
+      "fontSize": 30,
+      "letterSpacing": 0.2,
+      "color": "$red",
+      "motion": {
+        "preset": "slide-right",
+        "delay": 0.36
+      }
+    },
+    {
+      "id": "intro",
+      "type": "text",
+      "text": "Our very first letter question:",
+      "x": 460,
+      "y": 260,
+      "width": 1300,
+      "fontFamily": "Playfair Display",
+      "fontSize": 58,
+      "italic": true,
+      "color": "$muted",
+      "motion": {
+        "preset": "rise",
+        "delay": 0.66
+      }
+    },
+    {
+      "id": "rule",
+      "type": "line",
+      "x": 460,
+      "y": 350,
+      "width": 600,
+      "height": 8,
+      "color": "$gold",
+      "motion": {
+        "preset": "wipe",
+        "delay": 0.9600000000000001
+      }
+    },
+    {
+      "id": "question",
+      "type": "text",
+      "text": "What is one thing happening in Ghana today that you suspect has a much older story behind it?",
+      "x": 150,
+      "y": 450,
+      "width": 1640,
+      "fontFamily": "Playfair Display",
+      "fontWeight": 900,
+      "fontSize": 86,
+      "lineHeight": 1.08,
+      "color": "$ink",
+      "motion": {
+        "preset": "rise",
+        "split": "words",
+        "stagger": 0.17,
+        "delay": 3.54
+      }
+    },
+    {
+      "id": "pinbox",
+      "type": "rect",
+      "x": 150,
+      "y": 830,
+      "width": 860,
+      "height": 96,
+      "fill": "$ink",
+      "radius": 48,
+      "motion": {
+        "preset": "scale-in",
+        "delay": 10.16
+      }
+    },
+    {
+      "id": "pintext",
+      "type": "text",
+      "text": "PINNED IN THE COMMENTS — LEAVE YOURS",
+      "x": 150,
+      "y": 860,
+      "width": 860,
+      "align": "center",
+      "fontFamily": "IBM Plex Mono",
+      "fontWeight": 700,
+      "fontSize": 30,
+      "color": "#FBF8EF",
+      "motion": {
+        "preset": "rise",
+        "delay": 10.41
+      }
+    },
+    {
+      "id": "subbtn",
+      "type": "rect",
+      "x": 1090,
+      "y": 830,
+      "width": 560,
+      "height": 96,
+      "fill": "$red",
+      "radius": 48,
+      "motion": {
+        "preset": "pop",
+        "delay": 15.98,
+        "idle": "pulse"
+      }
+    },
+    {
+      "id": "subtext",
+      "type": "text",
+      "text": "SUBSCRIBE",
+      "x": 1090,
+      "y": 856,
+      "width": 560,
+      "align": "center",
+      "fontFamily": "IBM Plex Mono",
+      "fontWeight": 700,
+      "fontSize": 40,
+      "letterSpacing": 0.2,
+      "color": "#FFFFFF",
+      "motion": {
+        "preset": "rise",
+        "delay": 16.18
+      }
+    }
+  ]
+}

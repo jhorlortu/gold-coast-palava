@@ -1,0 +1,92 @@
+{
+  "name": "Promo Card",
+  "width": 1920,
+  "height": 1080,
+  "duration": 5,
+  "style": "cinematic",
+  "background": "linear-gradient(135deg, #0f1729 0%, #301c59 100%)",
+  "layers": [
+    {
+      "id": "Card",
+      "x": 1060,
+      "y": 240,
+      "width": 660,
+      "height": 600,
+      "motion": {
+        "preset": "scale-in"
+      },
+      "shadow": {
+        "x": 0,
+        "y": 30,
+        "blur": 60,
+        "color": "rgba(0,0,0,0.4)"
+      },
+      "stroke": "rgba(255,255,255,0.2)",
+      "strokeWidth": 2,
+      "type": "rect",
+      "fill": "rgba(255,255,255,0.08)",
+      "radius": 40
+    },
+    {
+      "id": "Orb",
+      "x": 1240,
+      "y": 340,
+      "width": 300,
+      "height": 300,
+      "motion": {
+        "preset": "pop",
+        "idle": "float"
+      },
+      "type": "ellipse",
+      "fill": "radial-gradient(circle, #fabf24 0%, #f5405e 100%)"
+    },
+    {
+      "id": "Eyebrow",
+      "x": 200,
+      "y": 330,
+      "width": 700,
+      "height": 40,
+      "type": "text",
+      "text": "SPRING DROP",
+      "fontFamily": "Inter",
+      "fontSize": 30,
+      "fontWeight": 700,
+      "align": "left",
+      "letterSpacing": 0.3,
+      "textTransform": "uppercase",
+      "color": "#fabf24"
+    },
+    {
+      "id": "Headline",
+      "x": 200,
+      "y": 390,
+      "width": 1000,
+      "height": 260,
+      "type": "text",
+      "text": "Designed in Figma.\nAnimated by code.",
+      "fontFamily": "Inter",
+      "fontSize": 96,
+      "fontWeight": 900,
+      "align": "left",
+      "lineHeight": 1.146,
+      "letterSpacing": -0.0208,
+      "color": "#ffffff"
+    },
+    {
+      "id": "Body",
+      "x": 200,
+      "y": 700,
+      "width": 1000,
+      "height": 50,
+      "type": "text",
+      "text": "Name a layer \"Title [pop]\" to choose its motion.",
+      "fontFamily": "Inter",
+      "fontSize": 34,
+      "align": "left",
+      "color": "#cccce6"
+    }
+  ],
+  "source": {
+    "figmaNode": "1:1"
+  }
+}

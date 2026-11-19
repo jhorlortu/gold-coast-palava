@@ -1,0 +1,15 @@
+{
+  "name": "opener",
+  "duration": 4,
+  "style": "elegant",
+  "tokens": {
+    "colors": { "brand": "#f59e0b", "bg": "#0f172a", "ink": "#f8fafc", "muted": "#94a3b8" }
+  },
+  "background": "$bg",
+  "layers": [
+    { "id": "kicker", "type": "text", "text": "YOUR SHOW", "x": 160, "y": 380, "width": 1600, "fontSize": 32, "fontWeight": 700, "letterSpacing": 0.3, "color": "$brand" },
+    { "id": "headline", "type": "text", "text": "Replace this headline", "x": 160, "y": 430, "width": 1600, "fontSize": 110, "fontWeight": 900, "letterSpacing": -0.03, "color": "$ink" },
+    { "id": "rule", "type": "line", "x": 160, "y": 600, "width": 260, "height": 8, "color": "$brand" },
+    { "id": "sub", "type": "text", "text": "Edit designs/opener.json — layers animate themselves.", "x": 160, "y": 640, "width": 1600, "fontSize": 40, "color": "$muted" }
+  ]
+}

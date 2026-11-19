@@ -1,0 +1,27 @@
+{
+  "name": "video-studio",
+  "version": "1.0.0",
+  "description": "Video editing system: Remotion + HyperFrames + FFmpeg + design-to-motion",
+  "scripts": {
+    "studio": "node bin/studio.mjs",
+    "remotion:studio": "remotion studio src/remotion/index.js",
+    "test": "node --test test/*.test.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@remotion/bundler": "^4.0.543",
+    "@remotion/cli": "^4.0.543",
+    "@remotion/renderer": "^4.0.543",
+    "gsap": "^3.13.0",
+    "hyperframes": "^0.9.55",
+    "react": "^19.1.0",
+    "react-dom": "^19.1.0",
+    "remotion": "^4.0.543"
+  },
+  "type": "module",
+  "bin": {
+    "studio": "bin/studio.mjs"
+  }
+}

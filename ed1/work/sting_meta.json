@@ -1,0 +1,32 @@
+{
+ "Front Page": {
+  "n": "01",
+  "sub": "Every headline is a question",
+  "icon": "gcp-highlight-issues-1080x1080.png"
+ },
+ "The Wire": {
+  "n": "02",
+  "sub": "Kumasi, 28 March 1900",
+  "icon": "gcp-highlight-issues-1080x1080.png"
+ },
+ "The Palava Desk": {
+  "n": "03",
+  "sub": "Two truths on the table",
+  "icon": "gcp-highlight-nest-1080x1080.png"
+ },
+ "Then v Now": {
+  "n": "04",
+  "sub": "Gold then, treasures now",
+  "icon": "gcp-highlight-team-1080x1080.png"
+ },
+ "Editor's Note": {
+  "n": "05",
+  "sub": "From the editor",
+  "icon": "gcp-highlight-letters-1080x1080.png"
+ },
+ "Dispatch": {
+  "n": "06",
+  "sub": "Filed, signed and sent",
+  "icon": "gcp-highlight-letters-1080x1080.png"
+ }
+}

@@ -1,0 +1,52 @@
+{
+  "name": "launch-demo",
+  "format": { "width": 1920, "height": 1080, "fps": 30 },
+
+  "timeline": [
+    { "id": "intro", "type": "design", "design": "designs/intro.json", "engine": "hyperframes" },
+    { "id": "title", "type": "motion", "engine": "remotion", "composition": "TitleCard", "duration": 3,
+      "props": { "title": "Chapter One", "subtitle": "Footage, trimmed and graded by FFmpeg", "accent": "#7c5cff", "background": "#0b0b12", "color": "#ffffff" },
+      "transition": { "type": "dip-to-black", "duration": 0.6 } },
+    { "id": "clip-a", "type": "video", "src": "media/clip-a.mp4", "in": 0.5, "out": 5.5,
+      "grade": { "contrast": 1.1, "saturation": 1.2 }, "volume": 0.4,
+      "transition": { "type": "slide-left", "duration": 0.5 } },
+    { "id": "clip-b", "type": "video", "src": "media/clip-b.mp4", "in": 0, "out": 4, "speed": 1.25, "fit": "cover", "mute": true,
+      "transition": { "type": "circle", "duration": 0.7 } },
+    { "id": "stat", "type": "motion", "engine": "remotion", "composition": "StatCounter", "duration": 3,
+      "props": { "value": 48000, "suffix": "+", "label": "frames rendered today", "accent": "#22c55e", "background": "#0b0b12" },
+      "transition": "crossfade" },
+    { "id": "photo", "type": "image", "src": "media/photo.jpg", "duration": 3, "kenburns": "in", "transition": { "type": "wipe-up", "duration": 0.5 } },
+    { "id": "outro", "type": "motion", "engine": "hyperframes", "project": "hyperframes/outro", "duration": 4,
+      "variables": { "cta": "Build your first edit", "url": "studio build project.json", "accent": "#22c55e" },
+      "transition": { "type": "fadeblack", "duration": 0.6 } }
+  ],
+
+  "overlays": [
+    { "id": "lower-third", "type": "motion", "engine": "remotion", "composition": "LowerThird", "at": "clip-a+0.6", "duration": 3.5,
+      "props": { "name": "Test Pattern", "role": "testsrc2 · graded +10% contrast", "accent": "#7c5cff" } },
+    { "id": "badge", "type": "design", "design": "designs/caption-badge.json", "engine": "hyperframes", "at": "clip-b+0.3" },
+    { "id": "logo-bug", "type": "image", "src": "media/logo.png", "at": "clip-a", "duration": 9, "x": 1780, "y": 960, "width": 80, "opacity": 0.8 }
+  ],
+
+  "audio": {
+    "music": { "src": "media/music.wav", "volume": 0.5, "fadeIn": 1.5, "fadeOut": 2.5, "duck": { "ratio": 12 } },
+    "tracks": [ { "src": "media/voiceover.wav", "at": "clip-b", "volume": 1.0 } ],
+    "loudness": -14
+  },
+
+  "captions": {
+    "burn": true,
+    "style": { "size": 44, "box": true, "position": "bottom" },
+    "cues": [
+      { "at": "clip-a+0.2", "duration": 2.2, "text": "Trimmed, graded and slid in with FFmpeg" },
+      { "at": "clip-b", "duration": 2.5, "text": "Music ducks under the voiceover here" },
+      { "at": "photo", "duration": 2.4, "text": "Stills get a Ken Burns push" }
+    ]
+  },
+
+  "outputs": [
+    { "name": "master", "file": "out/launch-demo.mp4", "preset": "youtube" },
+    { "name": "vertical", "file": "out/launch-demo-9x16.mp4", "preset": "social", "reframe": "9:16", "reframeMode": "blur" },
+    { "name": "preview-gif", "file": "out/launch-demo.gif", "preset": "gif", "width": 480, "fps": 12 }
+  ]
+}

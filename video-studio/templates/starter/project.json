@@ -1,0 +1,16 @@
+{
+  "name": "my-video",
+  "format": { "width": 1920, "height": 1080, "fps": 30 },
+  "timeline": [
+    { "id": "opener", "type": "design", "design": "designs/opener.json", "engine": "hyperframes" },
+    { "id": "title", "type": "motion", "engine": "remotion", "composition": "TitleCard", "duration": 3,
+      "props": { "title": "Part One", "subtitle": "Add your clips below this card", "accent": "#f59e0b", "background": "#0f172a", "color": "#f8fafc" },
+      "transition": { "type": "crossfade", "duration": 0.5 } },
+    { "id": "end", "type": "color", "color": "#0f172a", "duration": 1, "transition": "dip-to-black" }
+  ],
+  "overlays": [],
+  "audio": { "loudness": -14 },
+  "outputs": [
+    { "name": "master", "file": "out/my-video.mp4", "preset": "youtube" }
+  ]
+}

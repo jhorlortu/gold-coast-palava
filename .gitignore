@@ -1,0 +1,26 @@
+# generated / rebuildable
+**/renders*/
+**/hf/
+**/conf/
+**/busy/
+build/sfx/
+ed1/build/sfx/
+**/node_modules/
+project/out/
+review/
+*.log
+**/picture.mp4
+**/mix*.wav
+**/*.raw.wav
+**/*.pcm
+**/subs.ass
+reels/*/video.mp4
+reels/pilot_old/
+**/ed1_v1.mjs
+**/ed1_v2pre_fill.mjs
+**/banner_v1.mjs
+**/plan_v2.py
+**/__pycache__/
+project/media/broll/gen/
+project/media/broll/orig/
+project/media/gen/

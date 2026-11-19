@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="en" data-composition-variables='[
+  {"id":"cta","type":"string","label":"Call to action","default":"Start building"},
+  {"id":"url","type":"string","label":"URL","default":"example.com"},
+  {"id":"accent","type":"color","label":"Accent","default":"#7c5cff"}
+]'>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=1920, height=1080" />
+    <script src="assets/gsap.min.js"></script>
+    <style>
+      * { margin: 0; padding: 0; box-sizing: border-box; }
+      html, body { width: 1920px; height: 1080px; overflow: hidden; background: #0b0b12; }
+      #root { position: relative; width: 100%; height: 100%; font-family: 'Inter', sans-serif; }
+      #scene { position: absolute; inset: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 36px; }
+      #ring { position: absolute; left: 660px; top: 240px; width: 600px; height: 600px; border-radius: 50%; border: 6px solid var(--accent, #7c5cff); }
+      #cta { color: #fff; font-size: 112px; font-weight: 900; letter-spacing: -0.03em; }
+      #url { color: var(--accent, #7c5cff); font-size: 48px; font-weight: 700; }
+    </style>
+  </head>
+  <body>
+    <div id="root" data-composition-id="main" data-start="0" data-duration="4" data-fps="30" data-width="1920" data-height="1080">
+      <div id="scene" class="clip" data-start="0" data-duration="4" data-track-index="0">
+        <div id="ring"></div>
+        <h1 id="cta">Start building</h1>
+        <div id="url">example.com</div>
+      </div>
+    </div>
+    <script>
+      const vars = window.__hyperframes?.getVariables?.() ?? {};
+      if (vars.cta) document.getElementById('cta').textContent = vars.cta;
+      if (vars.url) document.getElementById('url').textContent = vars.url;
+      if (vars.accent) document.getElementById('root').style.setProperty('--accent', vars.accent);
+      const tl = gsap.timeline({ paused: true });
+      tl.fromTo('#ring', { scale: 0.4, opacity: 0 }, { scale: 1, opacity: 0.35, duration: 1.2, ease: 'expo.out' }, 0);
+      tl.fromTo('#cta', { y: 50, opacity: 0 }, { y: 0, opacity: 1, duration: 0.8, ease: 'expo.out' }, 0.2);
+      tl.fromTo('#url', { y: 30, opacity: 0 }, { y: 0, opacity: 1, duration: 0.7, ease: 'expo.out' }, 0.45);
+      tl.to('#ring', { scale: 1.08, duration: 2.3, ease: 'sine.inOut' }, 1.2);
+      tl.to('#scene', { opacity: 0, duration: 0.5, ease: 'power2.in' }, 3.45);
+      window.__timelines = window.__timelines || {};
+      window.__timelines["main"] = tl;
+      tl.seek(0);
+    </script>
+  </body>
+</html>

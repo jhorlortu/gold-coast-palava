@@ -1,0 +1,17 @@
+{
+  "name": "intro",
+  "width": 1920, "height": 1080, "duration": 4,
+  "style": "energetic",
+  "tokens": {
+    "colors": { "brand": "#7c5cff", "bg": "#0b0b12", "ink": "#ffffff", "muted": "#a1a1b5" }
+  },
+  "background": "$bg",
+  "layers": [
+    { "id": "glow", "type": "ellipse", "x": 1180, "y": 120, "width": 760, "height": 760, "fill": "radial-gradient(circle, rgba(124,92,255,0.55), rgba(124,92,255,0) 70%)", "motion": { "preset": "fade-zoom", "idle": "pulse" } },
+    { "id": "logo", "type": "image", "src": "../media/logo.png", "x": 160, "y": 250, "width": 120, "height": 120, "motion": { "preset": "spin" } },
+    { "id": "kicker", "type": "text", "text": "INTRODUCING", "x": 160, "y": 410, "width": 900, "fontSize": 30, "fontWeight": 700, "letterSpacing": 0.3, "color": "$brand" },
+    { "id": "headline", "type": "text", "text": "Edit video like code", "x": 160, "y": 460, "width": 1300, "fontSize": 120, "fontWeight": 900, "letterSpacing": -0.03, "color": "$ink" },
+    { "id": "rule", "type": "line", "x": 160, "y": 640, "width": 320, "height": 8, "color": "$brand" },
+    { "id": "sub", "type": "text", "text": "Remotion · HyperFrames · FFmpeg — one timeline.", "x": 160, "y": 680, "width": 1300, "fontSize": 40, "color": "$muted" }
+  ]
+}
