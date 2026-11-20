@@ -362,7 +362,7 @@ export function dispatch() {
   const [p, c, s] = make('dispatch');
   p.css.push(BANNER_CSS);
   const aEnd = c('filed and signed') - 0.1;
-  p.headline(0, aEnd, { kicker: 'DISPATCH', text: 'This is the *headline edition* of the Gold Coast Palava.', size: 110, y: 290, enter: 'cut' });
+  p.headline(0, aEnd, { kicker: 'DISPATCH', text: process.env.GCP_DISPATCH_TEXT || 'This is the *headline edition* of the Gold Coast Palava.', size: 110, y: 290, enter: 'cut' });
   const bEnd = c('and dispatched to') - 0.1;
   const sig = p.id_('sg');
   p.tl.push(`tl.fromTo("#${sig}", {strokeDasharray:900, strokeDashoffset:900}, {strokeDashoffset:0, duration:1.3, ease:"power2.inOut"}, ${c('filed and signed') + 0.5});`); p.ev(c('filed and signed') + 0.5);

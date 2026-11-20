@@ -24,3 +24,10 @@ reels/pilot_old/
 project/media/broll/gen/
 project/media/broll/orig/
 project/media/gen/
+intro/work/a[0-9].wav
+intro/work/cut_audio.wav
+intro/work/c[0-9].mp4
+intro/work/cut_picture.mp4
+intro/work/cut_subs.ass
+intro/work/c.txt
+reels/*/sfx.json

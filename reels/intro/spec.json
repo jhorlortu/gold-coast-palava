@@ -1,0 +1,16 @@
+{"transcript": "/home/user/gcp/intro/work/transcript.json", "vo": "/home/user/gcp/intro/work/vo_intro.wav",
+ "subs": "/home/user/gcp/work/subs.py", "gap": 0.35, "lead_in": 0.0, "tail": 0.0,
+ "items": [
+  {"beat": "brand", "id": "brand", "dur": 4.4},
+  {"id": "thisis", "vo": ["This is the Gold Coast Palava.", "Coast Palava."], "gap": 0.45},
+  {"id": "palava", "vo": ["In our part of the world", "any of the three."], "gap": 0.45},
+  {"id": "edition", "vo": ["Each edition, we take one", "who was lying."], "gap": 0.4},
+  {"id": "world", "vo": ["Then, we look at what", "the same week."], "gap": 0.4},
+  {"id": "home", "vo": ["And finally, we bring it home", "on Sunday."], "gap": 0.45},
+  {"id": "desks", "vo": ["We cover four desks", "get their turn."], "gap": 0.35},
+  {"id": "front", "vo": ["And each edition opens", "deep into it."], "gap": 0.4},
+  {"id": "tone", "vo": ["We speak mostly in English", "about everything else."], "gap": 0.7},
+  {"id": "intro", "vo": ["This is the introduction", "Coast Palava."], "near": 426, "gap": 0.35},
+  {"id": "filed", "vo": ["Filed and signed", "and to the world."], "near": 429, "gap": 0.3},
+  {"beat": "endcard", "id": "endcard", "dur": 4.0}
+ ]}
