@@ -142,6 +142,13 @@ events slide in along the line with a travelling pulse (keep drift small enough 
 - Commons downloads: only standard thumbnail widths (1280/960/500/330 px, `work/scripts/getthumbs.py`) avoid HTTP 429;
   originals and the API rate-limit. Record file/author/licence in `media/real/CREDITS.json` as you go.
 
+## The Introduction (one-off cut of the pilot — its choices do NOT apply to editions)
+- `intro/work/cut2.py` (16:9) and `reels/intro.mjs` (9:16): COMBO1 with "This is the Gold Coast Palava" spoken as the
+  banner assembles → "In our part of the world … light about everything else." → "This is the introduction to the
+  Gold Coast Palava…" (the word "introduction" spliced from Kofi's own recordings: `intro/work/splice.py`) → COMBO2.
+- Only here: one continuous soundtrack melting into the COMBO2 ending, and the reel opens with OPTIMUM DIGITAL
+  PRESENTS and carries music. Editions keep the standing rules (social reels: no music, ~2:00).
+
 ## Signature combos (client names — never change them)
 - **COMBO1** = "Optimum Digital presents" + the opening banner montage (soundtrack identity), after the cold open.
 - **COMBO2** = the closing montage meeting the soundtrack's ending: the banner assembles for the outro and the
