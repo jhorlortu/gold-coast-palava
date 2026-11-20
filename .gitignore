@@ -24,3 +24,7 @@ reels/pilot_old/
 project/media/broll/gen/
 project/media/broll/orig/
 project/media/gen/
+ed2/build/sfx/
+ed2/work/vo16k.raw
+ed2/media/dl1/
+ed2/build/package*.json
