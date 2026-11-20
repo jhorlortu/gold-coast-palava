@@ -1,6 +1,6 @@
 // Social reel (9:16) — THE INTRODUCTION cut: what the Gold Coast Palava is, its segments, what to expect.
 // Voice + SFX only (no music on social versions).
-import { loadReel, captions, hl, kick, sub, counter, bannerP, endCard, enrichSfx, X0, CW } from './rlib.mjs';
+import { loadReel, captions, hl, kick, sub, counter, bannerP, endCard, enrichSfx, X0, CW, SP } from './rlib.mjs';
 const BN = '/home/user/gcp/build/assets/banner2';
 const E1 = '/home/user/gcp/ed1/media/sfx';
 
@@ -17,8 +17,19 @@ export function build() {
   };
 
   // THE MONTAGE — the channel banner assembles; "This is the Gold Coast Palava."
-  let a = 0, b = win('thisis')[1];
-  p.scene(a, b, bannerP(p, 'bnr', { t0: 0.15, until: b + 0.4, lockY: 790 }).html, { enter: 'cut', bg: 'paper' });
+  // OPTIMUM DIGITAL PRESENTS — the symbol draws on the soundtrack's opening phrase, the line types beneath it
+  let a = 0, b = at.brand.T0;
+  p.mastStart = at.brand.T0;                          // no masthead over OPTIMUM DIGITAL PRESENTS (as in COMBO1)
+  const sym = p.id_('osym'), odp = p.id_('odp');
+  p.tl.push(`tl.fromTo("#${sym}", {scale:0.2, rotation:-30, opacity:0}, {scale:1, rotation:0, opacity:1, duration:${SP.heavy}, ease:"sp-heavy"}, 0.35);`);
+  p.tl.push(`tl.fromTo("#${sym}", {y:0}, {y:-14, duration:1.6, ease:"sine.inOut", repeat:3, yoyo:true, immediateRender:false}, 1.6);`);
+  p.tl.push(`tl.to("#${odp}", {yPercent:-130, duration:0.35, ease:"power2.in", immediateRender:false}, 6.55);`);
+  p.ev(0.35); p.ev(3.6); p.ev(6.55);
+  p.scene(0, b, `<img id="${sym}" src="${p.asset('/home/user/gcp/build/assets/gcp-symbol-transparent-1024.svg')}" style="position:absolute;left:290px;top:560px;width:500px">
+    <div style="position:absolute;left:0;right:0;top:1150px;text-align:center"><span class="mk"><span id="${odp}" class="wd mono" style="font-size:40px;font-weight:700;letter-spacing:.22em;color:var(--red)">${p.typed('OPTIMUM DIGITAL PRESENTS', 3.6, { cps: 14 })}</span></span></div>`, { enter: 'cut', bg: 'plain' });
+  // COMBO1 — the banner assembles on the downbeat; "This is the Gold Coast Palava."
+  a = b; b = win('thisis')[1];
+  p.scene(a, b, bannerP(p, 'bnr', { t0: a + 0.02, until: b + 0.4, lockY: 790 }).html, { enter: 'iris', bg: 'paper' });
 
   // PALAVA — the dictionary entry
   [a, b] = win('palava');

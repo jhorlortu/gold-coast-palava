@@ -214,10 +214,10 @@ export class Part {
       : `<img src="${this.asset(src)}" style="width:${w}px;display:block">`;
     return `<div id="${id}" class="print${round ? ' isround' : ''}" style="left:${x}px;top:${y}px">${img}${caption ? `<div class="cap">${rich(caption)}</div>` : ''}${credit ? `<div class="credit">${esc(credit)}</div>` : ''}</div>`;
   }
-  headline(start, end, { kicker, text, sub, subAt, align = 'left', size = 120, bg = 'paper', x = 150, y = 300, width = 1620, extra = '', enter, color } = {}) {
+  headline(start, end, { kicker, text, sub, subAt, align = 'left', size = 120, bg = 'paper', x = 150, y = 300, width = 1620, extra = '', enter, color, tat } = {}) {
     const id = this.id_('h');
-    const k = kicker ? this.kicker(kicker, start + 0.1, bg === 'ink' ? 'var(--gold)' : 'var(--red)') : '';
-    const h = this.words(id, text, start + 0.2);
+    const k = kicker ? this.kicker(kicker, tat != null ? tat : start + 0.1, bg === 'ink' ? 'var(--gold)' : 'var(--red)') : '';
+    const h = this.words(id, text, tat ?? start + 0.2);
     let sb = '';
     if (sub) { const sid = this.id_('sb'); this.tl.push(T(`#${sid}`, { yPercent: 120 }, { yPercent: 0, ...spr('default') }, subAt ?? start + 0.9)); this.ev(subAt ?? start + 0.9); sb = `<div class="sub"><span class="mk"><span id="${sid}" class="wd">${rich(sub)}</span></span></div>`; }
     const col = color ?? (bg === 'ink' ? 'var(--paper)' : 'var(--ink)');
@@ -293,7 +293,7 @@ export class Part {
     for (const f of ['gsap.min.js', 'paper.jpg', 'ink.jpg', 'gcp-round.otf', 'papers-bg.jpg', 'kente.png']) fs.copyFileSync(path.join(HERE, 'assets', f), path.join(outDir, 'assets', f));
     fs.copyFileSync(KIT_MOTION, path.join(outDir, 'assets', 'motion.js'));
     for (const [abs, rel] of this.assets) fs.copyFileSync(abs, path.join(outDir, rel));
-    const mastHtml = mast ? `<div id="mast" class="clip mast" data-start="0" data-duration="${n(this.mastEnd ?? this.dur)}" data-track-index="9" style="z-index:900"><div class="kente top"></div><div class="mast-l">GOLD COAST PALAVA <b>·</b> ${esc(process.env.GCP_EDITION || "HEADLINE EDITION")}</div><div class="mast-r">${esc(this.label)}</div></div>` : '';
+    const mastHtml = mast ? `<div id="mast" class="clip mast" data-start="${n(this.mastStart ?? 0)}" data-duration="${n((this.mastEnd ?? this.dur) - (this.mastStart ?? 0))}" data-track-index="9" style="z-index:900"><div class="kente top"></div><div class="mast-l">GOLD COAST PALAVA <b>·</b> ${esc(process.env.GCP_EDITION || "HEADLINE EDITION")}</div><div class="mast-r">${esc(this.label)}</div></div>` : '';
     const markDark = (h) => h.replace(/<div class="([^"]*)" style="([^"]*color:#FFF8EA[^"]*)"/g, '<div class="$1 ondark" style="$2"').replace(/<div style="([^"]*color:#FFF8EA[^"]*)"/g, '<div class="ondark" style="$1"');
     this.html = this.html.map(markDark);
     const html = `<!doctype html>

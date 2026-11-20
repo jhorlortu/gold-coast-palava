@@ -36,7 +36,7 @@ export function paper() {
     .map(([q, txt], i) => { const id = p.id_('df'); p.tl.push(`tl.fromTo("#${id}", {xPercent:-110}, {xPercent:0, duration:${SP.default}, ease:"sp-default"}, ${c(q)});`); p.ev(c(q)); return `<div style="overflow:hidden"><div id="${id}" style="font-family:'Playfair Display',serif;font-size:50px;margin:12px 0;white-space:nowrap"><b class="mono" style="color:var(--red);font-size:38px;margin-right:24px">${i + 1}.</b>${txt}</div></div>`; }).join('');
   p.scene(mEnd, dEnd, `<div class="hl" style="left:150px;top:170px;width:1250px">${p.kicker('IN OUR PART OF THE WORLD', mEnd + 0.1)}
     <h1 style="font-size:170px">${p.words(p.id_('pl'), 'pa·la·va', mEnd + 0.2)} <span style="font-size:60px;font-style:italic;font-weight:400;color:var(--muted)">(n.)</span></h1><div style="margin-top:30px">${defs}</div></div>
-    ${p.stamp('NEVER SHORT OF ANY OF THE THREE', c('never been short'), { x: 150, y: 820, rot: -3, size: 40 })}${argue}`);
+    ${p.stamp('NEVER SHORT OF ANY OF THE THREE', c('never been short'), { x: 150, y: 820, rot: -3, size: 40 })}${argue}`, process.env.GCP_INTRO_CUT ? { enter: 'cut' } : {});
   p.sound('real-grumble.mp3', c('an argument') + 0.05, -9, 3.0);
   // C. One day / event / decision, then the four questions
   const cEnd = c('then we look') - 0.1;
@@ -362,7 +362,7 @@ export function dispatch() {
   const [p, c, s] = make('dispatch');
   p.css.push(BANNER_CSS);
   const aEnd = c('filed and signed') - 0.1;
-  p.headline(0, aEnd, { kicker: 'DISPATCH', text: process.env.GCP_DISPATCH_TEXT || 'This is the *headline edition* of the Gold Coast Palava.', size: 110, y: 290, enter: 'cut' });
+  p.headline(0, aEnd, { kicker: 'DISPATCH', text: process.env.GCP_DISPATCH_TEXT || 'This is the *headline edition* of the Gold Coast Palava.', size: 110, y: 290, enter: 'cut', tat: process.env.GCP_INTRO_CUT ? 0.02 : undefined });
   const bEnd = c('and dispatched to') - 0.1;
   const sig = p.id_('sg');
   p.tl.push(`tl.fromTo("#${sig}", {strokeDasharray:900, strokeDashoffset:900}, {strokeDashoffset:0, duration:1.3, ease:"power2.inOut"}, ${c('filed and signed') + 0.5});`); p.ev(c('filed and signed') + 0.5);

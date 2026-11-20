@@ -36,7 +36,21 @@ for c in SFX:
     put(fades(x, fi, fo) * db(c.get("db", -12) - 3), c["T"])
 # music (pilot): enters on the brand reveal, ducks under the voice, rises for the end card
 M = S.get("music")
-if M:
+if M and M.get("mode") == "combo":
+    # COMBO1/COMBO2 style: one continuous soundtrack from its opening phrase; under the narration it melts into the
+    # closing passage, aligned so the soundtrack's real ending lands on the end card.
+    B = {b["id"]: b for b in R["beats"]}; P = {p["id"]: p for p in R["pieces"]}
+    x = load(M["file"]); L = len(x) / SR; src_end = M.get("src_end", 387.3)
+    tt = np.arange(int(TOTAL * SR)) / SR
+    A_ = x[np.clip((tt * SR).astype(int), 0, len(x) - 1)]; B_ = x[np.clip(((src_end - (TOTAL - tt)) * SR).astype(int), 0, len(x) - 1)]
+    mid = TOTAL / 2; w = np.clip((tt - (mid - 2)) / 4, 0, 1)
+    mus = A_ * np.cos(w * np.pi / 2)[:, None] + B_ * np.sin(w * np.pi / 2)[:, None]
+    th = P["thisis"]; nxt = sorted(p["T0"] for p in R["pieces"] if p["T0"] > th["T0"])[0]; ec = B["endcard"]["T0"]; dk = M.get("duck", -19)
+    env_pts = [(0, 0), (th["T0"] - 0.15, 0), (th["T0"] + 0.25, -13), (th["T0"] + th["dur"], -13), (th["T0"] + th["dur"] + 0.5, -5),
+               (nxt - 0.4, -5), (nxt + 0.1, dk), (ec - 0.6, dk), (ec + 0.8, 0), (TOTAL - 2.0, 0), (TOTAL, -60)]
+    g = np.interp(tt, [a for a, _ in env_pts], [v for _, v in env_pts]).astype(np.float32)
+    put(mus * (10 ** (g / 20))[:, None], 0.0)
+elif M:
     B = {b["id"]: b for b in R["beats"]}; P = {p["id"]: p for p in R["pieces"]}
     t0 = B["brand"]["T0"] + M.get("offset", -0.25); src = M["src_in"]
     x = load(M["file"])[int(src * SR):int((src + TOTAL - t0 + 1) * SR)]
