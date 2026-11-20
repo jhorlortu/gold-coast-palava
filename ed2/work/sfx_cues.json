@@ -764,6 +764,11 @@
   "db": -20
  },
  {
+  "file": "/home/user/gcp/ed2/media/sfx/sparkle.wav",
+  "T": 100.19,
+  "db": -18
+ },
+ {
   "file": "/home/user/gcp/project/media/sfx/syn-tick.wav",
   "T": 92.13,
   "db": -24

@@ -72,12 +72,18 @@ const nameCard = (p, at, { x = 110, y = 640, role, name, note = '' }) => {
 };
 // rolling counter (seek-safe GSAP innerText snap)
 const counter = (p, at, to, { size = 170, color = 'var(--ink)', suffix = '', prefix = '', dur = 1.4, sfx = 'blip.wav' } = {}) => {
-  const id = p.id_('ct');
-  p.tl.push(`tl.fromTo("#${id}", {innerText:0}, {innerText:${to}, duration:${dur}, ease:"power2.out", snap:{innerText:1}}, ${r3(at)});`);
+  // seek-safe rolling number: a stack of pre-set values, each snapped visible in turn (the renderer ignores innerText tweens)
+  const id = p.id_('ct'), N = Math.min(14, Math.max(2, to)), vals = [];
+  for (let k = 0; k <= N; k++) { const e = 1 - Math.pow(1 - k / N, 2); vals.push(Math.round(to * e)); }
+  const fmt = (v) => v.toLocaleString('en-GB');
+  const spans = vals.map((v, k) => { const t0 = at + dur * k / N;
+    if (k > 0) p.tl.push(`tl.set("#${id}-${k}", {opacity:1}, ${r3(t0)});`);
+    if (k < N) p.tl.push(`tl.set("#${id}-${k}", {opacity:0}, ${r3(at + dur * (k + 1) / N)});`);
+    return `<span id="${id}-${k}" style="${k ? 'position:absolute;left:0;top:0;opacity:0' : ''}">${prefix}${fmt(v)}${suffix}</span>`; }).join('');
   p.ev(at); p.ev(at + dur);
   for (let k = 0; k < 5; k++) fx(p, sfx, at + k * dur / 6, -26);
   fx(p, 'register.wav', at + dur - 0.1, -22);
-  return `<span style="font-family:'Playfair Display',serif;font-weight:900;font-size:${size}px;color:${color};white-space:nowrap">${prefix}<span id="${id}">0</span>${suffix}</span>`;
+  return `<span style="position:relative;display:inline-block;font-family:'Playfair Display',serif;font-weight:900;font-size:${size}px;color:${color};white-space:nowrap"><span style="visibility:hidden">${prefix}${fmt(to)}${suffix}</span><span style="position:absolute;left:0;top:0">${spans}</span></span>`;
 };
 // a card that grows in (cream, ink border, hard shadow)
 const card = (p, inner, at, { x, y, w, rot = 0, pad = '24px 30px', bg = '#FCF5E8', sfx = true } = {}) => { const id = p.id_('cd');
