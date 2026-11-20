@@ -128,11 +128,17 @@ export function endCard(p, start, end, edition) {
   p.tl.push(`tl.to("#${play}", {scale:1.07, duration:0.6, ease:"sine.inOut", repeat:${Math.max(1, Math.floor((end - start - 2) / 0.6))}, yoyo:true, immediateRender:false}, ${n(start + 2.0)});`);
   p.tl.push(`tl.fromTo("#${cta}", {yPercent:120}, {yPercent:0, ${spr('default')}}, ${n(start + 1.3)});`);
   p.sound('syn-ding.wav', start + 1.15, -12); p.sound(`${E1}/bell.wav`, start + 1.4, -18);
+  // COMBO2 close (long end cards): everything but the symbol flies away and the symbol fills the frame
+  if (end - start > 10) { const bid = bn.id; const fold = end - 3.0;
+    p.tl.push(`tl.to("#${bid} > :not([id$='-sym'])", {y:-260, opacity:0, scale:0.7, duration:0.55, ease:"power2.in", immediateRender:false, stagger:0.02}, ${n(fold)});`);
+    p.tl.push(`tl.to("#${play}, #${cta}, #${cta}-ed", {opacity:0, y:120, duration:0.45, ease:"power2.in", immediateRender:false}, ${n(fold)});`);
+    p.tl.push(`tl.to("#${bid}-sym", {scale:2.6, y:-200, duration:1.2, ease:"sp-heavy", immediateRender:false}, ${n(fold + 0.3)});`);
+    p.sound('whoosh-2.mp3', fold, -12); p.ev(fold); }
   return p.scene(start, end, `${bn.html}
     <div style="position:absolute;left:0;right:0;top:${y}px;display:flex;justify-content:center;align-items:center;gap:26px">
       <div id="${play}" style="width:120px;height:84px;border-radius:22px;background:var(--red);display:flex;align-items:center;justify-content:center;box-shadow:0 14px 26px -10px rgba(120,20,10,.5)"><div style="width:0;height:0;border-left:38px solid #FCF5E8;border-top:23px solid transparent;border-bottom:23px solid transparent;margin-left:8px"></div></div>
       <div style="overflow:hidden"><div id="${cta}" style="font-family:'GCP Round',sans-serif;font-weight:700;font-size:50px;line-height:1.1">Watch the full edition<br><span style="color:var(--red)">on YouTube</span></div></div></div>
-    <div style="position:absolute;left:0;right:0;top:${y + 170}px;text-align:center" class="mono"><span style="font-size:28px;font-weight:700;letter-spacing:.22em;background:rgba(251,248,239,.94);padding:6px 14px">${esc(edition)}</span></div>`, { enter: 'iris', bg: 'paper' });
+    <div id="${cta}-ed" style="position:absolute;left:0;right:0;top:${y + 170}px;text-align:center" class="mono"><span style="font-size:28px;font-weight:700;letter-spacing:.22em;background:rgba(251,248,239,.94);padding:6px 14px">${esc(edition)}</span></div>`, { enter: 'iris', bg: 'paper' });
 }
 
 /** Livelier sound: chip pops vary (three pop sounds), every landed card also gets a paper slap. */

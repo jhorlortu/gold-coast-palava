@@ -47,7 +47,7 @@ if M and M.get("mode") == "combo":
     mus = A_ * np.cos(w * np.pi / 2)[:, None] + B_ * np.sin(w * np.pi / 2)[:, None]
     th = P["thisis"]; nxt = sorted(p["T0"] for p in R["pieces"] if p["T0"] > th["T0"])[0]; ec = B["endcard"]["T0"]; dk = M.get("duck", -19)
     env_pts = [(0, 0), (th["T0"] - 0.15, 0), (th["T0"] + 0.25, -13), (th["T0"] + th["dur"], -13), (th["T0"] + th["dur"] + 0.5, -5),
-               (nxt - 0.4, -5), (nxt + 0.1, dk), (ec - 0.6, dk), (ec + 0.8, 0), (TOTAL - 2.0, 0), (TOTAL, -60)]
+               (nxt - 0.4, -5), (nxt + 0.1, dk), (ec - 0.5, dk), (ec + 2.5, 0), (ec + 10.0, 0), (TOTAL - 0.2, -60), (TOTAL, -60)]   # COMBO2: as the pilot outro
     g = np.interp(tt, [a for a, _ in env_pts], [v for _, v in env_pts]).astype(np.float32)
     put(mus * (10 ** (g / 20))[:, None], 0.0)
 elif M:

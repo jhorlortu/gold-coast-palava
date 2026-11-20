@@ -73,5 +73,5 @@ export function bannerP(p, id, { t0, until = null, cards = 'all', lockY = 800, s
   tl(T(`#${id}-kt`, { scaleX: 0 }, { scaleX: 1, ...spr('heavy') }, t0));
   p.ev(t0); p.ev(t0 + 0.3 * k); p.ev(t0 + 1.0 * k);
   p.sound('whoosh-2.mp3', t0 - 0.12, -12); p.sound('press-2.mp3', t0, -18, 2.5); p.sound('stamp-2.mp3', t0 + 0.35 * k, -16);
-  return { html: `<div id="${id}" style="position:absolute;inset:0;overflow:hidden">${html.join('')}</div>`, bottom: tagY + tx.tag.h * sc };
+  return { id, html: `<div id="${id}" style="position:absolute;inset:0;overflow:hidden">${html.join('')}</div>`, bottom: tagY + tx.tag.h * sc };
 }

@@ -1,5 +1,5 @@
 {
- "total": 101.485,
+ "total": 110.485,
  "pieces": [
   {
    "id": "thisis",
@@ -99,7 +99,7 @@
    "id": "endcard",
    "kind": "endcard",
    "T0": 93.485,
-   "dur": 8.0
+   "dur": 17.0
   }
  ],
  "captions": [

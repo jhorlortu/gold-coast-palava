@@ -12,19 +12,21 @@ plan = json.load(open(f"{W}/timeline.json")); P = {p["id"]: p for p in plan["par
 PAPER0 = P["paper"]["T0"]; DISP0 = P["dispatch"]["T0"]; PTOTAL = plan["total"]
 B_IN, B_OUT = 5.63, 77.47                       # paper-local: scene B ("In our part of the world") .. just after "else."
 MAST_AT = 7.62                                  # cut time for the masthead line's piece start ("This" lands ~7.9)
+HOLD = 2.0                                      # the last frame after "…everything else." holds, music continuing
 C1, C2, C3 = 14.0, B_OUT - B_IN, PTOTAL - DISP0
-C2_0, C3_0 = C1, C1 + C2; TOTAL = C1 + C2 + C3
+C2_0, C3_0 = C1, C1 + C2 + HOLD; TOTAL = C1 + C2 + HOLD + C3
 def to_cut(Tp):                                 # pilot global time -> cut time (None if not in the cut)
     if Tp < C1: return Tp
-    if PAPER0 + B_IN <= Tp < PAPER0 + B_OUT: return C2_0 + (Tp - PAPER0 - B_IN)
+    if PAPER0 + B_IN - 0.5 <= Tp < PAPER0 + B_OUT: return C2_0 + (Tp - PAPER0 - B_IN)   # the pa·la·va line starts 0.13 s before its scene
     if Tp >= DISP0: return C3_0 + (Tp - DISP0)
     return None
 run = lambda *a: subprocess.run(["ffmpeg", "-hide_banner", "-y", "-loglevel", "error", *a], check=True)
 # ---- picture
 lst = []
-for i, (sec, a, d) in enumerate([("intro", 0.0, C1), ("paper", B_IN, C2), ("dispatch", 0.0, C3)]):
+for i, (sec, a, d) in enumerate([("intro", 0.0, C1), ("paper", B_IN, C2 + HOLD), ("dispatch", 0.0, C3)]):
     dst = f"{W}/d{i}.mp4"
-    run("-ss", f"{a:.3f}", "-i", f"{R}/{sec}.mp4", "-an", "-vf", "fps=30,scale=1920:1080:flags=lanczos,setsar=1,format=yuv420p,tpad=stop_mode=clone:stop_duration=1",
+    vf = "fps=30,scale=1920:1080:flags=lanczos,setsar=1,format=yuv420p" + (f",trim=end_frame={round(C2 * 30)},tpad=stop_mode=clone:stop_duration={HOLD + 0.1}" if sec == "paper" else ",tpad=stop_mode=clone:stop_duration=1")
+    run("-ss", f"{a:.3f}", "-i", f"{R}/{sec}.mp4", "-an", "-vf", vf,
         "-frames:v", str(round(d * 30)), "-c:v", "libx264", "-preset", "veryfast", "-crf", "14", dst); lst.append(f"file '{dst}'")
 open(f"{W}/d.txt", "w").write("\n".join(lst)); run("-f", "concat", "-safe", "0", "-i", f"{W}/d.txt", "-c", "copy", f"{W}/cut2_picture.mp4")
 # ---- audio
@@ -52,11 +54,11 @@ cues = []
 for sec in ("intro", "paper", "dispatch"): cues += json.load(open(f"/home/user/gcp/build/sfx/{sec}.json"))
 for c in cues:
     t = to_cut(c["T"])
-    if t is None or (c["T"] >= PAPER0 + B_OUT - 0.05 and c["T"] < DISP0): continue
+    if t is None or (c["T"] >= PAPER0 + B_OUT - 0.05 and c["T"] < DISP0) or (c["T"] < PAPER0 + B_IN and c["T"] >= C1): continue
     x = load(c["file"]); L = min(c.get("len") or 1e9, len(x) / SR); x = x[:int(L * SR)]
     fi = c.get("fadein", min(0.04, L / 6)); fo = c.get("fade", max(min(0.45 * L, 1.8), min(0.4, L * 0.6)))
-    if t >= C3_0 - 0.01 or t < C1 or t + L <= C3_0: put(fades(x, fi, fo) * db(c.get("db", -12) - 3), t)
-    else: put(fades(x[:int((C3_0 - t) * SR)], fi, 0.05) * db(c.get("db", -12) - 3), t)     # nothing from the paper spills over the cut
+    if t >= C3_0 - 0.01 or t < C1 or t + L <= C1 + C2: put(fades(x, fi, fo) * db(c.get("db", -12) - 3), t)
+    else: put(fades(x[:max(1, int((C1 + C2 - t) * SR))], fi, 0.05) * db(c.get("db", -12) - 3), t)     # nothing from the paper spills over the cut
 # music: A from the soundtrack's start, B aligned to end exactly as the pilot's ending (COMBO2)
 ST = load("/home/user/gcp/project/media/music/soundtrack.wav")
 seg2 = plan["soundtrack"]["segments"][1]; src_end = seg2["src_out"] - (seg2["T0"] + (seg2["src_out"] - seg2["src_in"]) - PTOTAL)
@@ -67,7 +69,7 @@ A = ST[np.clip((srcA * SR).astype(int), 0, len(ST) - 1)]; Bm = ST[np.clip((srcB 
 w = np.clip((tt - XF0) / (XF1 - XF0), 0, 1); ga, gb = np.cos(w * np.pi / 2), np.sin(w * np.pi / 2)
 music = A * ga[:, None] + Bm * gb[:, None]
 env_p = [(t, d) for t, d in plan["soundtrack"]["envelope_db"] if t >= DISP0 + 10]          # pilot ending envelope (COMBO2)
-env = [(0, 0), (7.45, 0), (7.85, -13), (10.2, -13), (10.7, -5), (C1 - 0.5, -5), (C1 + 0.15, -21), (C3_0 - 1.0, -21), (C3_0 + 0.5, -24)] + [(C3_0 + (t - DISP0), d) for t, d in env_p]
+env = [(0, 0), (7.45, 0), (7.85, -13), (10.2, -13), (10.7, -5), (C1 - 0.5, -5), (C1 + 0.15, -21), (C1 + C2 + 0.1, -21), (C1 + C2 + 0.8, -11), (C3_0 - 0.3, -11), (C3_0 + 0.2, -24)] + [(C3_0 + (t - DISP0), d) for t, d in env_p]
 g = np.interp(tt, [a for a, _ in env], [d for _, d in env]).astype(np.float32)
 mix[:len(music)] += music * (10 ** (g / 20))[:, None]
 mix = mix[:int(TOTAL * SR)]; mix /= max(1.0, float(np.abs(mix).max()) / 0.9)
@@ -84,7 +86,7 @@ for ln in open(f"{W}/subs.ass").read().split("\n"):
         if a - 0.01 <= s0 < b: f[1], f[2] = fmt(s0 + o), fmt(min(s1, b) + o); out.append(",".join(f)); break
 open(f"{W}/cut2_subs.ass", "w").write("\n".join(out))
 # ---- final
-os.makedirs(OUT, exist_ok=True); name = f"{OUT}/GoldCoastPalava_TheIntroduction_v2_1080.mp4"
+os.makedirs(OUT, exist_ok=True); name = f"{OUT}/GoldCoastPalava_TheIntroduction_v3_1080.mp4"
 r = subprocess.run(["ffmpeg", "-hide_banner", "-nostats", "-i", f"{W}/cut2_audio.wav", "-af", "loudnorm=I=-14:TP=-1.5:LRA=11:print_format=json", "-f", "null", "-"], capture_output=True, text=True)
 m = json.loads(r.stderr[r.stderr.rindex("{"):r.stderr.rindex("}") + 1])
 norm = f"loudnorm=I=-14:TP=-1.5:LRA=11:measured_I={m['input_i']}:measured_TP={m['input_tp']}:measured_LRA={m['input_lra']}:measured_thresh={m['input_thresh']}:offset={m['target_offset']}:linear=true,alimiter=limit=0.7:level=false"
