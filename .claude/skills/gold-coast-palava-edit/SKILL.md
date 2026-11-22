@@ -86,7 +86,7 @@ events slide in along the line with a travelling pulse (keep drift small enough 
 - Cartoon stickers and scenes: Masonry `gpt-image-2.5-flare` (~0.75 credit each), prompt prefix
   "Flat cartoon sticker illustration, bold dark ink outlines, warm saturated colours, centred on a plain flat cream
   background (#F7F1E3), no text"; cut out with the border flood-fill script into `media/icons/cut/`.
-- **From Edition 1: do NOT use ElevenLabs for anything** (client keeps its credits for voiceovers) unless told otherwise.
+- **Do NOT use ElevenLabs for anything in this project** (client, reaffirmed at Special No. 1: "anywhere").
 - **Canva AI** (client's choice at Ed1) for stickers: `generate-image` → `create-design` (one page per pick) →
   `export-design` PNG 1400 px from export-download.canva.com (get-assets only gives 200 px thumbs). Multi-page
   exports can come back reordered/duplicated — match to previews by eye or export singly. Moderation blocks some
@@ -244,6 +244,25 @@ Masthead lists only members already introduced; the rest stay "Empty desk … To
   GCP_EDITION=… node build.mjs <reel> --render` → `python3 -I mix.py <reel> <out.mp4>` (−14 LUFS, ≤ −1 dBTP, H.264).
 - Videos sit above scene content: keep stamps/stickers out from under video frames. ≤ 5.5 s without a new element.
 - **Reel captions:** whole phrase visible (upcoming words dimmed), spoken word in red, cream card, 60 px.
+
+## Specials (from Special No. 1, "The Eyes of Ghana: Rev. Chris Hesse", Nov 2026)
+- A Special is not an edition: no price line, no Dispatch, no Nest scenes, no segment stings. Tree `sp<N>/` (same layout
+  as `ed<N>/`); `GCP_WORK=/home/user/gcp/sp<N>/work GCP_EDITION="SPECIAL No. <N>"`.
+- **Order (client):** cold open (no music) → INTRO1 + COMBO1 (`combo1()`, 14 s) → "My people, what dey go on…" with the
+  live title card → each question opened by its **pinned card** (supplied design rebuilt live: header + stamp, typewriter
+  kicker, question rising, red pin dropping with `wa-pin` + heavy swoosh, 4.2 s) → the lesson → closing card (+ the Nest
+  print on "back at the Nest") → **COMBO2** (outro banner on the soundtrack's ending) → **COMBO3** (colophon, silence).
+  The client asked for COMBO2 + COMBO3 even though the script said "no Colophon".
+- **The team chat device:** an iPhone 17 Pro Max (cosmic orange) running WhatsApp dark mode, Kofi's phone, always in the
+  right third (`sp1/build/phone.mjs`, `Phone` class: `msg`, `typing`, `divider`, `focus` = push in "up close", status-bar
+  clock follows the chat's timestamps, pinned bar per question, prior messages carried into the next section). The left
+  two-thirds (x 110–1230) carry the story; captions move under the left zone while the phone is up (`phonewin/*.json`).
+- Chat SFX are synthesized (`sp1/work/scripts/make_sfx.py`): two incoming pops, sent swoosh + blue ticks, typing taps,
+  notification chime, phone buzz, pin click; plus crickets bed under the chat, projector, fire, cabin hum, curtain, car.
+- Chop spoken section labels and read-out timestamps ("Question one … 0:45", "The lesson 6:45", "Close 7:35") in `edl.py`.
+- **Never use ElevenLabs anywhere in this project (client, Special No. 1).** Canva AI's image quota ran out after 5
+  generations at Special No. 1; draw the rest in code (signposts, cinema screen, eye chart, flames, film strips, route
+  lines, curtain, sprout) or reuse the sticker libraries.
 
 ## Next
 

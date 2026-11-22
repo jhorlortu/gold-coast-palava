@@ -34,3 +34,6 @@ reels/*/sfx.json
 intro/work/d[0-9].mp4
 intro/work/d.txt
 intro/work/cut2_*
+sp1/build/sfx/
+sp1/build/phonewin/
+sp1/work/vo16k.raw
