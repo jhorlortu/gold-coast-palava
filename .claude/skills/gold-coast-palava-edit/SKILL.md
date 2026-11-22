@@ -150,10 +150,12 @@ events slide in along the line with a travelling pulse (keep drift small enough 
   PRESENTS and carries music. Editions keep the standing rules (social reels: no music, ~2:00).
 
 ## Signature combos (client names — never change them)
-- **INTRO1** = the first seconds of COMBO1: the soundtrack's opening beat, the symbol drawing itself and "OPTIMUM DIGITAL
+- **INTRO1** = the opening seconds before COMBO1: the soundtrack's opening beat, the symbol drawing itself and "OPTIMUM DIGITAL
   PRESENTS" typing in, until it leaves the screen (0 → ~7.0 s; it exits 6.55–6.9 s, before the banner downbeat at
   7.67 s). Standalone clip: `project/media/final/INTRO1_1080.mp4` (rebuild with `intro/work/intro1.py`).
-- **COMBO1** = "Optimum Digital presents" + the opening banner montage (soundtrack identity), after the cold open.
+- **COMBO1** = the Gold Coast Palava banner assembly with its motion, standing alone (7.0 → 14.0 s of the opening: newspaper
+  sheets fly in, desk cards arc in, the wordmark rises on the downbeat at 7.67 s, the push-through). Standalone clip:
+  `project/media/final/COMBO1_1080.mp4` (`intro/work/intro1.py`). The full opening after the cold open = INTRO1 + COMBO1.
 - **COMBO2** = the closing montage meeting the soundtrack's ending: the banner assembles for the outro and the
   soundtrack's final beat drop lands on it, exactly as in the pilot and Edition 1 v1. In `plan.py` the second
   soundtrack segment is aligned so it ENDS where the outro ends (`END = credits.T0`): `seg2_src = ST_LEN_END − (END −
