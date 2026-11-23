@@ -123,6 +123,7 @@ export function q1() {
     <div id="${pole}" style="position:absolute;left:600px;top:300px;width:26px;height:700px;background:#6B4A2C;border:4px solid #1A1612;border-radius:6px"></div>
     ${sign(p, 'MEDICINE', t('medicine'), { x: 630, y: 320 })}${sign(p, 'LAW', t('law'), { x: 270, y: 410, dir: 'l' })}
     ${sign(p, 'PHARMACY', t('pharmacy'), { x: 630, y: 500 })}${sign(p, 'ENGINEERING', t('and engineering', 'engineering'), { x: 150, y: 590, dir: 'l' })}
+    ${chip(p, 'in her house, as in many of ours', t('in her house'), LX, 860, 'chip gold')}
     ${sign(p, 'EVERYTHING ELSE: DETOUR', t('detour') - 0.1, { x: 420, y: 720, red: true, rot: -6 })}`, { enter: 'wipeU' });
   // D — Christian Tsui Hesse: cinema forbidden at home, so he sneaked out to watch Chaplin
   sceneP(p, D, E, `${nameCard(p, D + 0.05, { y: 120, role: 'THE BOY', name: hesseName })}
@@ -161,7 +162,7 @@ export function q1() {
     ${p.stamp('SENIOR GRADE', t('senior grade'), { x: 820, y: 300, rot: -8, size: 50 })}
     ${chip(p, 'personal cameraman', t('personal cameraman'), 820, 480, 'chip red')}`, { enter: 'rise' });
   // K — his father's verdict
-  sceneP(p, Kf, L, `${quote(p, 'You are going to make films for *what?*', t('you are going'), { who: 'HIS FATHER’S VERDICT', y: 260, size: 92, w: 1050 })}`, { enter: 'wipeU' });
+  sceneP(p, Kf, L, `${quote(p, 'You are going to make films for *what?*', t('you are going'), { who: 'HIS FATHER’S VERDICT', y: 260, size: 92, w: 1050, cardAt: Kf + 0.1 })}`, { enter: 'wipeU' });
   // L — the airport: to see with his own eyes
   sceneP(p, L, M, `${H(p, 'The same father, at the *airport*', L + 0.05, { size: 84, w: 1000 })}
     ${stk(p, 'airplane', t('the airport') - 0.1, { x: 700, y: 360, w: 460, rot: -8, life: 'sail', until: M })}
@@ -235,7 +236,7 @@ export function q2() {
   efx(p, 'boom.wav', bomb + 0.15, -8);
   { const id = p.id_('shk'); }
   // H — Captain Buckman; children died while the camera was rolling
-  sceneP(p, Hh, I, `${nameCard(p, t('captain buckman') - 0.2, { y: 150, role: 'AIDE-DE-CAMP', name: 'Captain Buckman' })}
+  sceneP(p, Hh, I, `${chip(p, 'he has said…', Hh + 0.1, LX, 140, 'chip light')}${nameCard(p, t('captain buckman') - 0.2, { y: 230, role: 'AIDE-DE-CAMP', name: 'Captain Buckman' })}
     ${chip(p, 'threw Nkrumah down', t('threw nkrumah'), LX, 400, 'chip light')}
     ${chip(p, 'covered him with his own body', t('own body'), LX, 496, 'chip gold')}
     ${chip(p, 'children died that day', t('children died'), LX, 592, 'chip red')}
@@ -277,8 +278,9 @@ export function q2() {
     ${stk(p, 'film-camera', t('watch and judge') - 0.3, { x: 860, y: 600, w: 260, life: 'sway', until: S })}`, { enter: 'wipeU' });
   // S — Kwame: "hmm"
   sceneP(p, S, s.dur, `${H(p, 'hmm', hmm, { size: 260, y: 160, color: 'var(--ink)' })}
-    ${chip(p, '…and went quiet', t('went quiet'), LX, 520, 'chip light')}
-    ${p.stamp('A CONCESSION SPEECH', t('concession speech', 'concession') - 0.3, { x: 140, y: 650, rot: -5, size: 58 })}`, { enter: 'wipeL' });
+    ${chip(p, 'Kwame read that, typed…', S + 0.1, LX, 470, 'chip light')}
+    ${chip(p, '…and went quiet', t('went quiet'), LX, 566, 'chip gold')}
+    ${p.stamp('A CONCESSION SPEECH', t('concession speech', 'concession') - 0.3, { x: 140, y: 700, rot: -5, size: 58 })}`, { enter: 'wipeL' });
   return p;
 }
 
@@ -445,7 +447,7 @@ export function q4() {
   // B — a Canadian director, a former American president, a streamer from Ohio… and a Ghanaian in the spotlight
   const spot = t('in the spotlight', 'spotlight'), sp = p.id_('spot');
   p.tl.push(`tl.fromTo("#${sp}", {opacity:0}, {opacity:1, duration:0.1, ease:"none"}, ${n3(spot - 0.2)});`); p.ev(spot - 0.2); efx(p, 'glass.wav', spot - 0.1, -18);
-  sceneP(p, B, C, `${stack(p, [['a Canadian director', t('canadian director', 'canadian'), 'chip light'], ['a former American president', t('former american', 'american president'), 'chip light'], ['a streamer from Ohio', t('streamer from ohio', 'streamer'), 'chip light']], { y: 180 })}
+  sceneP(p, B, C, `${H(p, 'Why did it take…', B + 0.05, { size: 76 })}${stack(p, [['a Canadian director', t('canadian director', 'canadian'), 'chip light'], ['a former American president', t('former american', 'american president'), 'chip light'], ['a streamer from Ohio', t('streamer from ohio', 'streamer'), 'chip light']], { y: 290 })}
     <div id="${sp}" style="position:absolute;left:620px;top:0;width:560px;height:1080px;background:linear-gradient(180deg, rgba(255,236,170,.0) 0%, rgba(255,236,170,.55) 60%, rgba(255,236,170,.7) 100%);clip-path:polygon(40% 0, 60% 0, 100% 100%, 0 100%)"></div>
     ${prt(p, 'hesse-kafui', spot - 0.3, { x: 720, y: 380, w: 360, rot: 2, caption: 'a Ghanaian, in the spotlight' })}`, { enter: 'wipeL' });
   sceneP(p, C, D, `${p.stamp('FAIR.', C + 0.05, { x: 140, y: 170, rot: -6, size: 80 })}
@@ -502,7 +504,7 @@ export function lesson() {
   sceneP(p, C, D, `${eyeChart(p, C, C + 0.5, { x: 760, y: 140 })}
     ${chip(p, 'he struggles with the letters', C + 0.2, LX, 260, 'chip light')}
     ${p.stamp('GLAUCOMA', t('glaucoma'), { x: 140, y: 420, rot: -6, size: 70 })}`, { enter: 'cut' });
-  sceneP(p, D, E, `${quote(p, 'There is more work to be done *while we are alive.*', t('because there is', 'more work') - 0.2, { who: 'HE REFUSES TO ACCEPT HE WILL BE BLIND', y: 220, size: 76, w: 1050 })}`, { enter: 'wipeU' });
+  sceneP(p, D, E, `${quote(p, 'There is more work to be done *while we are alive.*', t('because there is', 'more work') - 0.2, { who: 'HE REFUSES TO ACCEPT HE WILL BE BLIND', y: 220, size: 76, w: 1050, cardAt: D + 0.1 })}`, { enter: 'wipeU' });
   sceneP(p, E, F, `${lessonNo(p, '1', 'Choose your road *on purpose.*', E + 0.05)}
     ${chip(p, 'even when your father asks what it is for', t('even when your father'), LX, 560, 'chip light')}`, { enter: 'push' });
   sceneP(p, F, G, `${lessonNo(p, '2', 'Learn your *craft.*', F + 0.05)}

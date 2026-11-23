@@ -38,8 +38,9 @@ for it in S["items"]:
         beats.append({"id": it["id"], "kind": it["beat"], "T0": round(T, 3), "dur": it["dur"]}); T += it["dur"]; continue
     a0, _ = find(it["vo"][0], it.get("near", 0)); _, b1 = find(it["vo"][1], WD[a0]["s"])
     prev_e = WD[a0 - 1]["e"] if a0 else 0; nxt_s = WD[b1 + 1]["s"] if b1 + 1 < len(WD) else WD[b1]["e"] + 0.4
-    vin = quiet(max(prev_e, WD[a0]["s"] - 0.25), WD[a0]["s"] - 0.01) if WD[a0]["s"] - prev_e > 0.04 else WD[a0]["s"] - 0.01
-    vout = quiet(WD[b1]["e"] + 0.01, min(nxt_s, WD[b1]["e"] + 0.3)) if nxt_s - WD[b1]["e"] > 0.04 else WD[b1]["e"]
+    vin = quiet(WD[a0]["s"] - 0.25 - 2 * S.get("cap_lead", 0.0), WD[a0]["s"] - 0.01)
+    LL = S.get("cap_lead", 0.0)
+    vout = quiet(WD[b1]["e"] + 0.01 - LL, max(min(nxt_s, WD[b1]["e"] + 0.3), WD[b1]["e"] + 0.05) + LL) if (nxt_s - WD[b1]["e"] > 0.04 or LL) else WD[b1]["e"]
     p = {"id": it["id"], "kind": "vo", "T0": round(T, 3), "vo_in": round(vin, 3), "vo_out": round(vout, 3), "dur": round(vout - vin, 3)}
     pieces.append(p)
     # captions: fix spellings on the whole line, align fixed words back to spoken times, then cut into phrases
@@ -56,7 +57,8 @@ for it in S["items"]:
     cur = []
     def flush():
         if not cur: return
-        caps.append({"T0": round(T + cur[0]["s"] - vin, 3), "T1": round(T + cur[-1]["e"] - vin, 3), "words": [{"w": w["w"], "t": round(T + w["s"] - vin, 3)} for w in cur]}); cur.clear()
+        L = S.get("cap_lead", 0.0)   # Whisper starts run late on some recordings (Special No. 1: ~0.38 s)
+        caps.append({"T0": round(max(T - 0.05, T + cur[0]["s"] - vin - L), 3), "T1": round(T + cur[-1]["e"] - vin - L, 3), "words": [{"w": w["w"], "t": round(max(T - 0.05, T + w["s"] - vin - L), 3)} for w in cur]}); cur.clear()
     for w in toks:
         if cur and (len(cur) >= 4 or len(" ".join(x["w"] for x in cur + [w])) > 22): flush()
         cur.append(w)

@@ -74,7 +74,7 @@ export const SP1_CSS = `
 .room { position:absolute; inset:0; background:radial-gradient(ellipse at 70% 55%, #2A221A 0%, #120E0B 55%, #070605 100%); }
 .lock { position:absolute; inset:0; background:linear-gradient(160deg,#3A2A1C 0%,#1B1410 60%,#0B0806 100%); z-index:30; }
 `;
-const kick = (p, text, at, color = 'var(--red)') => p.kicker(text, at, color);
+const kick = (p, text, at, color = 'var(--red)') => { p.ev(at); return p.kicker(text, at, color); };
 /** headline in the left zone */
 const H = (p, text, at, { size = 84, x = LX, y = 130, w = LW, stagger = 0.06, color, kicker, kat, extra = '' } = {}) =>
   `<div class="hl" style="left:${x}px;top:${y}px;width:${w}px;${color ? `color:${color};` : ''}">${kicker ? kick(p, kicker, kat ?? at - 0.15) : ''}<h1 style="font-size:${size}px">${p.words(p.id_('h'), text, at, { stagger })}</h1>${extra}</div>`;
@@ -104,8 +104,8 @@ const card = (p, inner, at, { x = LX, y = 300, w = 900, rot = 0, pad = '26px 34p
   return `<div id="${id}" class="ccard ${cls}" style="left:${x}px;top:${y}px;width:${w}px;padding:${pad}">${inner}</div>`;
 };
 /** a quotation on a card, words rising */
-const quote = (p, text, at, { who = '', x = LX, y = 300, w = 1000, size = 64, stagger = 0.07 } = {}) => card(p,
-  `${who ? `<div class="mono" style="font-size:22px;font-weight:700;letter-spacing:.2em;color:var(--red);margin-bottom:10px">${who}</div>` : ''}<div style="font-family:'Playfair Display',serif;font-weight:900;font-size:${size}px;line-height:1.08">${p.words(p.id_('q'), text, at, { stagger })}</div>`, at - 0.12, { x, y, w });
+const quote = (p, text, at, { who = '', x = LX, y = 300, w = 1000, size = 64, stagger = 0.07, cardAt } = {}) => card(p,
+  `${who ? `<div class="mono" style="font-size:22px;font-weight:700;letter-spacing:.2em;color:var(--red);margin-bottom:10px">${who}</div>` : ''}<div style="font-family:'Playfair Display',serif;font-weight:900;font-size:${size}px;line-height:1.08">${p.words(p.id_('q'), text, at, { stagger })}</div>`, cardAt ?? at - 0.12, { x, y, w });
 /** dateline in typewriter type, boxed in red, with the suspense sting */
 const dateline = (p, text, at, { x = LX, y = 150, size = 58, sting = true } = {}) => {
   const id = p.id_('dl'); p.grow(id, at - 0.05, { from: 0.7, dy: 20, preset: 'snappy' });
@@ -139,7 +139,7 @@ export function cold() {
   const [p, c, s] = make('cold');
   p.mast = false; p.css.push(SP1_CSS);
   const lit = 0.35, unlock = cs(c, 'my phone lit up') + 0.4;
-  const toRight = cs(c, 'in the team', 'whatsapp group') - 0.2;
+  const toRight = unlock + 0.55;
   const a = cs(c, 'she had just finished'), eyes = cs(c, 'the eyes of ghana'), speed = cs(c, 'eyeshowspeed', 'speed put on');
   const who = cs(c, 'she wanted to know'), hesse = cs(c, 'chris hesse'), only = cs(c, 'only now');
   // the dark room, the whole cold open
@@ -171,13 +171,13 @@ export function cold() {
   p.ev(lit); p.ev(unlock);
   fx(p, 'vibrate.wav', lit + 0.3, -12); fx(p, 'wa-notify.wav', lit + 0.38, -12); fx(p, 'unlock.wav', unlock, -14);
   // left side, after the phone has moved over: the hour, Aba, the film, the question
-  const l1 = a - 0.2;
+  const l1 = eyes - 0.2;   // the Aba card holds until the poster lands (no blank stretch)
   p.scene(toRight + 0.4, l1, `
     <div style="position:absolute;left:${LX}px;top:160px">${p.typed('11:47 PM · SATURDAY', toRight + 0.6, { cps: 18, cls: 'tw' }).replace('class="tw"', 'class="tw" style="font-size:70px;color:#F3EBD7"')}</div>
     ${nameCard(p, cs(c, 'message from'), { y: 330, role: 'IN THE TEAM CHAT · GCP TEAM 🗞️', name: 'Aba, The Restless' })}
     ${chip(p, 'long after we had all gone home', cs(c, 'long after'), LX, 560, 'chip gold')}`, { bg: 'none', enter: 'cut', drift: 0 });
   p.scene(l1, who - 0.2, `
-    ${prt(p, 'eyes-poster', eyes - 0.1, { x: LX, y: 140, w: 760, rot: -2, caption: 'The Eyes of Ghana (dir. Ben Proudfoot, 2025)' })}
+    ${prt(p, 'eyes-poster', l1 + 0.05, { x: LX, y: 140, w: 760, rot: -2, caption: 'The Eyes of Ghana (dir. Ben Proudfoot, 2025)' })}
     ${chip(p, 'the documentary about Nkrumah’s cameraman', cs(c, 'the documentary'), LX, 700, 'chip light')}
     ${chip(p, 'on IShowSpeed’s YouTube channel', speed, LX, 795, 'chip red')}
     ${p.stamp('FREE', cs(c, 'free'), { x: 930, y: 540, rot: -9, size: 70 })}
@@ -219,7 +219,7 @@ export function welcome() {
   const title = cs(c, 'this is a gold coast'), nofront = cs(c, 'no front page'), hand = cs(c, 'a handful'), chat = cs(c, 'and the chat that'), film = cs(c, 'the film is directed'), tonight = cs(c, 'tonight, we look', 'tonight');
   // A — the title card, live (supplied design): "My people, what dey go on?" holds, then the title rises
   const myp = p.id_('mp');
-  p.tl.push(`tl.to("#${myp}", {y:-700, duration:0.55, ease:"power3.in", immediateRender:false}, ${n3(title - 0.75)});`); p.ev(title - 0.75); p.sound('whoosh-2.mp3', title - 0.75, -20);
+  p.tl.push(`tl.to("#${myp}", {y:-1150, duration:0.55, ease:"power3.in", immediateRender:false}, ${n3(title - 0.75)});`);   // fully off the top (client: "I am Kofi" stuck up there) p.ev(title - 0.75); p.sound('whoosh-2.mp3', title - 0.75, -20);
   p.scene(0, nofront - 0.15, `${frameCard(p, 0.05, { stampText: 'SPECIAL No. 1' })}
     <div id="${myp}" class="hl" style="left:110px;top:330px;width:1700px"><h1 style="font-size:150px">${p.words(p.id_('w'), 'My people, what dey go on?', 0.25, { stagger: 0.09 })}</h1>
       <div class="sub" style="font-size:58px">${p.words(p.id_('w'), 'I am *Kofi*, the Editor.', cs(c, 'i am kofi'), { stagger: 0.08 })}</div></div>

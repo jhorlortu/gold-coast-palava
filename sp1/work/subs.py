@@ -1,5 +1,6 @@
 # Word-timed subtitles (ASS) on the final timeline, in the show's font.
 import json, re
+SUB_LEAD = 0.35
 plan = json.load(open("/home/user/gcp/sp1/work/timeline.json")); t = json.load(open("/home/user/gcp/sp1/work/transcript.json"))
 words = [w for s in t["segments"] for w in s["words"]]
 # Rejoin tokens Whisper split (e.g. " 10" + ",000.")
@@ -38,6 +39,7 @@ for w in merged:
     T, pid = toT(w["s"])
     if T is None: continue
     Te, _ = toT(min(w["e"], next(p["vo_out"] for p in vo if p["id"] == pid)))
+    T -= SUB_LEAD; Te -= SUB_LEAD   # Whisper word starts run ~0.38 s late (measured); client saw the voice ahead of the subtitles
     text = w["w"].strip()
     if cur:
         gap = T - cur[-1]["e"]; length = len(" ".join(x["w"] for x in cur) + " " + text)

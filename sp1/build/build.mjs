@@ -2,6 +2,7 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import { execFileSync } from 'node:child_process';
+process.env.GCP_CUE_LEAD ??= '0.4';   // client: voice ran slightly ahead of the graphics (Whisper starts measured ~0.38 s late)
 const SP = await import('./sp1.mjs');
 let QS = {}; try { QS = await import('./questions.mjs'); } catch (e) { if (!/Cannot find module/.test(e.message)) throw e; }
 const BUILDERS = { ...SP.BUILDERS, ...(QS.BUILDERS || {}) };

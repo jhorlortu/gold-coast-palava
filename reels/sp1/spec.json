@@ -1,0 +1,103 @@
+{
+ "transcript": "/home/user/gcp/sp1/work/transcript.json",
+ "vo": "/home/user/gcp/sp1/src/vo.mp3",
+ "subs": "/home/user/gcp/sp1/work/subs.py",
+ "gap": 0.35,
+ "lead_in": 0.15,
+ "tail": 0.0,
+ "items": [
+  {
+   "id": "hook",
+   "vo": [
+    "Nkrumah's walking stick,",
+    "when to stop."
+   ],
+   "near": 190,
+   "gap": 0.45
+  },
+  {
+   "id": "question",
+   "vo": [
+    "She had just finished",
+    "hearing his name."
+   ],
+   "gap": 0.3
+  },
+  {
+   "beat": "brand",
+   "id": "brand",
+   "dur": 4.6
+  },
+  {
+   "id": "camera2",
+   "vo": [
+    "He stood behind camera",
+    "he was paid."
+   ],
+   "gap": 0.35
+  },
+  {
+   "id": "kulungugu",
+   "vo": [
+    "But on the 1st",
+    "bomb went off."
+   ],
+   "gap": 0.45
+  },
+  {
+   "id": "curtain",
+   "vo": [
+    "Nkrumah drew a curtain,",
+    "keep on filming."
+   ],
+   "gap": 0.35
+  },
+  {
+   "id": "nlc",
+   "vo": [
+    "At home, the National",
+    "negatives in London."
+   ],
+   "gap": 0.35
+  },
+  {
+   "id": "lab",
+   "vo": [
+    "Ghana had no laboratory",
+    "laboratory in London,"
+   ],
+   "gap": 0.45
+  },
+  {
+   "id": "eyes",
+   "vo": [
+    "Today, he is 94,",
+    "while we are alive."
+   ],
+   "gap": 0.4
+  },
+  {
+   "id": "ghana",
+   "vo": [
+    "Ghana is what we have.",
+    "belong there."
+   ],
+   "gap": 0.45
+  },
+  {
+   "id": "close",
+   "vo": [
+    "This has been a",
+    "Cheers!"
+   ],
+   "near": 520,
+   "gap": 0.3
+  },
+  {
+   "beat": "endcard",
+   "id": "endcard",
+   "dur": 3.8
+  }
+ ],
+ "cap_lead": 0.35
+}

@@ -6,10 +6,14 @@ const HF = '/home/user/video-studio/node_modules/hyperframes/bin/hyperframes.mjs
 const args = process.argv.slice(2);
 const name = args.find((a) => !a.startsWith('--') && !['draft', 'looks'].includes(a));
 const quality = args.includes('--quality') ? args[args.indexOf('--quality') + 1] : 'looks';
+if (name === 'sp1') process.env.GCP_CUE_LEAD ??= '0.4';   // client: voice slightly ahead of graphics in the Special
 const M = await import(`./${name}.mjs`);
 const { p } = M.build();
 const dir = path.join('/home/user/gcp/reels', name, 'hf');
 const { sfx } = p.write(dir);
+// fonts the Special's components reference (typewriter face, colour emoji)
+fs.copyFileSync('/home/user/gcp/sp1/media/fonts/SpecialElite-Regular.ttf', path.join(dir, 'assets', 'special-elite.ttf'));
+fs.copyFileSync('/usr/share/fonts/truetype/noto/NotoColorEmoji.ttf', path.join(dir, 'assets', 'noto-emoji.ttf'));
 fs.writeFileSync(path.join('/home/user/gcp/reels', name, 'sfx.json'), JSON.stringify(sfx, null, 1));
 let lintOut; try { lintOut = execFileSync('node', [HF, 'lint', dir], { encoding: 'utf8', env: { ...process.env, DO_NOT_TRACK: '1', CI: '1' } }); } catch (e) { lintOut = (e.stdout || '') + (e.stderr || ''); }
 const bad = lintOut.split('\n').filter((l) => /✗/.test(l));

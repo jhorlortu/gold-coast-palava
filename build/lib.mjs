@@ -30,6 +30,7 @@ const transcript = JSON.parse(fs.readFileSync(path.join(WORKDIR, 'transcript.jso
 const WORDS = transcript.segments.flatMap((s) => s.words);
 const norm = (x) => x.toLowerCase().replace(/[^a-z0-9]/g, '');
 
+const CUE_LEAD = +(process.env.GCP_CUE_LEAD || 0);
 export function cuer(pieces) {
   const toLocal = (t) => {
     const p = pieces.find((q) => t >= q.vo_in - 0.05 && t <= q.vo_out + 0.05);
@@ -45,7 +46,8 @@ export function cuer(pieces) {
       if (!pieces.some((q) => w.s >= q.vo_in - 0.05 && w.s <= q.vo_out + 0.05)) continue;   // reels: skip words that were cut out
       if (toLocal(w.s) < after) continue;
       if (toks.every((t, k) => WORDS[i + k] && norm(WORDS[i + k].w) === t)) {
-        return +(end ? toLocal(WORDS[i + toks.length - 1].e) : toLocal(w.s)).toFixed(3);
+        // GCP_CUE_LEAD: graphics land this much before the word (springs need a moment to read; Whisper starts run late)
+        return +Math.max(0, (end ? toLocal(WORDS[i + toks.length - 1].e) : toLocal(w.s)) - CUE_LEAD).toFixed(3);
       }
     }
     throw new Error(`cue not found: "${phrase}" (after ${after})`);

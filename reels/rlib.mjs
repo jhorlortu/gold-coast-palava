@@ -120,7 +120,7 @@ export function brandMark(p, at, { y = 560, presents = true } = {}) {
 }
 
 /** End card: the banner montage (top cards), then "watch the full edition on YouTube". */
-export function endCard(p, start, end, edition) {
+export function endCard(p, start, end, edition, { what = 'edition' } = {}) {
   const play = p.id_('pl'), cta = p.id_('cta');
   const bn = bannerP(p, p.id_('ebn'), { t0: start + 0.05, until: end, cards: 'top', lockY: 780, speed: 1.4 });
   const y = Math.round(bn.bottom + 70);
@@ -137,7 +137,7 @@ export function endCard(p, start, end, edition) {
   return p.scene(start, end, `${bn.html}
     <div style="position:absolute;left:0;right:0;top:${y}px;display:flex;justify-content:center;align-items:center;gap:26px">
       <div id="${play}" style="width:120px;height:84px;border-radius:22px;background:var(--red);display:flex;align-items:center;justify-content:center;box-shadow:0 14px 26px -10px rgba(120,20,10,.5)"><div style="width:0;height:0;border-left:38px solid #FCF5E8;border-top:23px solid transparent;border-bottom:23px solid transparent;margin-left:8px"></div></div>
-      <div style="overflow:hidden"><div id="${cta}" style="font-family:'GCP Round',sans-serif;font-weight:700;font-size:50px;line-height:1.1">Watch the full edition<br><span style="color:var(--red)">on YouTube</span></div></div></div>
+      <div style="overflow:hidden"><div id="${cta}" style="font-family:'GCP Round',sans-serif;font-weight:700;font-size:50px;line-height:1.1">Watch the full ${what}<br><span style="color:var(--red)">on YouTube</span></div></div></div>
     <div id="${cta}-ed" style="position:absolute;left:0;right:0;top:${y + 170}px;text-align:center" class="mono"><span style="font-size:28px;font-weight:700;letter-spacing:.22em;background:rgba(251,248,239,.94);padding:6px 14px">${esc(edition)}</span></div>`, { enter: 'iris', bg: 'paper' });
 }
 
