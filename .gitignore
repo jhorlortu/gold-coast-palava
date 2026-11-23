@@ -41,3 +41,5 @@ sp1/media/people/
 sp1/work/search_people*.json
 sp1/work/want_people*.json
 reels/sp1/mix.raw.wav
+sp1/work/mix.filter
+sp1/work/sfx_cues.json
