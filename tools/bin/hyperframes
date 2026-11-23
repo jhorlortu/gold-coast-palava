@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+# HyperFrames CLI pinned to the studio's engine (video-studio/node_modules, same version as the installed skills).
+exec node /home/user/gcp/video-studio/node_modules/hyperframes/bin/hyperframes.mjs "$@"

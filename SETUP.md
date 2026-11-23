@@ -12,7 +12,7 @@ ln -sfn /home/user/gcp/video-studio /home/user/video-studio
 git lfs install --local && git lfs pull
 (cd video-studio && npm ci)        # HyperFrames + Remotion render engine
 (cd build && npm ci)               # fonts
-pip install faster-whisper numpy pillow opencv-python-headless pypdf
+pip install faster-whisper openai-whisper yt-dlp numpy pillow opencv-python-headless pypdf scipy
 ```
 ffmpeg and Playwright/Chromium are preinstalled in Claude Code cloud sessions.
 
@@ -32,3 +32,8 @@ ffmpeg and Playwright/Chromium are preinstalled in Claude Code cloud sessions.
 Copy `ed1/` to `ed<N>/` (keep the code, replace `src/vo.mp3`, the script-specific `work/edl.py`, sting kickers, media
 and `ed<N>.mjs` sections), set `GCP_WORK=/home/user/gcp/ed<N>/work` and `GCP_EDITION="EDITION <N>"`, and follow the
 skill. Deliver 1080p + 720p preview; reels ~2:00, 1080×1920, no music, ending with Kofi's spoken YouTube line.
+
+## Video toolkit (tools/)
+Transcribe (`tools/transcribe.py`, OpenAI Whisper or faster-whisper), download (`tools/fetch.py`, yt-dlp), FFmpeg recipes
+(`tools/ff.py`) and the pinned HyperFrames CLI (`tools/bin/hyperframes`). See `.claude/skills/video-tools/SKILL.md`.
+The cloud environment `gold-coast-palava` allows the Whisper model host (openaipublic.azureedge.net).
