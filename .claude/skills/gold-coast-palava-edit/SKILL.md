@@ -259,6 +259,10 @@ Masthead lists only members already introduced; the rest stay "Empty desk … To
   two-thirds (x 110–1230) carry the story; captions move under the left zone while the phone is up (`phonewin/*.json`).
 - Chat SFX are synthesized (`sp1/work/scripts/make_sfx.py`): two incoming pops, sent swoosh + blue ticks, typing taps,
   notification chime, phone buzz, pin click; plus crickets bed under the chat, projector, fire, cabin hum, curtain, car.
+- **Sync (client, Special No. 1):** Whisper's word starts ran ~0.38 s late on this recording (measured against RMS
+  onsets). Graphics cue with `GCP_CUE_LEAD=0.4` (lib `cuer`), subtitles with `SUB_LEAD=0.35` (`subs.py`), reel captions with
+  `cap_lead` in the reel spec; reel cut points search for the real silence. Measure the bias on every new recording.
+- No blank screens: a scene's first element must land as the scene opens (`sp1/build/empties.mjs`, phone pops excluded).
 - Chop spoken section labels and read-out timestamps ("Question one … 0:45", "The lesson 6:45", "Close 7:35") in `edl.py`.
 - **Never use ElevenLabs anywhere in this project (client, Special No. 1).** Canva AI's image quota ran out after 5
   generations at Special No. 1; draw the rest in code (signposts, cinema screen, eye chart, flames, film strips, route
