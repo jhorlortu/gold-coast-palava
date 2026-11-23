@@ -253,6 +253,9 @@ Masthead lists only members already introduced; the rest stay "Empty desk … To
   kicker, question rising, red pin dropping with `wa-pin` + heavy swoosh, 4.2 s) → the lesson → closing card (+ the Nest
   print on "back at the Nest") → **COMBO2** (outro banner on the soundtrack's ending) → **COMBO3** (colophon, silence).
   The client asked for COMBO2 + COMBO3 even though the script said "no Colophon".
+- **Client rule: EVERY Special uses the WhatsApp-themed style** (the team's late-night group chat on Kofi's iPhone,
+  pinned question cards, chat SFX) — in the YouTube cut and in its 9:16 reel. Reuse `sp1/build/phone.mjs` and the
+  Special. 1 structure; only content, messages and timestamps change.
 - **The team chat device:** an iPhone 17 Pro Max (cosmic orange) running WhatsApp dark mode, Kofi's phone, always in the
   right third (`sp1/build/phone.mjs`, `Phone` class: `msg`, `typing`, `divider`, `focus` = push in "up close", status-bar
   clock follows the chat's timestamps, pinned bar per question, prior messages carried into the next section). The left
