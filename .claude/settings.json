@@ -11,10 +11,17 @@
         "source": "github",
         "repo": "rebelytics/one-skill-to-rule-them-all"
       }
+    },
+    "headroom-marketplace": {
+      "source": {
+        "source": "github",
+        "repo": "headroomlabs-ai/headroom"
+      }
     }
   },
   "enabledPlugins": {
     "superpowers@superpowers-marketplace": true,
-    "task-observer@one-skill-to-rule-them-all": true
+    "task-observer@one-skill-to-rule-them-all": true,
+    "headroom@headroom-marketplace": true
   }
 }
