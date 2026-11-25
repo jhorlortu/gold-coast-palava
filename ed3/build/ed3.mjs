@@ -160,14 +160,10 @@ const fingertip = (p, pts, t0, t1, { w = 190 } = {}) => { const id = p.id_('fg')
 export function cold() {
   const [p, c, s] = make('cold');
   const aEnd = c('and in our open newsroom') - 0.1, bEnd = c('that town is bawku') - 0.15;
-  // A — the living Nest: on the shared table, the string map
-  const mini = stringMap(p, { w: 150, h: 170, bbox: [-3.6, 4.6, 1.4, 11.2], ...WEST_AFRICA(null) }).html.replace('position:absolute;left:0px;top:0px', 'position:absolute;left:0;top:0');
-  const mapCard = p.id_('mc');
-  p.tl.push(`tl.fromTo("#${mapCard}", {opacity:0, y:-30}, {opacity:1, y:0, duration:${SP.default}, ease:"sp-default"}, ${r3(c('holds a map') - 0.1)});`);
-  const N = livingNest(p, 0, aEnd, { grade: 'evening', truck: 46, seed: 31, start: { scale: 1.08, x: 0, y: 0 },
-    bgExtra: `<div id="${mapCard}" style="position:absolute;left:868px;top:486px;width:75px;height:85px;opacity:0;transform:rotate(-9deg) skewX(-14deg);transform-origin:50% 100%;box-shadow:0 4px 6px rgba(0,0,0,.5);overflow:hidden"><div style="width:150px;height:170px;transform:scale(.5);transform-origin:0 0">${mini}</div></div>` });
+  // A — the living Nest; the camera drifts to the shared table (the map itself is shown full-frame in B)
+  const N = livingNest(p, 0, aEnd, { grade: 'evening', truck: 46, seed: 31, start: { scale: 1.08, x: 0, y: 0 } });
   N.aim([910, 520], 1.6, c('holds a map') - 0.3);
-  N.aim([910, 520], 2.3, c('traced in string') - 0.2);
+  N.aim([910, 520], 1.85, c('traced in string') - 0.2);
   p.scene(0, aEnd, `${N.html}
     ${card(p, `${mono(p.typed('THIS EVENING · THE NEST', 0.35, { cps: 18 }))}${H(p, 'A map you cannot read with your *eyes alone.*', c('a map you cannot') - 0.2, 58)}`, 0.2, { x: 110, y: 120, w: 820 })}
     <div style="position:absolute;left:110px;top:470px;display:flex;gap:14px">${p.chip('RED · Britain', c('red for britain'), { kind: 'chip red' })}${p.chip('BLUE · France', c('blue for france'), { kind: 'chip', }).replace('class="chip"', 'class="chip" style="background:#2350A0"')}${p.chip('BLACK · Germany', c('black for germany'), { kind: 'chip' })}</div>`, { bg: 'none', enter: 'cut', drift: 0 });
