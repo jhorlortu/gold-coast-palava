@@ -1,0 +1,618 @@
+{
+ "total": 789.873,
+ "parts": [
+  {
+   "id": "cold-open",
+   "kind": "vo",
+   "T0": 0.4,
+   "dur": 24.21,
+   "vo_in": 0.0,
+   "vo_out": 24.21
+  },
+  {
+   "id": "cold-open~1",
+   "kind": "vo",
+   "T0": 25.81,
+   "dur": 4.54,
+   "vo_in": 24.21,
+   "vo_out": 28.75
+  },
+  {
+   "id": "combo1",
+   "kind": "intro",
+   "T0": 30.85,
+   "dur": 14.0
+  },
+  {
+   "id": "nest",
+   "kind": "vo",
+   "T0": 44.85,
+   "dur": 1.845,
+   "vo_in": 29.22,
+   "vo_out": 31.065
+  },
+  {
+   "id": "nest~1",
+   "kind": "vo",
+   "T0": 47.895,
+   "dur": 12.215,
+   "vo_in": 31.065,
+   "vo_out": 43.28
+  },
+  {
+   "id": "nest~2",
+   "kind": "vo",
+   "T0": 60.91,
+   "dur": 17.185,
+   "vo_in": 43.28,
+   "vo_out": 60.465
+  },
+  {
+   "id": "sting-front-page",
+   "kind": "sting",
+   "title": "Front Page",
+   "T0": 78.095,
+   "dur": 6.74,
+   "sting_at": 78.895,
+   "sting_dur": 5.04
+  },
+  {
+   "id": "front-page",
+   "kind": "vo",
+   "T0": 84.835,
+   "dur": 4.105,
+   "vo_in": 63.465,
+   "vo_out": 67.57
+  },
+  {
+   "id": "front-page~1",
+   "kind": "vo",
+   "T0": 89.74,
+   "dur": 9.56,
+   "vo_in": 67.57,
+   "vo_out": 77.13
+  },
+  {
+   "id": "front-page~2",
+   "kind": "vo",
+   "T0": 100.1,
+   "dur": 7.54,
+   "vo_in": 77.13,
+   "vo_out": 84.67
+  },
+  {
+   "id": "front-page~3",
+   "kind": "vo",
+   "T0": 108.84,
+   "dur": 6.915,
+   "vo_in": 84.67,
+   "vo_out": 91.585
+  },
+  {
+   "id": "front-page~4",
+   "kind": "vo",
+   "T0": 116.955,
+   "dur": 4.585,
+   "vo_in": 91.585,
+   "vo_out": 96.17
+  },
+  {
+   "id": "front-page~5",
+   "kind": "vo",
+   "T0": 122.74,
+   "dur": 9.648,
+   "vo_in": 96.17,
+   "vo_out": 105.818
+  },
+  {
+   "id": "head-lead",
+   "kind": "head",
+   "title": "LEAD STORY",
+   "T0": 132.388,
+   "dur": 1.6
+  },
+  {
+   "id": "lead",
+   "kind": "vo",
+   "T0": 133.988,
+   "dur": 15.262,
+   "vo_in": 108.818,
+   "vo_out": 124.08
+  },
+  {
+   "id": "lead~1",
+   "kind": "vo",
+   "T0": 150.45,
+   "dur": 22.34,
+   "vo_in": 124.08,
+   "vo_out": 146.42
+  },
+  {
+   "id": "lead~2",
+   "kind": "vo",
+   "T0": 173.59,
+   "dur": 21.22,
+   "vo_in": 146.42,
+   "vo_out": 167.64
+  },
+  {
+   "id": "lead~3",
+   "kind": "vo",
+   "T0": 195.61,
+   "dur": 16.05,
+   "vo_in": 167.64,
+   "vo_out": 183.69
+  },
+  {
+   "id": "lead~4",
+   "kind": "vo",
+   "T0": 212.46,
+   "dur": 2.57,
+   "vo_in": 183.69,
+   "vo_out": 186.26
+  },
+  {
+   "id": "lead~5",
+   "kind": "vo",
+   "T0": 215.83,
+   "dur": 21.725,
+   "vo_in": 186.26,
+   "vo_out": 207.985
+  },
+  {
+   "id": "lead~6",
+   "kind": "vo",
+   "T0": 238.355,
+   "dur": 9.038,
+   "vo_in": 207.985,
+   "vo_out": 217.023
+  },
+  {
+   "id": "sting-wire",
+   "kind": "sting",
+   "title": "The Wire",
+   "T0": 247.393,
+   "dur": 8.251999999999999,
+   "sting_at": 248.193,
+   "sting_dur": 6.552
+  },
+  {
+   "id": "wire",
+   "kind": "vo",
+   "T0": 255.645,
+   "dur": 18.237,
+   "vo_in": 220.023,
+   "vo_out": 238.26
+  },
+  {
+   "id": "wire~1",
+   "kind": "vo",
+   "T0": 274.682,
+   "dur": 6.475,
+   "vo_in": 238.26,
+   "vo_out": 244.735
+  },
+  {
+   "id": "wire~2",
+   "kind": "vo",
+   "T0": 282.357,
+   "dur": 10.005,
+   "vo_in": 244.735,
+   "vo_out": 254.74
+  },
+  {
+   "id": "wire~3",
+   "kind": "vo",
+   "T0": 293.562,
+   "dur": 12.01,
+   "vo_in": 254.74,
+   "vo_out": 266.75
+  },
+  {
+   "id": "wire~4",
+   "kind": "vo",
+   "T0": 306.372,
+   "dur": 12.805,
+   "vo_in": 266.75,
+   "vo_out": 279.555
+  },
+  {
+   "id": "wire~5",
+   "kind": "vo",
+   "T0": 319.977,
+   "dur": 12.75,
+   "vo_in": 279.555,
+   "vo_out": 292.305
+  },
+  {
+   "id": "wire~6",
+   "kind": "vo",
+   "T0": 333.527,
+   "dur": 13.957,
+   "vo_in": 292.305,
+   "vo_out": 306.262
+  },
+  {
+   "id": "sting-palava",
+   "kind": "sting",
+   "title": "The Palava Desk",
+   "T0": 347.484,
+   "dur": 7.724,
+   "sting_at": 348.284,
+   "sting_dur": 6.024
+  },
+  {
+   "id": "palava",
+   "kind": "vo",
+   "T0": 355.208,
+   "dur": 12.063,
+   "vo_in": 309.262,
+   "vo_out": 321.325
+  },
+  {
+   "id": "palava~1",
+   "kind": "vo",
+   "T0": 368.071,
+   "dur": 26.38,
+   "vo_in": 321.325,
+   "vo_out": 347.705
+  },
+  {
+   "id": "palava~2",
+   "kind": "vo",
+   "T0": 395.251,
+   "dur": 4.01,
+   "vo_in": 347.705,
+   "vo_out": 351.715
+  },
+  {
+   "id": "palava~3",
+   "kind": "vo",
+   "T0": 400.061,
+   "dur": 25.485,
+   "vo_in": 351.715,
+   "vo_out": 377.2
+  },
+  {
+   "id": "palava~4",
+   "kind": "vo",
+   "T0": 426.346,
+   "dur": 21.135,
+   "vo_in": 377.2,
+   "vo_out": 398.335
+  },
+  {
+   "id": "palava~5",
+   "kind": "vo",
+   "T0": 448.681,
+   "dur": 28.06,
+   "vo_in": 398.335,
+   "vo_out": 426.395
+  },
+  {
+   "id": "palava~6",
+   "kind": "vo",
+   "T0": 477.941,
+   "dur": 13.42,
+   "vo_in": 426.395,
+   "vo_out": 439.815
+  },
+  {
+   "id": "palava~7",
+   "kind": "vo",
+   "T0": 492.561,
+   "dur": 8.17,
+   "vo_in": 439.815,
+   "vo_out": 447.985
+  },
+  {
+   "id": "palava~8",
+   "kind": "vo",
+   "T0": 501.931,
+   "dur": 5.705,
+   "vo_in": 447.985,
+   "vo_out": 453.69
+  },
+  {
+   "id": "sting-then-now",
+   "kind": "sting",
+   "title": "Then v Now",
+   "T0": 507.636,
+   "dur": 8.251999999999999,
+   "sting_at": 508.436,
+   "sting_dur": 6.552
+  },
+  {
+   "id": "then-now",
+   "kind": "vo",
+   "T0": 515.888,
+   "dur": 6.23,
+   "vo_in": 456.69,
+   "vo_out": 462.92
+  },
+  {
+   "id": "then-now~1",
+   "kind": "vo",
+   "T0": 522.918,
+   "dur": 24.15,
+   "vo_in": 462.92,
+   "vo_out": 487.07
+  },
+  {
+   "id": "then-now~2",
+   "kind": "vo",
+   "T0": 548.268,
+   "dur": 17.485,
+   "vo_in": 487.07,
+   "vo_out": 504.555
+  },
+  {
+   "id": "then-now~3",
+   "kind": "vo",
+   "T0": 566.553,
+   "dur": 1.895,
+   "vo_in": 504.555,
+   "vo_out": 506.45
+  },
+  {
+   "id": "then-now~4",
+   "kind": "vo",
+   "T0": 569.248,
+   "dur": 10.72,
+   "vo_in": 506.45,
+   "vo_out": 517.17
+  },
+  {
+   "id": "then-now~5",
+   "kind": "vo",
+   "T0": 580.768,
+   "dur": 3.445,
+   "vo_in": 517.17,
+   "vo_out": 520.615
+  },
+  {
+   "id": "then-now~6",
+   "kind": "vo",
+   "T0": 585.013,
+   "dur": 12.75,
+   "vo_in": 520.615,
+   "vo_out": 533.365
+  },
+  {
+   "id": "then-now~7",
+   "kind": "vo",
+   "T0": 598.963,
+   "dur": 16.05,
+   "vo_in": 533.365,
+   "vo_out": 549.415
+  },
+  {
+   "id": "then-now~8",
+   "kind": "vo",
+   "T0": 615.813,
+   "dur": 7.353,
+   "vo_in": 549.415,
+   "vo_out": 556.768
+  },
+  {
+   "id": "head-team",
+   "kind": "head",
+   "title": "THE TEAM ASIDE",
+   "T0": 623.166,
+   "dur": 1.6
+  },
+  {
+   "id": "team",
+   "kind": "vo",
+   "T0": 624.766,
+   "dur": 6.072,
+   "vo_in": 559.768,
+   "vo_out": 565.84
+  },
+  {
+   "id": "team~1",
+   "kind": "vo",
+   "T0": 631.638,
+   "dur": 14.22,
+   "vo_in": 565.84,
+   "vo_out": 580.06
+  },
+  {
+   "id": "team~2",
+   "kind": "vo",
+   "T0": 647.058,
+   "dur": 15.915,
+   "vo_in": 580.06,
+   "vo_out": 595.975
+  },
+  {
+   "id": "team~3",
+   "kind": "vo",
+   "T0": 664.173,
+   "dur": 6.235,
+   "vo_in": 595.975,
+   "vo_out": 602.21
+  },
+  {
+   "id": "team~4",
+   "kind": "vo",
+   "T0": 671.608,
+   "dur": 10.73,
+   "vo_in": 602.21,
+   "vo_out": 612.94
+  },
+  {
+   "id": "team~5",
+   "kind": "vo",
+   "T0": 683.138,
+   "dur": 3.252,
+   "vo_in": 612.94,
+   "vo_out": 616.192
+  },
+  {
+   "id": "sting-editor",
+   "kind": "sting",
+   "title": "Editor's Note",
+   "T0": 686.39,
+   "dur": 6.74,
+   "sting_at": 687.19,
+   "sting_dur": 5.04
+  },
+  {
+   "id": "editor",
+   "kind": "vo",
+   "T0": 693.13,
+   "dur": 9.963,
+   "vo_in": 619.192,
+   "vo_out": 629.155
+  },
+  {
+   "id": "editor~1",
+   "kind": "vo",
+   "T0": 704.293,
+   "dur": 9.264,
+   "vo_in": 629.155,
+   "vo_out": 638.419
+  },
+  {
+   "id": "head-letters",
+   "kind": "head",
+   "title": "LETTERS PAGE",
+   "T0": 713.557,
+   "dur": 1.6
+  },
+  {
+   "id": "letters",
+   "kind": "vo",
+   "T0": 715.157,
+   "dur": 18.461,
+   "vo_in": 641.419,
+   "vo_out": 659.88
+  },
+  {
+   "id": "letters~1",
+   "kind": "vo",
+   "T0": 734.818,
+   "dur": 3.598,
+   "vo_in": 659.88,
+   "vo_out": 663.478
+  },
+  {
+   "id": "sting-dispatch",
+   "kind": "sting",
+   "title": "Dispatch",
+   "T0": 738.416,
+   "dur": 8.732,
+   "sting_at": 739.216,
+   "sting_dur": 7.032
+  },
+  {
+   "id": "dispatch",
+   "kind": "vo",
+   "T0": 747.148,
+   "dur": 15.687,
+   "vo_in": 666.478,
+   "vo_out": 682.165
+  },
+  {
+   "id": "dispatch~1",
+   "kind": "vo",
+   "T0": 763.635,
+   "dur": 1.02,
+   "vo_in": 682.165,
+   "vo_out": 683.185
+  },
+  {
+   "id": "dispatch~2",
+   "kind": "vo",
+   "T0": 765.455,
+   "dur": 1.218,
+   "vo_in": 683.185,
+   "vo_out": 684.403
+  },
+  {
+   "id": "outro",
+   "kind": "outro",
+   "T0": 767.073,
+   "dur": 17.0
+  },
+  {
+   "id": "credits",
+   "kind": "credits",
+   "T0": 784.073,
+   "dur": 5.8
+  }
+ ],
+ "soundtrack": {
+  "segments": [
+   {
+    "T0": 30.85,
+    "src_in": 0,
+    "src_out": 47.745
+   },
+   {
+    "T0": 689.1899999999999,
+    "src_in": 292.417,
+    "src_out": 387.3
+   }
+  ],
+  "envelope_db": [
+   [
+    0,
+    -60
+   ],
+   [
+    30.8,
+    -60
+   ],
+   [
+    30.85,
+    0
+   ],
+   [
+    43.85,
+    0
+   ],
+   [
+    45.45,
+    -21.0
+   ],
+   [
+    75.595,
+    -21.0
+   ],
+   [
+    78.395,
+    -60
+   ],
+   [
+    689.19,
+    -60
+   ],
+   [
+    691.69,
+    -24.0
+   ],
+   [
+    766.573,
+    -24.0
+   ],
+   [
+    769.573,
+    0
+   ],
+   [
+    777.073,
+    0
+   ],
+   [
+    783.873,
+    -60
+   ],
+   [
+    789.873,
+    -60
+   ]
+  ]
+ }
+}

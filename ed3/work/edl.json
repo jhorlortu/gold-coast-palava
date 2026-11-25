@@ -1,0 +1,68 @@
+[
+ {
+  "id": "cold-open",
+  "vo_in": 0.0,
+  "vo_out": 28.75,
+  "gap_after": "combo1"
+ },
+ {
+  "id": "nest",
+  "vo_in": 29.22,
+  "vo_out": 60.465,
+  "gap_after": "sting:Front Page"
+ },
+ {
+  "id": "front-page",
+  "vo_in": 63.465,
+  "vo_out": 105.818,
+  "gap_after": "head:LEAD STORY"
+ },
+ {
+  "id": "lead",
+  "vo_in": 108.818,
+  "vo_out": 217.023,
+  "gap_after": "sting:The Wire"
+ },
+ {
+  "id": "wire",
+  "vo_in": 220.023,
+  "vo_out": 306.262,
+  "gap_after": "sting:The Palava Desk"
+ },
+ {
+  "id": "palava",
+  "vo_in": 309.262,
+  "vo_out": 453.69,
+  "gap_after": "sting:Then v Now"
+ },
+ {
+  "id": "then-now",
+  "vo_in": 456.69,
+  "vo_out": 556.768,
+  "gap_after": "head:THE TEAM ASIDE"
+ },
+ {
+  "id": "team",
+  "vo_in": 559.768,
+  "vo_out": 616.192,
+  "gap_after": "sting:Editor's Note"
+ },
+ {
+  "id": "editor",
+  "vo_in": 619.192,
+  "vo_out": 638.419,
+  "gap_after": "head:LETTERS PAGE"
+ },
+ {
+  "id": "letters",
+  "vo_in": 641.419,
+  "vo_out": 663.478,
+  "gap_after": "sting:Dispatch"
+ },
+ {
+  "id": "dispatch",
+  "vo_in": 666.478,
+  "vo_out": 684.403,
+  "gap_after": "outro"
+ }
+]

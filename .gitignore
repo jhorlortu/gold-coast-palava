@@ -28,3 +28,6 @@ ed2/build/sfx/
 ed2/work/vo16k.raw
 ed2/media/dl1/
 ed2/build/package*.json
+ed3/build/sfx/
+ed3/work/vo16k.raw
+ed3/build/package*.json
