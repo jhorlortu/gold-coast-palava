@@ -256,7 +256,15 @@ Masthead lists only members already introduced; the rest stay "Empty desk … To
   bundle, swoop) + raw-take / mastered pair cut from the theme. SFX bus raised to −1 dB (was −3) for clearer effects.
 - Masthead from Ed2: Kofi, Aba (The Restless), Kwame (The Combative), Baaba (The Ascendant, introduced Ed2), one empty desk.
 
-## Next
+## Edition 3 notes
+- Voiceover from Ed3: ElevenLabs, the client's cloned voice "Joshua Horlortu" (voice_id uCJXJLr0bDI5QvHzY8xy), Multilingual v2,
+  one take per section from the respelled VO file; join sections with 3 s silence (ed3/work/sections.txt); ElevenLabs is
+  for the voiceover ONLY. Respell "Ewe" as "Ay-vay". Times from Whisper, words from the script (ed3/work/align.py).
+- Canva: generate in **Olahub's Team** (the connector must be connected with that team selected; the old team's AI
+  credits are used up). Ed3 shipped with code-drawn stickers (ed3/build/art.mjs); Canva stickers resume from Ed4.
+  Saved for the next edition: media_next/canva_stickers.json.
+- Maps: ed3/build/maps.mjs (Natural Earth shapes, string-map look). Never paste flat graphics onto the Nest photo
+  (client: no artificial-looking objects on the table); show such objects as full-frame close-ups instead.
 
 ## Open items carried forward
 - Subtitles still use the trial font "Haas Grot Disp R Trial" — swap for a licensed or free font before publishing.
