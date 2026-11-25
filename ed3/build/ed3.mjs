@@ -115,7 +115,10 @@ const art = (p, name, at, { x = 0, y = 0, w = 300, rot = 0, life = 'bob', until,
     p.tl.push(`tl.to("#${id}", ${JSON.stringify({ ...L[0], duration: L[1], ease: 'sine.inOut', repeat: Math.max(0, Math.floor((until - at - 0.8) / L[1]) - 1), yoyo: true, immediateRender: false })}, ${r3(at + 0.8)});`); }
   if (sfx) fx(p, sfx, at + 0.03, db);
   p.ev(at);
-  return `<div id="${id}" style="${abs ? `position:absolute;left:${x}px;top:${y}px;` : 'display:inline-block;'}width:${w}px;opacity:0;transform-origin:50% 80%">${ART[name](w)}</div>`;
+  // Canva sticker when one exists (Olahub's Team), else the code-drawn fallback (the hands stay code-drawn)
+  const cv = `/home/user/gcp/ed3/media/stickers_cut/${name}.png`;
+  const inner = fs.existsSync(cv) ? `<img src="${p.asset(cv)}" class="sticker" style="width:${w}px;display:block">` : ART[name](w);
+  return `<div id="${id}" style="${abs ? `position:absolute;left:${x}px;top:${y}px;` : 'display:inline-block;'}width:${w}px;opacity:0;transform-origin:50% 80%">${inner}</div>`;
 };
 /**
  * The glued string map: a card with real country shapes; borders drawn on as string (red Britain, blue France,
