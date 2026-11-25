@@ -86,7 +86,10 @@ events slide in along the line with a travelling pulse (keep drift small enough 
 - Cartoon stickers and scenes: Masonry `gpt-image-2.5-flare` (~0.75 credit each), prompt prefix
   "Flat cartoon sticker illustration, bold dark ink outlines, warm saturated colours, centred on a plain flat cream
   background (#F7F1E3), no text"; cut out with the border flood-fill script into `media/icons/cut/`.
-- **Do NOT use ElevenLabs for anything in this project** (client, reaffirmed at Special No. 1: "anywhere").
+- **ElevenLabs: voiceover only** (client, Special No. 2, replacing the earlier ban): narration is generated in the cloned
+  voice **"Joshua Horlortu"** (voice_id `uCJXJLr0bDI5QvHzY8xy`, model `eleven_multilingual_v2`, which follows the
+  CAPITALS respellings). Generate ONLY the spoken words (no section labels or timestamps), one paragraph per call, and
+  ask the client about any pronunciation you are unsure of first. **Never** use ElevenLabs for music or SFX.
 - **Canva AI** (client's choice at Ed1) for stickers: `generate-image` → `create-design` (one page per pick) →
   `export-design` PNG 1400 px from export-download.canva.com (get-assets only gives 200 px thumbs). Multi-page
   exports can come back reordered/duplicated — match to previews by eye or export singly. Moderation blocks some
@@ -267,9 +270,28 @@ Masthead lists only members already introduced; the rest stay "Empty desk … To
   `cap_lead` in the reel spec; reel cut points search for the real silence. Measure the bias on every new recording.
 - No blank screens: a scene's first element must land as the scene opens (`sp1/build/empties.mjs`, phone pops excluded).
 - Chop spoken section labels and read-out timestamps ("Question one … 0:45", "The lesson 6:45", "Close 7:35") in `edl.py`.
-- **Never use ElevenLabs anywhere in this project (client, Special No. 1).** Canva AI's image quota ran out after 5
+- (Special No. 1 banned ElevenLabs outright; from Special No. 2 it is allowed for the voiceover only.) Canva AI's image quota ran out after 5
   generations at Special No. 1; draw the rest in code (signposts, cinema screen, eye chart, flames, film strips, route
   lines, curtain, sprout) or reuse the sticker libraries.
+
+## Special No. 2 ("Nineteen Years: The Rawlings Question", Nov 2026) — what changed
+- Tree `sp2/`. Voiceover from ElevenLabs (see above): `sp2/src/vo_text/*.txt` (one file per paragraph, pronunciation
+  fixes applied: AH-hwoy, KOO-fwor), takes in `src/vo/<para>_t<n>.mp3`, scored against the script by
+  `work/scripts/check_takes.py` (Whisper + diff), chosen takes joined by `work/build_vo.py` (also writes `edl.json`;
+  no label-chopping needed). Spans open 0.45 s early so Whisper's early first word stays inside.
+- `work/fix_transcript.py` corrects Whisper at word level (names, Twi proverb, UK spelling), matching on joined
+  characters (Whisper splits "A-Chi" into tokens) and keeping each word in one segment. Cue phrases use the corrected
+  words; possessives drop the apostrophe in cues ("world banks", "south koreas", "two thirds").
+- **Remotion data cards** (client: let Remotion do heavy lifting): `video-studio/src/remotion/compositions/GcpCharts.jsx`
+  — `GcpTimeline`, `GcpBars` (vertical/horizontal), `GcpGrid`, `GcpLedger` (balance beam = one spring per entry).
+  `rclip()` in `sp2.mjs` asks for a card with cue-timed props; `build.mjs` renders missing ones (cached by props hash in
+  `build/remotion/`) and places them with `vprint`. Playwright stills show them blank; check in a real render.
+- **Suspense score synthesized in code** (`work/scripts/make_score.py`: drone + clock under the cold open, a bed per
+  question — tense/dark — risers into hits on each pinned card), planned by `plan.py` into `score_cues.json` and mixed
+  with the effects. The client wanted a non-ElevenLabs plugin for music: HeyGen (HyperFrames media-use) needs a
+  sign-in via `auth login --device` that the client approves in a browser; the code expired at Special No. 2.
+- Supplied photographs are used as originals (client: "preserve the originals"), not the drawn treatment.
+- Cue misses: `CUE_SOFT=1 node build.mjs …` lists every missing cue phrase at once.
 
 ## Next
 

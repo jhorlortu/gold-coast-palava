@@ -1,0 +1,122 @@
+[
+ {
+  "file": "/home/user/gcp/sp2/work/score/cold.wav",
+  "T": 0.0,
+  "db": -17,
+  "len": 18.791,
+  "fadein": 1.0,
+  "fade": 1.2
+ },
+ {
+  "file": "/home/user/gcp/sp2/work/score/q1.wav",
+  "T": 68.906,
+  "db": -21,
+  "len": 93.07,
+  "fadein": 2.5,
+  "fade": 2.0
+ },
+ {
+  "file": "/home/user/gcp/sp2/work/score/q2.wav",
+  "T": 165.376,
+  "db": -21,
+  "len": 100.242,
+  "fadein": 2.5,
+  "fade": 2.0
+ },
+ {
+  "file": "/home/user/gcp/sp2/work/score/q3.wav",
+  "T": 269.018,
+  "db": -21,
+  "len": 89.583,
+  "fadein": 2.5,
+  "fade": 2.0
+ },
+ {
+  "file": "/home/user/gcp/sp2/work/score/q4.wav",
+  "T": 362.001,
+  "db": -21,
+  "len": 109.071,
+  "fadein": 2.5,
+  "fade": 2.0
+ },
+ {
+  "file": "/home/user/gcp/sp2/work/score/riser.wav",
+  "T": 63.256,
+  "db": -14,
+  "len": 3.0,
+  "fadein": 0.5,
+  "fade": 0.1
+ },
+ {
+  "file": "/home/user/gcp/sp2/work/score/hit.wav",
+  "T": 66.256,
+  "db": -10,
+  "len": 2.8,
+  "fadein": 0.01,
+  "fade": 1.6
+ },
+ {
+  "file": "/home/user/gcp/sp2/work/score/riser.wav",
+  "T": 159.726,
+  "db": -14,
+  "len": 3.0,
+  "fadein": 0.5,
+  "fade": 0.1
+ },
+ {
+  "file": "/home/user/gcp/sp2/work/score/hit.wav",
+  "T": 162.726,
+  "db": -10,
+  "len": 2.8,
+  "fadein": 0.01,
+  "fade": 1.6
+ },
+ {
+  "file": "/home/user/gcp/sp2/work/score/riser.wav",
+  "T": 263.368,
+  "db": -14,
+  "len": 3.0,
+  "fadein": 0.5,
+  "fade": 0.1
+ },
+ {
+  "file": "/home/user/gcp/sp2/work/score/hit.wav",
+  "T": 266.368,
+  "db": -10,
+  "len": 2.8,
+  "fadein": 0.01,
+  "fade": 1.6
+ },
+ {
+  "file": "/home/user/gcp/sp2/work/score/riser.wav",
+  "T": 356.351,
+  "db": -14,
+  "len": 3.0,
+  "fadein": 0.5,
+  "fade": 0.1
+ },
+ {
+  "file": "/home/user/gcp/sp2/work/score/hit.wav",
+  "T": 359.351,
+  "db": -10,
+  "len": 2.8,
+  "fadein": 0.01,
+  "fade": 1.6
+ },
+ {
+  "file": "/home/user/gcp/sp2/work/score/riser.wav",
+  "T": 468.822,
+  "db": -14,
+  "len": 3.0,
+  "fadein": 0.5,
+  "fade": 0.1
+ },
+ {
+  "file": "/home/user/gcp/sp2/work/score/hit.wav",
+  "T": 471.822,
+  "db": -10,
+  "len": 2.8,
+  "fadein": 0.01,
+  "fade": 1.6
+ }
+]
