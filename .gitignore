@@ -50,3 +50,5 @@ sp2/build/remotion/
 sp2/work/score/
 sp2/work/sfx_cues.json
 sp2/work/mix.filter
+reels/*/clips/
+reels/*/hf/
