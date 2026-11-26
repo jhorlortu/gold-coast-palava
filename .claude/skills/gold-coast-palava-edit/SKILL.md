@@ -58,6 +58,14 @@ events slide in along the line with a travelling pulse (keep drift small enough 
 - Section stings: brief pause, sting, pause, voice continues.
 - Subtitles run the whole video, small (40 px), low, words revealed as spoken in short phrases with fixed positions
   (unspoken words transparent). UK spellings and name fixes live in `work/subs.py`.
+- **CAPTION SYNC IS A HARD RULE (client, Edition 4, after earlier editions' captions lagged the voice):** captions must
+  be exactly in sync with the voiceover, never late and never early; the voice must never run ahead of the captions,
+  and captions must never show a word before it is spoken. On every recording: measure Whisper's word-start bias
+  against energy onsets (it differs per recording: Sp1 +0.38 s late, Sp2 −0.15 s early), set `SUB_LEAD` / reel
+  `cap_lead` from that measurement, then verify on the FINAL assembled MP4 (not the timeline) by sampling caption
+  word-reveal times against the audio's word onsets across the whole video; median error within ±0.04 s and no word
+  off by more than 0.1 s. Fix drift section by section (sting/heading gaps shift timing) before delivering.
+- **Voiceover spelling:** "Chale" is said "Charlie"; write it "Charlie" in any TTS text (captions keep "Chale").
 - Loudness −14 LUFS, true peak ≤ −1 dBTP after AAC (limiter at −3 dBFS before encode).
 
 ## Sound effects
