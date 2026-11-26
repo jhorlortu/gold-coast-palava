@@ -92,7 +92,7 @@ export function build() {
   [a, b] = win('record');
   p.scene(a, b, `${kick(p, 'THE PALAVA DESK · THE RECORD', a + 0.1)}${hl(p, 'No public record of a *Swiss* cedi.', a + 0.15, { size: 96, y: 290 })}
     ${sticky(p, a + 0.2, { x: 200, y: 720, w: 680, rot: -4, size: 110 })}
-    ${p.stamp('MOSTLY FALSE', c('in switzerland'), { x: 200, y: 1040, rot: -8, size: 110 })}`, { enter: 'wipeL' });
+    ${p.stamp('MOSTLY FALSE', c('in switzerland'), { x: 140, y: 1060, rot: -8, size: 84 })}`, { enter: 'wipeL' });
   fx(p, '/home/user/gcp/project/media/sfx/stamp-2.mp3', c('in switzerland'), -8);
 
   // THE WRONG MACHINE
