@@ -1,4 +1,4 @@
-# Script-to-audio alignment for Edition 3. The voice was generated from known text, so the transcript's WORDS come
+# Script-to-audio alignment for Edition 3. The voice was read from known text, so the transcript's WORDS come
 # from the script (correct spellings, no Whisper hallucinations or drops) and only the TIMES come from Whisper:
 # difflib matches script tokens to Whisper tokens per section; unmatched script words get times interpolated
 # between their matched neighbours; then any word start that sits in silence snaps to the next speech onset.

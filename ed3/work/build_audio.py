@@ -2,7 +2,7 @@
 import json, os, subprocess, sys
 W = "/home/user/gcp/ed3/work"; SRC = "/home/user/gcp/src/INTRO"
 plan = json.load(open(f"{W}/timeline.json")); TOTAL = plan["total"]
-VO = "/home/user/gcp/ed3/src/vo.mp3"; ST = "/home/user/gcp/project/media/music/soundtrack.wav"
+VO = "/home/user/gcp/ed3/src/vo_user.mp3"; ST = "/home/user/gcp/project/media/music/soundtrack.wav"
 STINGS = {"Front Page": "Front Page.mp3", "The Wire": "The Wire.mp3", "Then v Now": "Then v Now.mp3",
           "The Palava Desk": "The Palava Desk.mp3", "Editor's Note": "Editor's Note.mp3", "Dispatch": "Dispatch.mp3"}
 STING_GAIN = {"Front Page": -6.0, "The Wire": 2.0, "Then v Now": 9.0, "The Palava Desk": 5.5, "Editor's Note": -8.5, "Dispatch": 4.0}  # -> about -18 LUFS each

@@ -4,7 +4,7 @@
 import json, subprocess, numpy as np
 W = "/home/user/gcp/ed3/work"
 EDL = json.load(open(f"{W}/edl.json"))
-VOF = "/home/user/gcp/ed3/src/vo.mp3"
+VOF = "/home/user/gcp/ed3/src/vo_user.mp3"
 STING = {"Front Page": 5.04, "The Wire": 6.552, "The Palava Desk": 6.024, "Then v Now": 6.552, "Editor's Note": 5.04, "Dispatch": 7.032}
 PRE, POST = 0.8, 0.9          # silence before a sting / after it before the voice resumes
 HEAD = 1.6                    # breath while a heading (Lead Story, Team Aside, Letters Page) lands
