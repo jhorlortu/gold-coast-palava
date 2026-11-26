@@ -1,5 +1,4 @@
-# Voiceover edit list for Edition 3: the voice was generated section by section (ElevenLabs, Joshua Horlortu voice,
-# Multilingual v2) and joined with 3 s silences (sections.txt), so spans are the sections themselves; the only cut
+# Voiceover edit list for Edition 3: the voice comes section by section, joined with 3 s silences (sections.txt), so spans are the sections themselves; the only cut
 # inside a section is before "My people, what dey go on?", where COMBO1 goes.
 import json
 S = {l.split()[0]: (float(l.split()[1]), float(l.split()[2])) for l in open('/home/user/gcp/ed3/work/sections.txt')}
