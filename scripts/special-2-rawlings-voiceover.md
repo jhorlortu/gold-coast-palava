@@ -1,0 +1,43 @@
+# GOLD COAST PALAVA SPECIAL No. 2 · VOICEOVER (TTS COPY)
+## "Nineteen Years: The Rawlings Question"
+
+Spoken words only, for recording · Narrator: Kofi · Target about 7 minutes
+Paragraph breaks are breath points. Local-language words are respelled for the text-to-speech engine (CAPITALS = stress). Companion file: claude/special-2-rawlings.md
+
+## 1. Cold open · 0:00
+
+At twelve minutes past eleven on Thursday the twelfth of November, six years to the day since Jerry John Rawlings died at KOR-leh BOO, Kwame, The Combative, dropped a grenade into the team's WhatsApp group: nineteen years in power, nineteen, and Ghana still dey like this?
+
+My squad, how you dey? I am Kofi, the Editor, and this is a Gold Coast Palava Special: one man, four questions, and a chat that refused to sleep. It stands on its own, but if you have not watched our earlier editions, or our first Special on Chris Hesse, the cameraman who filmed every government from Nkrumah to Rawlings, go back and watch them, because they make tonight richer. And one rule before we start: we will not worship this man and we will not crucify him; we will weigh him.
+
+## 2. Question one: what exactly did he inherit? · 0:50
+
+Aba, The Restless, asked the fair question first: what exactly did he take over? On the fifteenth of May 1979, a young flight lieutenant and a handful of soldiers tried to overthrow General AH-koo-foh's government and failed; he was tried, sentenced to death, and locked up. On the fourth of June, soldiers broke him out, and within hours he was chairman of the Armed Forces Revolutionary Council, which ruled for one hundred and twelve days, executed eight senior officers, among them three former heads of state, ah-chee-AHM-pong, AH-koo-foh and ah-FREE-fah, and then, on the twenty-fourth of September, handed power to the elected President HEE-lah lee-MAHN. On the last day of 1981 he came back, and this time he stayed.
+
+Now the one per cent most of us forget: 1983 hit Ghana like three storms at once. Inflation reached one hundred and twenty-three per cent, the worst drought in decades dried the farms, bushfires burned what was left, and in January Nigeria ordered illegal migrants out, so more than a million Ghanaians came home carrying the checked bags we still call Ghana Must Go. So before anybody talks transformation, understand this: his first job was not building a new Ghana; it was stopping the old one from collapsing.
+
+## 3. Question two: people's power, or one man's power? · 2:15
+
+Kwame was not done: power to the people, abeg, with soldiers and curfews? The revolution promised exactly that. It set up People's and Workers' Defence Committees in neighbourhoods and workplaces, later renamed Committees for the Defence of the Revolution, so ordinary Ghanaians could watch prices, expose corruption and hold power to account. But beside that people's power sat a hard state: public tribunals, MAH-koh-lah Market demolished in the price-control war of 1982, and that same year three High Court judges and a retired army major were abducted and murdered, a crime that still haunts that era's memory. Even so, the same regime set up a National Commission on Democracy to ask Ghanaians what kind of government they wanted, and that slow conversation, through the eighties, is the road that eventually led to the 1992 Constitution.
+
+The British scholar Jeffrey Haynes, who interviewed the key players over thirty years, puts it plainly: Rawlings wanted a revolution of popular democracy but never clearly defined the new system, and lacked the ideological and institutional capacity to build it. He was brilliant at pulling an old order down, and far less sure what to put in its place. Yet one piece did survive: in 1988 his government created a hundred and ten District Assemblies, two-thirds of their members elected, and the assembly in your own district today is a grandchild of that law.
+
+## 4. Question three: did the revolution sell out to the IMF? · 4:00
+
+Baaba, The Ascendant, spotted the contradiction that every serious study of this man wrestles with: how does a revolutionary who came to fight the old order end up with the I-M-F and the World Bank? In April 1983, with the country starving, the government launched the Economic Recovery Programme: deep devaluation, price controls lifted, state firms trimmed, and foreign money flowing in. By the World Bank's figures, inflation fell from one hundred and twenty-three per cent in 1983 to forty per cent in 1986 and eighteen per cent by 1991, and the economy grew by about five per cent a year, until Ghana became the West's favourite example of adjustment that worked.
+
+And remember how far we had fallen: at independence in 1957, Ghana's income per head stood at about the level of South Korea's, and by 1983 we were queueing for basic essentials. Was that a rescue or a retreat? Both. The shelves filled, but urban workers swallowed the pain, and the dream of a self-reliant people's economy quietly gave way to a market economy run by a soldier. Kevin Shillington, writing in 1992 as Ghana prepared for the Fourth Republic, asked how real that recovery felt to the ordinary Ghanaian; three decades on, the question still stands.
+
+## 5. Question four: then why didn't nineteen years transform us? · 5:20
+
+Then Amo, The Discerning, who had Aba reading the whole chat to him, asked the question this Special exists for. One witness is kwah-MEH-nah AH-hwee, who worked beside Rawlings from the P-N-D-C into the N-D-C years and published Working with Rawlings in 2020. He calls him a born leader with a mesmerising charisma, but writes that Rawlings had no plan and no strategy on how to materially develop Ghana, and that in meetings he sometimes looked out of the window or played with his toy planes while technical matters were debated. Rawlings' office replied that the book was generously economical with the truth, and rejected many of its claims, so take it as one insider's account, not the final word.
+
+There is also the trap of success. The outsider became the establishment: he won the 1992 election with about sixty per cent, and when the opposition boycotted the parliamentary vote his party took almost every seat; in 1995, when crowds marched against the new V-A-T under the cry of KOO-meh PREH-koh, four people were shot dead by unidentified gunmen. He won again in 1996, with fifty-seven per cent against KOO-for's forty, and then, crucially, he obeyed the two-term limit. Here is the irony: on the seventh of January 2001 he handed power to John KOO-for, the first peaceful transfer from a sitting government to the opposition in our history, and KOO-for had once served about eight months as a secretary in Rawlings' own first P-N-D-C government, a move Ahwoi says was partly about keeping Nigeria's President SHAH-gah-ree, a friend of KOO-for's, on side for oil.
+
+## 6. The ledger · 6:45
+
+Close to half past one, Aba asked for a verdict, and AH-hwee himself gave me the best one, an old Akan proverb about the nightjar bird: san-TROH-fee ah-noh-MAH, woh-CHEH noh ah, wah-CHEH m-moo-SOO-oh; woh-JAH-yeh noh ah, wah-JAH-yeh ah-DEH. Catch it and you have caught a curse; let it go and you have let go of something precious. That is the man in one line: the revolutionary who did not finish his revolution, the pragmatist who pulled Ghana back from collapse, the strongman who still gave us the constitution, the term limits and the handover that made our democracy. So here is the lesson, squad: anger can diagnose a nation, but only a plan can heal it, and nineteen years of power cannot replace one good blueprint. Now it is your turn: if you had to fill that ledger, which column carries more weight for you, the curse or the precious thing, and why? Write it in the comments, and let us argue like a family, with facts and with respect.
+
+## 7. Close · 7:55
+
+This has been a Gold Coast Palava Special. We will meet you back at the Nest. Cheers.
