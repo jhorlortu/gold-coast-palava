@@ -55,3 +55,7 @@ reels/*/hf/
 **/vo16k.raw
 ed4/build/sfx/
 ed4/work/*.wav
+**/.*.hf-transaction-*/
+**/work-*-*/
+reels/*/video.mp4
+reels/*/sfx.json
