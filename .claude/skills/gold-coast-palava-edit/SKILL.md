@@ -65,7 +65,10 @@ events slide in along the line with a travelling pulse (keep drift small enough 
   `cap_lead` from that measurement, then verify on the FINAL assembled MP4 (not the timeline) by sampling caption
   word-reveal times against the audio's word onsets across the whole video; median error within ±0.04 s and no word
   off by more than 0.1 s. Fix drift section by section (sting/heading gaps shift timing) before delivering.
-- **Voiceover spelling:** "Chale" is said "Charlie"; write it "Charlie" in any TTS text (captions keep "Chale").
+- **Pronunciation:** "Chale" is said "Cha-ley" (two syllables, NOT "Charlie"); for TTS write "Cha-ley" (captions keep "Chale").
+- **Voice (client, Edition 4):** Chatterbox one-off voice matching (Creative Claw) was tried and rejected: stale, flat,
+  rushed, slightly hoarse, less clear than the original. Cartesia cloning needs a paid Creative Claw plan. Default: the
+  client records the voiceover himself.
 - Loudness −14 LUFS, true peak ≤ −1 dBTP after AAC (limiter at −3 dBFS before encode).
 
 ## Sound effects
