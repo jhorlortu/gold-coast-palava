@@ -5,6 +5,7 @@ import { TitleCard } from './compositions/TitleCard.jsx';
 import { LowerThird } from './compositions/LowerThird.jsx';
 import { StatCounter } from './compositions/StatCounter.jsx';
 import { SectionSting } from './compositions/SectionSting.jsx';
+import { GcpTimeline, GcpBars, GcpGrid, GcpLedger } from './compositions/GcpCharts.jsx';
 
 // Every composition takes its size, fps and length from its props, so the
 // pipeline can render any of them at the project's output format.
@@ -29,5 +30,9 @@ export const Root = () => (
       defaultProps={{ duration: 4, value: 1250000, prefix: '', suffix: '+', label: 'Happy users', accent: '#22c55e', background: '#0b0b12', decimals: 0 }} />
     <Composition id="SectionSting" component={SectionSting} {...common}
       defaultProps={{ duration: 7, title: 'FRONT PAGE', kicker: 'GOLD COAST PALAVA', subtitle: 'A sample from the archive', number: '03', stingAt: 0.8, stingDur: 5 }} />
+    <Composition id="GcpTimeline" component={GcpTimeline} {...common} defaultProps={{ duration: 6, width: 1280, height: 720, items: [], spans: [] }} />
+    <Composition id="GcpBars" component={GcpBars} {...common} defaultProps={{ duration: 6, width: 1280, height: 720, bars: [] }} />
+    <Composition id="GcpGrid" component={GcpGrid} {...common} defaultProps={{ duration: 6, width: 1280, height: 720 }} />
+    <Composition id="GcpLedger" component={GcpLedger} {...common} defaultProps={{ duration: 6, width: 1280, height: 720, rows: [] }} />
   </>
 );

@@ -44,3 +44,11 @@ reels/sp1/mix.raw.wav
 sp1/work/mix.filter
 sp1/work/sfx_cues.json
 media/downloads/
+sp2/build/sfx/
+sp2/build/phonewin/
+sp2/build/remotion/
+sp2/work/score/
+sp2/work/sfx_cues.json
+sp2/work/mix.filter
+reels/*/clips/
+reels/*/hf/

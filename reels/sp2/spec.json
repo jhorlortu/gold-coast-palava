@@ -1,0 +1,21 @@
+{
+ "transcript": "/home/user/gcp/sp2/work/transcript.json",
+ "vo": "/home/user/gcp/sp2/src/vo.mp3",
+ "subs": "/home/user/gcp/sp2/work/subs.py",
+ "gap": 0.35, "lead_in": 0.15, "tail": 0.0, "cap_lead": 0.0,
+ "items": [
+  {"id": "hook", "vo": ["Kwame, The Combative,", "dey like this?"], "gap": 0.4},
+  {"id": "rule", "vo": ["We will not worship", "will weigh him."], "gap": 0.3},
+  {"beat": "brand", "id": "brand", "dur": 4.6},
+  {"id": "june", "vo": ["On the 4th of June,", "eight senior officers,"], "gap": 0.45},
+  {"id": "storms", "vo": ["1983 hit Ghana", "Ghana Must Go."], "gap": 0.45},
+  {"id": "hard", "vo": ["Public tribunals,", "that era's memory."], "gap": 0.45},
+  {"id": "rescue", "vo": ["Was that a rescue", "by a soldier."], "gap": 0.4},
+  {"id": "ahwoi", "vo": ["He calls him a", "matters were debated."], "gap": 0.4},
+  {"id": "handover", "vo": ["On the 7th of January,", "in our history."], "gap": 0.45},
+  {"id": "proverb", "vo": ["Catch it, and", "something precious."], "gap": 0.4},
+  {"id": "lesson", "vo": ["So here is the lesson,", "one good blueprint."], "gap": 0.4},
+  {"id": "turn", "vo": ["Now it is your", "And why?"], "gap": 0.35},
+  {"beat": "endcard", "id": "endcard", "dur": 3.8}
+ ]
+}

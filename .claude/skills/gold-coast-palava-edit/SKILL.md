@@ -271,6 +271,28 @@ Masthead lists only members already introduced; the rest stay "Empty desk … To
   generations at Special No. 1; draw the rest in code (signposts, cinema screen, eye chart, flames, film strips, route
   lines, curtain, sprout) or reuse the sticker libraries.
 
+## Special No. 2 ("Nineteen Years: The Rawlings Question", Nov 2026) — what changed
+- Tree `sp2/`. The voiceover is the client's own recording (`src/vo.mp3`); `work/edl.py` cuts the spoken section
+  labels and read-out timestamps at measured silence (search windows must reach past the real onset: the onset finder
+  returns the window edge if the silence runs on). The client cut the Twi proverb from the voice (English meaning only;
+  the Akan name stays on the page) and recorded no closing line: `plan.py` then adds a 5.5 s voiceless close card.
+- **Sync, measure every recording:** on this one Whisper's word starts ran ~0.15 s EARLY (median vs energy onsets), the
+  opposite of Special No. 1. `fix_transcript.py` shifts words +0.15 s and clamps each span's first word into the span;
+  `GCP_CUE_LEAD=0.1`, `SUB_LEAD=0`.
+- `work/fix_transcript.py` corrects Whisper at word level (names, Twi proverb, UK spelling), matching on joined
+  characters (Whisper splits "A-Chi" into tokens) and keeping each word in one segment. Cue phrases use the corrected
+  words; possessives drop the apostrophe in cues ("world banks", "south koreas", "two thirds").
+- **Remotion data cards** (client: let Remotion do heavy lifting): `video-studio/src/remotion/compositions/GcpCharts.jsx`
+  — `GcpTimeline`, `GcpBars` (vertical/horizontal), `GcpGrid`, `GcpLedger` (balance beam = one spring per entry).
+  `rclip()` in `sp2.mjs` asks for a card with cue-timed props; `build.mjs` renders missing ones (cached by props hash in
+  `build/remotion/`) and places them with `vprint`. Playwright stills show them blank; check in a real render.
+- **Suspense score synthesized in code** (`work/scripts/make_score.py`: drone + clock under the cold open, a bed per
+  question — tense/dark — risers into hits on each pinned card), planned by `plan.py` into `score_cues.json` and mixed
+  with the effects. The client wanted a plugin for music: HeyGen (HyperFrames media-use) needs a
+  sign-in via `auth login --device` that the client approves in a browser; the code expired at Special No. 2.
+- Supplied photographs are used as originals (client: "preserve the originals"), not the drawn treatment.
+- Cue misses: `CUE_SOFT=1 node build.mjs …` lists every missing cue phrase at once.
+
 ## Next
 
 ## Open items carried forward
