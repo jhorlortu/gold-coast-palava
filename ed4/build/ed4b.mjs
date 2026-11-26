@@ -24,7 +24,7 @@ const rain = (p, t0, t1, { n = 70, seed = 5 } = {}) => {
 // the Wire's ticker: a Special Elite strip scrolling along the bottom (seek-safe linear tween)
 const ticker = (p, t0, t1, text) => { const id = p.id_('tk'); const run = (text + '   ·   ').repeat(6);
   p.tl.push(`tl.fromTo("#${id}", {x:0}, {x:-2400, duration:${r3(t1 - t0 + 0.6)}, ease:"none"}, ${r3(t0)});`); p.ev(t0);
-  return `<div style="position:absolute;left:0;right:0;bottom:0;height:86px;background:#1A1612;overflow:hidden;border-top:6px solid var(--red)"><div id="${id}" class="elite" style="white-space:nowrap;color:#FCF5E8;font-size:40px;line-height:86px;padding-left:40px">${run}</div></div>`; };
+  return `<div style="position:absolute;left:0;right:0;bottom:130px;height:86px;background:#1A1612;overflow:hidden;border-top:6px solid var(--red);border-bottom:6px solid var(--red)"><div id="${id}" class="elite" style="white-space:nowrap;color:#FCF5E8;font-size:40px;line-height:86px;padding-left:40px">${run}</div></div>`; };
 const GREY = `<div style="position:absolute;inset:0;background:linear-gradient(180deg,#8C949A 0%,#A9AEB0 45%,#7E8487 100%)"></div><div style="position:absolute;inset:0;background:url(assets/papers-bg.jpg) center/cover;opacity:.12;mix-blend-mode:multiply"></div>`;
 // light glowing through a note held up to the window (watermark test)
 const backlit = (p, srcImg, at, { x, y, w = 900, rot = -3 } = {}) => { const id = p.id_('bk'), gl = p.id_('gl');
