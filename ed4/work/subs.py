@@ -22,6 +22,10 @@ def fix(s):
     return s
 vo = [p for p in plan["parts"] if p["kind"] == "vo"]
 def toT(time):
+    for p in vo:                                   # just before a cut: the word opens the next piece
+        if p["vo_in"] - 0.08 <= time < p["vo_in"]: return p["T0"], p["id"]
+    for p in vo:                                   # then strict containment: a word at a cut belongs to the piece it starts in
+        if p["vo_in"] <= time < p["vo_out"]: return p["T0"] + (time - p["vo_in"]), p["id"]
     for p in vo:
         if p["vo_in"] - 0.05 <= time <= p["vo_out"] + 0.05: return p["T0"] + (time - p["vo_in"]), p["id"]
     return None, None

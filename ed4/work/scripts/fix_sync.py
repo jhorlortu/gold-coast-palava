@@ -4,15 +4,19 @@
 #    never before the previous word's start. Writes transcript.json in place (keeps transcript_aligned.json).
 import json, shutil, numpy as np
 W = '/home/user/gcp/ed4/work'
-shutil.copy(f'{W}/transcript.json', f'{W}/transcript_aligned.json')
+import os
+if not os.path.exists(f'{W}/transcript_aligned.json'): shutil.copy(f'{W}/transcript.json', f'{W}/transcript_aligned.json')
 p = np.fromfile(f'{W}/vo16k.raw', np.int16).astype(np.float32)
-rms = np.sqrt(np.convolve(p ** 2, np.ones(160) / 160, 'same')[::160] + 1e-9); thr = np.percentile(rms, 20) * 2.5
+rms = np.sqrt(np.convolve(p ** 2, np.ones(160) / 160, 'same')[::160] + 1e-9); thr = np.percentile(rms[rms > 1], 20) * 2.5   # same detector as verify_sync.py
 on = rms > thr
 onsets = [j / 100 for j in range(15, len(on)) if on[j] and on[j:j + 5].all() and not on[j - 15:j].any()]
-TR = json.load(open(f'{W}/transcript.json')); WD = [w for s in TR['segments'] for w in s['words']]
+TR = json.load(open(f'{W}/transcript_aligned.json')); WD = [w for s in TR['segments'] for w in s['words']]
 S = np.array([w['s'] for w in WD]); snapped = set()
+E = np.array([w['e'] for w in WD])
 for o in onsets:
-    k = int(np.argmin(abs(S - o)))
+    # the word that spans the onset: it ends after the onset and the previous word ended (about) before it
+    cand = [k for k in range(len(WD)) if E[k] > o + 0.02 and S[k] < o + 0.5 and (k == 0 or E[k - 1] <= o + 0.2)]
+    k = min(cand, key=lambda k: abs(S[k] - o)) if cand else int(np.argmin(abs(S - o)))
     if abs(S[k] - o) < 0.6 and k not in snapped:
         WD[k]['s'] = round(o - 0.02, 3); snapped.add(k)
         if k and WD[k - 1]['e'] > o: WD[k - 1]['e'] = round(o - 0.03, 3)

@@ -301,6 +301,13 @@ Masthead lists only members already introduced; the rest stay "Empty desk … To
 - Code-drawn stickers for Ed4 in `ed4/build/art4.mjs` (cowrie, wallet, goldweight, pesewa, tap/bucket, plantain …); a Canva
   PNG of the same name in `ed4/media/stickers_cut/` replaces one automatically.
 - Team Aside: hands and objects only — no Kwame face sticker (script rule).
+- **SYNC BUGS FOUND AND FIXED AT ED4 (they explain the earlier "captions late" complaints):**
+  (1) `build_audio.py`: an amix group re-timed itself to its first clip, so the whole narration played 0.4 s (= COLD_IN)
+  EARLY against the picture and captions. Every amix now gets a silent `anullsrc` anchor from t=0 (`anchor()`).
+  (2) `subs.py`: a word starting a few ms before a sentence cut was mapped to the previous piece and lost the inserted
+  pause (caption up to 1.2 s early). `toT` now gives words within 0.08 s before a cut to the next piece.
+  (3) `fix_sync.py` and `verify_sync.py` use the same onset detector. Ed4 result: 286/286 phrase starts within 0.1 s,
+  median −0.02 s. Port (1) and (2) to any older edition's scripts before re-using them.
 - Delivery for Ed4 (client): the 1080p final only, no 720p preview. Reel ends on the on-screen CTA
   "Watch the full edition on YouTube — link in bio" (no extra spoken line); `endCard(..., { html })`.
 
