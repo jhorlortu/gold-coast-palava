@@ -1,0 +1,150 @@
+{
+ "transcript": "/home/user/gcp/ed3/work/transcript.json",
+ "vo": "/home/user/gcp/ed3/src/vo_user.mp3",
+ "subs": "/home/user/gcp/ed3/work/subs.py",
+ "gap": 0.35,
+ "lead_in": 0.15,
+ "tail": 0.0,
+ "items": [
+  {
+   "id": "hook",
+   "vo": [
+    "in a treaty mostly",
+    "went to Germany,"
+   ],
+   "near": 170,
+   "gap": 0.45
+  },
+  {
+   "id": "question",
+   "vo": [
+    "how did a king's",
+    "stayed British,"
+   ],
+   "near": 78,
+   "gap": 0.3
+  },
+  {
+   "beat": "brand",
+   "id": "brand",
+   "dur": 4.6
+  },
+  {
+   "id": "berlin",
+   "vo": [
+    "Start in Berlin,",
+    "in the room;"
+   ],
+   "near": 125
+  },
+  {
+   "id": "adibo",
+   "vo": [
+    "the Dagbamba fought them",
+    "to the ground."
+   ],
+   "near": 150
+  },
+  {
+   "id": "shot",
+   "vo": [
+    "a soldier named",
+    "First World War,"
+   ],
+   "near": 210
+  },
+  {
+   "id": "split",
+   "vo": [
+    "Britain and France then",
+    "people in half."
+   ],
+   "near": 225
+  },
+  {
+   "id": "vote",
+   "vo": [
+    "When the count was",
+    "said no."
+   ],
+   "near": 285
+  },
+  {
+   "id": "bawku",
+   "vo": [
+    "Now travel north to",
+    "which chief,"
+   ],
+   "near": 338
+  },
+  {
+   "id": "pen",
+   "vo": [
+    "government after government has",
+    "to the Mamprusi;"
+   ],
+   "near": 380
+  },
+  {
+   "id": "radcliffe",
+   "vo": [
+    "in 1947 Cyril Radcliffe,",
+    "millions were uprooted."
+   ],
+   "near": 535
+  },
+  {
+   "id": "pencil",
+   "vo": [
+    "Every border in this",
+    "ever since."
+   ],
+   "near": 675,
+   "gap": 0.5
+  },
+  {
+   "id": "chale",
+   "vo": [
+    "Chale, this desk gives",
+    "pen each time."
+   ],
+   "near": 465,
+   "gap": 0.3
+  },
+  {
+   "beat": "endcard",
+   "id": "endcard",
+   "dur": 3.6
+  }
+ ],
+ "fix_extra": [
+  [
+   "ninety-three thousand and ninety-five",
+   "93,095"
+  ],
+  [
+   "fifty-eight percent",
+   "58%"
+  ],
+  [
+   "sixty-seven thousand, four hundred and ninety-two",
+   "67,492"
+  ],
+  [
+   "forty-two percent",
+   "42%"
+  ],
+  [
+   "stayed British,$",
+   "stayed British?"
+  ],
+  [
+   ";$",
+   "."
+  ],
+  [
+   ",$",
+   "."
+  ]
+ ]
+}

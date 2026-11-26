@@ -256,6 +256,37 @@ Masthead lists only members already introduced; the rest stay "Empty desk … To
 - Videos sit above scene content: keep stamps/stickers out from under video frames. ≤ 5.5 s without a new element.
 - **Reel captions:** whole phrase visible (upcoming words dimmed), spoken word in red, cream card, 60 px.
 
+## Edition 2 (cocoa) — what changed (client asks)
+- **Everything stays at 1080p**, COMBO3 included (client: "just keep everything at 1080").
+- **COMBO1 comes after the Nest intro**: cold open (the Nest scene + the hook question) → COMBO1 → "My squad, how you dey?…".
+- **The living Nest** (`ed2/build/nestlive.mjs`, `livingNest(p, t0, t1, opts)`): the Nest still plays like a real shot. Layers
+  in `ed2/media/nest/`: `nest-bg.jpg` (fan blades painted out), `nest-fg.png` (desk, separate layer → parallax truck),
+  `fan-hub.png`, `glass-alpha.png` (window mask), `clouds.png`. Pure GSAP: ceiling fan turning (SVG blades in a squashed
+  circle), clock second hand ticking, clouds drifting behind the louvres, moon glow, lagoon glints, tea steam, lamp
+  breathing + seeded flickers, dust in the lamplight, handheld breathing, warm evening grade; `aim(spot, scale, at)`
+  moves the camera on springs. Pair it with `nestBed()` (room tone + clock tick each second). Use it every time the Nest
+  is on screen for more than a beat; a still print is fine for a passing mention.
+- **Canva stickers, full size without a design export:** generate-image → open ONE scratch design transaction
+  (read-design open_transaction) → add a 1024² page → `insert_fill` the media once → then `update_fill` the same element
+  with each media id: every edit-design result returns a 600 px render that is saved under tool-results; copy those,
+  then `cancel` the transaction (nothing saved). create-design with references ignores them (stock template).
+  Canva rate limits: ~5 generations per burst, then a cooldown. Cut-outs: `ed2/work/scripts/cutout.py` (fixed-range
+  flood fill keeps the white sticker outline).
+- **Whisper drifts after long digital silences** (first word after a spoken title starts 1–2 s early, and it invents
+  "7." / "8." over silence): snap word starts to energy onsets and delete invented tokens before planning.
+- **SFX:** `ed2/work/scripts/ed2_sfx.py` (synth: nest room tone, tick, typewriter key, snap, crinkle, shutter, register,
+  ship, waves, fire, chant, drop, snip, bike bell, grind, thump, blip, kachunk, riser, crackle, hit, sparkle, scribble,
+  bundle, swoop) + raw-take / mastered pair cut from the theme. SFX bus raised to −1 dB (was −3) for clearer effects.
+- Masthead from Ed2: Kofi, Aba (The Restless), Kwame (The Combative), Baaba (The Ascendant, introduced Ed2), one empty desk.
+## Edition 3 notes
+- Voiceover: the client supplies the voiceover file. Respell "Ewe" as "Ay-vay" if it is ever synthesised. When the
+  voice is generated from a known script, take words from the script and times from Whisper (ed3/work/align.py).
+- Canva: generate in **Olahub's Team** (the connector must be connected with that team selected; the old team's AI
+  credits are used up). Ed3 shipped with code-drawn stickers (ed3/build/art.mjs); Canva stickers resume from Ed4.
+  Saved for the next edition: media_next/canva_stickers.json.
+- Maps: ed3/build/maps.mjs (Natural Earth shapes, string-map look). Never paste flat graphics onto the Nest photo
+  (client: no artificial-looking objects on the table); show such objects as full-frame close-ups instead.
+
 ## Specials (from Special No. 1, "The Eyes of Ghana: Rev. Chris Hesse", Nov 2026)
 - A Special is not an edition: no price line, no Dispatch, no Nest scenes, no segment stings. Tree `sp<N>/` (same layout
   as `ed<N>/`); `GCP_WORK=/home/user/gcp/sp<N>/work GCP_EDITION="SPECIAL No. <N>"`.

@@ -1,0 +1,32 @@
+{
+ "Front Page": {
+  "n": "01",
+  "sub": "Every headline is a question",
+  "icon": "gcp-highlight-issues-1080x1080.png"
+ },
+ "The Wire": {
+  "n": "02",
+  "sub": "Wednesday, 9 May 1956, British Togoland",
+  "icon": "gcp-highlight-issues-1080x1080.png"
+ },
+ "The Palava Desk": {
+  "n": "03",
+  "sub": "Who holds the pen?",
+  "icon": "gcp-highlight-nest-1080x1080.png"
+ },
+ "Then v Now": {
+  "n": "04",
+  "sub": "A vote then, a movement now",
+  "icon": "gcp-highlight-team-1080x1080.png"
+ },
+ "Editor's Note": {
+  "n": "05",
+  "sub": "Pencil and ink",
+  "icon": "gcp-highlight-letters-1080x1080.png"
+ },
+ "Dispatch": {
+  "n": "06",
+  "sub": "Filed, signed and sent",
+  "icon": "gcp-highlight-letters-1080x1080.png"
+ }
+}

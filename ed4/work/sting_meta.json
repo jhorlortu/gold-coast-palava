@@ -1,0 +1,8 @@
+{
+ "Front Page": {"n": "01", "sub": "Every headline is a question", "icon": "gcp-highlight-issues-1080x1080.png"},
+ "The Wire": {"n": "02", "sub": "Monday, 19 July 1965, Accra", "icon": "gcp-highlight-issues-1080x1080.png"},
+ "The Palava Desk": {"n": "03", "sub": "Switzerland, or the press inside the computer", "icon": "gcp-highlight-nest-1080x1080.png"},
+ "Then v Now": {"n": "04", "sub": "One face then, eight faces now", "icon": "gcp-highlight-team-1080x1080.png"},
+ "Editor's Note": {"n": "05", "sub": "Printed belief", "icon": "gcp-highlight-letters-1080x1080.png"},
+ "Dispatch": {"n": "06", "sub": "Filed, signed and sent", "icon": "gcp-highlight-letters-1080x1080.png"}
+}

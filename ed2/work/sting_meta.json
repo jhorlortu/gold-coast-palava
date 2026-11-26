@@ -1,0 +1,32 @@
+{
+ "Front Page": {
+  "n": "01",
+  "sub": "Every headline is a question",
+  "icon": "gcp-highlight-issues-1080x1080.png"
+ },
+ "The Wire": {
+  "n": "02",
+  "sub": "Thursday, 12 February 2026, Accra",
+  "icon": "gcp-highlight-issues-1080x1080.png"
+ },
+ "The Palava Desk": {
+  "n": "03",
+  "sub": "Sacks out, wrappers back",
+  "icon": "gcp-highlight-nest-1080x1080.png"
+ },
+ "Then v Now": {
+  "n": "04",
+  "sub": "Cocoa then, gold now",
+  "icon": "gcp-highlight-team-1080x1080.png"
+ },
+ "Editor's Note": {
+  "n": "05",
+  "sub": "The raw take",
+  "icon": "gcp-highlight-letters-1080x1080.png"
+ },
+ "Dispatch": {
+  "n": "06",
+  "sub": "Filed, signed and sent",
+  "icon": "gcp-highlight-letters-1080x1080.png"
+ }
+}
