@@ -28,6 +28,6 @@ subprocess.run([sys.executable, "-I", f"{W}/build_audio.py"], check=True)
 subprocess.run([sys.executable, "-I", f"{W}/subs.py"], check=True, stdout=subprocess.DEVNULL)
 name = sys.argv[1] if len(sys.argv) > 1 else "GoldCoastPalava_HeadlineEdition_draft"
 run("-i", f"{W}/picture.mp4", "-i", f"{W}/mix.wav", "-vf", f"ass={W}/subs.ass:fontsdir=/home/user/gcp/src/INTRO/Font",
-    "-map", "0:v", "-map", "1:a", "-c:v", "libx264", "-preset", "slow", "-crf", "18", "-pix_fmt", "yuv420p", "-profile:v", "high",
+    "-map", "0:v", "-map", "1:a", "-c:v", "libx264", "-preset", "slow", "-crf", "16", "-maxrate", "3500k", "-bufsize", "7000k", "-pix_fmt", "yuv420p", "-profile:v", "high",
     "-c:a", "aac", "-b:a", "320k", "-movflags", "+faststart", "-t", str(plan["total"]), f"{OUT}/{name}.mp4")
 print("wrote", f"{OUT}/{name}.mp4", len(cues), "sfx cues")
