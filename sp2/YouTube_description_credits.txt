@@ -28,7 +28,7 @@ IMAGES
 - Illustrations: Canva AI (Ghana Must Go bag, drought, market stall, judges' bench, devaluation, district assembly, toy plane, nightjar) and the Gold Coast Palava sticker library.
 
 PRODUCTION
-Written and edited by Joshua Horlortu. Narration in Joshua Horlortu's voice, generated with ElevenLabs.
+Written, edited and narrated by Joshua Horlortu.
 Theme music by Gonje Group, Legon. Suspense score and sound effects synthesized in code for this Special.
 Data cards built with Remotion; edit built with HyperFrames.
 The Nest newsroom and the GCP Team chat are fictional devices.

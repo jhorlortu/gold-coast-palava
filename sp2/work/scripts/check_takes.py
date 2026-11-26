@@ -1,4 +1,4 @@
-# Transcribe each ElevenLabs take and score it against the script (word error rate), so the better take is picked.
+# Transcribe each voiceover take and score it against the script (word error rate), so the better take is picked.
 import glob, json, os, re, subprocess, sys, difflib
 os.environ.setdefault("HF_HUB_DISABLE_XET", "1")
 import numpy as np

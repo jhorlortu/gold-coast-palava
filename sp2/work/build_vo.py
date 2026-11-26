@@ -1,4 +1,4 @@
-# Joins the chosen ElevenLabs takes (Joshua Horlortu voice) into one voiceover, trims each take's own head/tail
+# Joins the chosen voiceover takes into one voiceover, trims each take's own head/tail
 # silence, and writes the edit list (one span per section) for plan.py.
 import json, subprocess, numpy as np
 V = "/home/user/gcp/sp2/src/vo"; SR = 48000
