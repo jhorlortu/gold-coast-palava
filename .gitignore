@@ -54,3 +54,4 @@ reels/*/clips/
 reels/*/hf/
 **/vo16k.raw
 ed4/build/sfx/
+ed4/work/*.wav

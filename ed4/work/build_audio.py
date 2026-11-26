@@ -17,6 +17,11 @@ def add(path, pre=()):
     inputs.extend([*pre, "-i", path]); idx += 1; return idx - 1
 
 fmt = "aresample=48000,aformat=sample_fmts=fltp:channel_layouts=stereo"
+# Anchor: a silent track from t=0 inside every mix, so amix never re-times a group to its first clip
+# (without it the voice bus started at the first piece and the whole narration ran 0.4 s early vs the picture).
+def anchor(lbl):
+    k = add(f"anullsrc=r=48000:cl=stereo", ("-f", "lavfi", "-t", f"{TOTAL}"))
+    f.append(f"[{k}:a]aformat=sample_fmts=fltp:channel_layouts=stereo[{lbl}]"); return lbl
 # Voice pieces
 vo = add(VO)
 vparts = [p for p in plan["parts"] if p["kind"] == "vo"]
@@ -24,7 +29,7 @@ f.append(f"[{vo}:a]{fmt},asplit={len(vparts)}" + "".join(f"[vs{i}]" for i in ran
 for i, p in enumerate(vparts):
     d = int(round(p["T0"] * 1000))
     f.append(f"[vs{i}]atrim={p['vo_in']}:{p['vo_out']},asetpts=PTS-STARTPTS,afade=t=in:d=0.03,afade=t=out:st={p['dur']-0.05:.3f}:d=0.05,adelay={d}|{d},apad=whole_dur={TOTAL}[v{i}]")
-f.append("".join(f"[v{i}]" for i in range(len(vparts))) + f"amix=inputs={len(vparts)}:normalize=0,volume=2.0[voice]")  # +6 dB voice
+f.append(f"[{anchor('z0')}]" + "".join(f"[v{i}]" for i in range(len(vparts))) + f"amix=inputs={len(vparts) + 1}:normalize=0,volume=2.0[voice]")  # +6 dB voice
 
 # Soundtrack with envelope
 st = add(ST)
@@ -38,7 +43,7 @@ expr = f"{env[-1][1]}"
 for (t0, d0), (t1, d1) in reversed(list(zip(env, env[1:]))):
     expr = f"if(lt(t,{t1}),{d0}+({d1}-({d0}))*(t-{t0})/({t1}-{t0}+0.0001),{expr})"
 expr = f"if(lt(t,{env[0][0]}),{env[0][1]},{expr})"
-f.append("".join(f"[st{i}]" for i in range(len(segs))) + f"amix=inputs={len(segs)}:normalize=0,volume='pow(10,({expr})/20)':eval=frame[music]")
+f.append(f"[{anchor('z1')}]" + "".join(f"[st{i}]" for i in range(len(segs))) + f"amix=inputs={len(segs) + 1}:normalize=0,volume='pow(10,({expr})/20)':eval=frame[music]")
 
 # Stings
 sp = [p for p in plan["parts"] if p["kind"] == "sting"]
@@ -76,7 +81,7 @@ for i, c in enumerate(sfx):
     # ease in quickly, ease out slowly on an S-curve so every effect melts into the mix; whole bus 3 dB lower
     fi = c.get("fadein", min(0.04, L / 6)); fo = c.get("fade", max(min(0.45 * L, 1.8), min(0.4, L * 0.6)))
     f.append(f"[sx{i}]atrim=0:{L:.3f},asetpts=PTS-STARTPTS,afade=t=in:d={fi:.3f}:curve=qsin,afade=t=out:st={max(0, L - fo):.3f}:d={fo:.3f}:curve=hsin,volume={c.get('db',-12) - 1}dB,adelay={d}|{d},apad=whole_dur={TOTAL}[fx{i}]")
-labels = ["voice", "music"] + [f"sg{i}" for i in range(len(sp))] + [f"fx{i}" for i in range(len(sfx))]
+labels = [anchor('z2'), "voice", "music"] + [f"sg{i}" for i in range(len(sp))] + [f"fx{i}" for i in range(len(sfx))]
 f.append("".join(f"[{l}]" for l in labels) + f"amix=inputs={len(labels)}:normalize=0:duration=longest,atrim=0:{TOTAL},apad=whole_dur={TOTAL}[mix]")
 raw = f"{W}/mix.raw.wav"
 open(f"{W}/mix.filter", "w").write(";\n".join(f))
