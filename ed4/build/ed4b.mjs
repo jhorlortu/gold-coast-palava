@@ -10,7 +10,7 @@ import { art, stack, head, away, nameCard, counter, card, mono, H, nestBed, pin,
 const factCard = (p, lbl, big, at, { x = 1150, y = 200, w = 620, size = 120, sub = '' } = {}) => card(p, `${mono(lbl, { size: 24 })}<div style="font-family:'Playfair Display',serif;font-weight:900;font-size:${size}px;line-height:1;margin-top:10px">${big}</div>${sub ? `<div class="mono" style="font-size:22px;font-weight:700;margin-top:10px">${sub}</div>` : ''}`, at, { x, y, w });
 // an old note from Commons as a print on the page, or a name card when the file is missing (never invent one)
 const oldNote = (p, key, at, label, { x, y, w = 560, rot = 0, from = 'top' } = {}) => {
-  const f = realImg(key);
+  const f = realImg(key + '-front') || realImg(key);
   if (f) return bill(p, f, at, { x, y, w, rot, from });
   return card(p, `${mono('BANKNOTE', { size: 20 })}<div style="font-family:'Playfair Display',serif;font-weight:900;font-size:44px;line-height:1.05;margin-top:8px">${label}</div>`, at, { x, y, w: Math.min(w, 520), rot });
 };
@@ -21,6 +21,10 @@ const rain = (p, t0, t1, { n = 70, seed = 5 } = {}) => {
     p.tl.push(`tl.fromTo("#${id}", {y:-200}, {y:1250, duration:${r3(per)}, ease:"none", repeat:${Math.max(0, Math.floor((t1 - t0) / per))}}, ${r3(t0 + R() * per)});`);
     return `<i id="${id}" style="position:absolute;left:${r3(x)}px;top:0;width:2px;height:${r3(len)}px;background:linear-gradient(transparent, rgba(220,228,235,.7));transform:rotate(8deg)"></i>`; }).join('');
 };
+// the Wire's ticker: a Special Elite strip scrolling along the bottom (seek-safe linear tween)
+const ticker = (p, t0, t1, text) => { const id = p.id_('tk'); const run = (text + '   ·   ').repeat(6);
+  p.tl.push(`tl.fromTo("#${id}", {x:0}, {x:-2400, duration:${r3(t1 - t0 + 0.6)}, ease:"none"}, ${r3(t0)});`); p.ev(t0);
+  return `<div style="position:absolute;left:0;right:0;bottom:0;height:86px;background:#1A1612;overflow:hidden;border-top:6px solid var(--red)"><div id="${id}" class="elite" style="white-space:nowrap;color:#FCF5E8;font-size:40px;line-height:86px;padding-left:40px">${run}</div></div>`; };
 const GREY = `<div style="position:absolute;inset:0;background:linear-gradient(180deg,#8C949A 0%,#A9AEB0 45%,#7E8487 100%)"></div><div style="position:absolute;inset:0;background:url(assets/papers-bg.jpg) center/cover;opacity:.12;mix-blend-mode:multiply"></div>`;
 // light glowing through a note held up to the window (watermark test)
 const backlit = (p, srcImg, at, { x, y, w = 900, rot = -3 } = {}) => { const id = p.id_('bk'), gl = p.id_('gl');
@@ -125,14 +129,16 @@ export function wire() {
   // 1 — dateline in the rain
   p.scene(0, t2, `${GREY}${rain(p, 0, t2 + 0.6, { seed: 3 })}
     ${card(p, `<div class="elite" style="font-size:54px;line-height:1.2">${p.typed('MONDAY, 19 JULY 1965 · ACCRA', 0.2, { cps: 20, cls: 'elite' })}</div>`, 0.05, { x: 150, y: 150, w: 1180 })}
-    ${stack(p, [['the cool, grey middle of the rainy season', b('in the cool grey'), 'chip light'], ['Accra wakes under low cloud', b('when accra wakes'), 'chip light'], ['the gutters still hold the night’s rain', b('the open gutters'), 'chip light']], { y: 470 })}`, { bg: 'none', enter: 'cut', drift: 0.03 });
+    ${stack(p, [['the cool, grey middle of the rainy season', b('in the cool grey'), 'chip light'], ['Accra wakes under low cloud', b('when accra wakes'), 'chip light'], ['the gutters still hold the night’s rain', b('the open gutters'), 'chip light']], { y: 470 })}
+    ${ticker(p, 0, t2, 'ACCRA, 19.7.65 — NEW MONEY TODAY: THE CEDI — 100 PESEWAS — BRING YOUR POUND NOTES TO THE BANK')}`, { bg: 'none', enter: 'cut', drift: 0.03 });
   fx(p, 'rain.wav', 0, -16, Math.min(12, t2 + 0.6)); fx(p, '/home/user/gcp/project/media/sfx/teletype-1.mp3', 0.2, -18);
   // 2 — queues for a new money: the cedi (named after the cowrie), 100 pesewas
   p.scene(t2, t3, `${GREY}${rain(p, t2, t3 + 0.6, { seed: 7, n: 40 })}
     ${card(p, `${mono('GHANAIANS QUEUED')}${H(p, 'Pound notes in hand, *to meet a new money.*', t2 + 0.2, 58)}`, t2 + 0.1, { x: 150, y: 130, w: 980 })}
     ${art(p, 'cowrie', b('named after the sedie'), { x: 260, y: 560, w: 200, rot: -12, life: 'pulse', until: t3, sfx: 'shell-set.wav', db: -10 })}
     <div style="position:absolute;left:520px;top:600px;font-family:'Playfair Display',serif;font-weight:900;font-size:150px;line-height:1;color:#FCF5E8;text-shadow:6px 6px 0 #1A1612">${p.words(p.id_('ar'), '→ cedi', b('named after the sedie') + 0.4)}</div>
-    ${p.chip('= 100 pesewas, the old gold weight', b('divided into a hundred'), { kind: 'chip gold', x: 1060, y: 820 })}
+    ${p.chip('= 100 pesewas, the old gold weight', b('divided into a hundred'), { kind: 'chip gold', x: 1060, y: 760 })}
+    ${ticker(p, t2, t3, 'QUEUES AT EVERY BANK COUNTER — £G1 = ¢2.40 — ¢1 = 8s 4d — THE CEDI IS NAMED AFTER THE COWRIE')}
     ${art(p, 'pesewa', b('the old gold weight'), { x: 1580, y: 560, w: 200, rot: 8, life: 'pulse', until: t3, sfx: SFX1 + '/coins.wav', db: -14 })}`, { bg: 'none', enter: 'wipeL', drift: 0.03 });
   // 3 — the rate; one face on every note
   p.scene(t3, t4, `${factCard(p, 'THE RATE, 1965', '¢1 = 8s 4d', t3 + 0.1, { x: 150, y: 170, w: 780, size: 110, sub: '£G1 = ¢2.40' })}
@@ -141,7 +147,7 @@ export function wire() {
     ${nameCard(p, b('kwame nkrumahs'), { y: 760, role: 'THE PRESIDENT', name: 'Kwame Nkrumah' })}`, { enter: 'push' });
   fx(p, 'register.wav', t3 + 0.6, -16);
   // 4 — held up to the light
-  const held = realImg('cedi1-1965') || realImg('pound1-1958');
+  const held = realImg('cedi1-1965-front') || realImg('pound1-1958-front');
   p.scene(t4, t5, `${GREY}${held ? backlit(p, held, t4 + 0.2, { x: 900, y: 160, w: 860, rot: -4 }) : ''}
     ${card(p, `${mono('IN THE SILENT FILM')}${H(p, 'People hold the new notes *up to the light…*', t4 + 0.2, 54)}`, t4 + 0.1, { x: 120, y: 150, w: 720 })}
     ${card(p, `<div style="font-family:'Playfair Display',serif;font-style:italic;font-size:52px;line-height:1.15">…as if checking whether <b style="color:var(--red);font-style:normal">freedom had a watermark.</b></div>`, b('as if checking'), { x: 120, y: 700, w: 1100 })}`, { bg: 'none', enter: 'iris', drift: 0.04 });
@@ -149,8 +155,8 @@ export function wire() {
   // 5 — the world that week: Washington takes the silver out
   const lbj = realImg('lbj');
   p.scene(t5, t6, `${card(p, `${mono('THE WORLD THAT WEEK')}<div class="elite" style="font-size:46px;margin-top:10px">23 July 1965, Washington.</div>`, t5 + 0.1, { x: 150, y: 140, w: 900 })}
-    ${lbj ? p.print(lbj, b('president lyndon johnson'), { x: 1180, y: 120, w: 520, rot: 2, caption: 'President Lyndon B. Johnson' }) : nameCard(p, b('president lyndon johnson'), { x: 1150, y: 160, role: 'WASHINGTON', name: 'President Lyndon B. Johnson' })}
-    ${art(p, 'us-coins', b('dimes and quarters'), { x: 1250, y: 560, w: 380, rot: -6, life: 'bob', until: t6, sfx: SFX1 + '/coins.wav', db: -12 })}
+    ${lbj ? p.print(lbj, b('president lyndon johnson'), { x: 1240, y: 110, w: 430, rot: 2, caption: 'President Lyndon B. Johnson' }) : nameCard(p, b('president lyndon johnson'), { x: 1150, y: 160, role: 'WASHINGTON', name: 'President Lyndon B. Johnson' })}
+    ${art(p, 'us-coins', b('dimes and quarters'), { x: 1180, y: 740, w: 320, rot: -6, life: 'bob', until: t6, sfx: SFX1 + '/coins.wav', db: -12 })}
     ${p.chip('silver out of dimes and quarters', b('taking the silver'), { kind: 'chip light', x: 150, y: 400 })}
     ${p.chip('the silver was worth more than the coin', b('because the silver'), { kind: 'chip gold', x: 150, y: 490 })}
     ${card(p, `${mono('TWO COUNTRIES, ONE WEEK')}<div style="font-family:'Playfair Display',serif;font-weight:900;font-size:64px;line-height:1.05;margin-top:8px">Money is a <span style="color:var(--red)">promise,</span><br>not a metal.</div>`, b('two countries in one'), { x: 150, y: 620, w: 900 })}`, { enter: 'wipeU' });
@@ -162,12 +168,13 @@ export function wire() {
   p.scene(t6, s.dur, `${TABLE()}
     ${card(p, `${mono('NKRUMAH’S CEDI')}<div style="font-family:'Playfair Display',serif;font-weight:900;font-size:60px;line-height:1">lived ${counter(p, b('lived nineteen months'), 19, { size: 60, suffix: ' months' })}</div>`, t6 + 0.1, { x: 110, y: 90, w: 600 })}
     ${oldNote(p, 'cedi1-1967', b('issued a new cedi'), 'New cedi · 1967', { x: 110, y: 330, w: 440, rot: -6 })}
-    ${p.stamp('NKRUMAH’S FACE REMOVED', b('with nkrumahs face'), { x: 110, y: 600, rot: -6, size: 30 })}
+    ${p.stamp('FACE REMOVED', b('with nkrumahs face'), { x: 150, y: 590, rot: -6, size: 34 })}
     ${oldNote(p, 'cedi10-1979', b('on the ninth of march'), '¢10 · 1979', { x: 620, y: 300, w: 440, rot: 4 })}
-    ${p.stamp('30% KEPT · 50% ABOVE ¢5,000', b('kept thirty percent'), { x: 600, y: 600, rot: 5, size: 28 })}
+    ${p.stamp('30% / 50% KEPT', b('kept thirty percent'), { x: 680, y: 590, rot: 5, size: 34 })}
     ${brick}<div style="position:absolute;left:1350px;top:300px;width:40px;height:220px;background:#B9362C;border-radius:8px;transform:rotate(-2deg)"></div>
     ${p.chip('≈ $2', b('worth about two dollars'), { kind: 'chip gold', x: 1500, y: 470 })}
     <div id="${zid}" style="position:absolute;left:1120px;top:620px;font-family:'Playfair Display',serif;font-weight:900;font-size:96px;color:#FCF5E8;text-shadow:5px 5px 0 #1A1612;white-space:nowrap">¢1<span class="z">0</span><span class="z">,0</span><span class="z">0</span><span class="z">0</span> = GH¢1</div>
+    <div style="position:absolute;left:80px;right:80px;top:850px;height:150px;background:#FCF5E8;border:4px solid var(--ink);box-shadow:8px 10px 0 var(--ink)"></div>
     ${timeline(p, [['17 FEB 1967', 'New cedi', b('issued a new cedi')], ['9 MAR 1979', 'notes changed again', b('on the ninth of march')], ['1 JUL 2007', '¢10,000 = GH¢1', b('on the first of july')]], { t0: t6 + 0.3, x0: 110, x1: 1810, y: 960 })}`, { bg: 'none', enter: 'wipeL', drift: 0.02 });
   fx(p, 'snip.wav', z0 + 0.4, -12); fx(p, SFX1 + '/whip.wav', z0 + 0.5, -16);
   return p;
@@ -371,7 +378,7 @@ export function team() {
   const lastIn = b('the oldest last'), old = p.id_('ol');
   p.tl.push(`tl.to("#${old}", {x:${1450 - 660}, y:${700 - 520}, scale:0.15, rotation:8, opacity:0, duration:0.5, ease:"power2.in", immediateRender:false}, ${r3(lastIn + 0.2)});`); p.ev(lastIn + 0.2);
   p.scene(t5, s.dur, `${TABLE('amber')}${back}
-    <div id="${old}" style="position:absolute;left:660px;top:520px;width:600px"><img src="${p.asset('/home/user/gcp/ed4/media/notes/ghs5-crumpled.png')}" style="width:100%;display:block;box-shadow:0 22px 34px -12px rgba(40,25,10,.55)"><img id="${flat}" src="${p.asset(note('5'))}" style="position:absolute;left:0;top:0;width:100%;display:block"></div>
+    <div id="${old}" style="position:absolute;left:660px;top:520px;width:600px"><img src="${p.asset('/home/user/gcp/ed4/media/notes/ghs5-crumpled.png')}" style="width:100%;display:block;box-shadow:0 22px 34px -12px rgba(40,25,10,.55)"><img id="${flat}" src="${p.asset(note('5old'))}" style="position:absolute;left:0;top:0;width:100%;display:block"></div>
     ${art(p, 'wallet', t5 + 0.2, { x: 1380, y: 620, w: 320, rot: -6, life: 'bob', until: s.dur, sfx: 'rustle.wav' })}
     ${card(p, `${mono('…WENT QUIET')}${H(p, 'Every note smoothed flat. *The oldest last.*', t5 + 0.2, 50)}`, t5 + 0.1, { x: 110, y: 820, w: 1000 })}
     ${p.chip('more about Kwame in good time', b('i will tell you more'), { kind: 'chip gold', x: 1180, y: 940 })}`, { bg: 'none', enter: 'wipeU', drift: 0.02 });

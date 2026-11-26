@@ -14,16 +14,9 @@ for i in range(len(merged) - 2):
     if merged[i]["w"].strip() == "Loop" and merged[i+1]["w"].strip() == "or" and merged[i+2]["w"].strip().startswith("Nipah"):
         merged[i]["w"] = " Loop,"; merged[i+2]["w"] = " Onipa"; merged[i+2]["s"] = merged[i+1]["s"]; merged[i+1]["w"] = ""
 merged = [w for w in merged if w["w"].strip()]
-FIX = [(r"\bPallava\b", "Palava"), (r"^Squad, how you de\?", "My squad, how you dey?"), (r"\bhow you de\b", "how you dey"), (r"\bFomina\b", "Fomena"),
-       (r"\bTeshi\b", "Teshie"), (r"\bTete Kwashi\b", "Tetteh Quarshie"), (r"\bAkwapem\b", "Akuapem"), (r"\borganize\b", "organise"), (r"\bcocoa marketing board\b", "Cocoa Marketing Board"),
-       (r"Côte d 'Ivoire", "Côte d'Ivoire"), (r"\btons\b", "tonnes"), (r"\bton\b", "tonne"), (r"\bHamatan\b", "harmattan"), (r"\bDr\. Kassiel Atoforsen\b", "Dr Cassiel Ato Forson"),
-       (r"\bKassiel\b", "Cassiel"), (r"\bAtoforsen\b", "Ato Forson"), (r"(\d) ,(\d)", r"\1,\2"), (r"\b(\d[\d,]*) cds\b", r"GH¢\1"), (r"\bcds\b", "cedis"), (r"\bhow much I\b", "how machay"),
-       (r"\$10 ,000", "$10,000"), (r"\b64 -kilo\b", "64-kilo"), (r"\bpre -finance\b", "pre-finance"), (r"\bCocoa Bod\b", "COCOBOD"), (r"\bCocoBod\b", "COCOBOD"), (r"\bSedi\b", "cedi"),
-       (r"\b(\d+) %", r"\1%"), (r"\bin Cocoa\b", "in cocoa"), (r"\bcocoa processing company in Temer\b", "Cocoa Processing Company in Tema"), (r"\bTemer\b", "Tema"),
-       (r"\bsingle -state\b", "single state"), (r"\bsmall -scale\b", "small-scale"), (r"\b80 -90\b", "80 to 90"), (r"\bGoldbod\b", "GoldBod"), (r"\bthe gold board\b", "the Gold Board"),
-       (r"\bCoco's\b", "Cocoa's"), (r"\bIt would be a small thing\b", "E no be small thing"), (r"\bBaba\b", "Baaba"), (r"\bthe nest\b", "the Nest"), (r"\bthe Ascendant\b", "The Ascendant"),
-       (r"\bThis thing bash mew\b", "The thing pain me oo"), (r"\bbash mew\b", "pain me oo"), (r"\b50MB\b", "50 MB"), (r"\bBungpurugu\b", "Bunkpurugu"), (r"\bHarfasini\b", "Half Assini"),
-       (r"\bwe go crush\b", "we go crosh"), (r"\bthe Nest\b", "the Nest"), (r"\bpage 1\b", "page one"), (r"\bPage 1\b", "Page one"), (r"\bcenter\b", "centre"), (r"\bprogram\b", "programme")]
+FIX = [(r"\bPallava\b", "Palava"), (r"\bthe nest\b", "the Nest"), (r"\bThe Nest\b", "the Nest"), (r"^the Nest", "The Nest"), (r"\bprogram\b", "programme"),
+       (r"\bGoldbod\b", "GoldBod"), (r"\bBaba\b", "Baaba"), (r"\bfifty megabytes\b", "50 MB"), (r"\bcenter\b", "centre"), (r"\bthe Ascendant\b", "The Ascendant"),
+       (r"\bthe Combative\b", "The Combative"), (r"\bThe Combative,\b", "The Combative,"), (r"\bDoctor Letitia\b", "Dr Letitia")]
 def fix(s):
     for a, b in FIX: s = re.sub(a, b, s)
     return s
@@ -32,7 +25,7 @@ def toT(time):
     for p in vo:
         if p["vo_in"] - 0.05 <= time <= p["vo_out"] + 0.05: return p["T0"] + (time - p["vo_in"]), p["id"]
     return None, None
-GLUE = {('Gold','Coast'), ('Coast','Palava'), ('Coast','Palava.'), ('Sandpiper','Loop'), ('Sandpiper','Loop,'), ('Half','Assini'), ('Sir','Charles'), ('Charles','McCarthy')}
+GLUE = {('the','Nest'), ('the','Nest,'), ('Half','Assini'), ('Bank','Square'), ('De','La'), ('La','Rue'), ('Crane','Currency'), ('Orell','Füssli'), ('Gold','Coast'), ('Coast','Palava'), ('Coast','Palava.'), ('Sandpiper','Loop'), ('Sandpiper','Loop,'), ('Half','Assini'), ('Sir','Charles'), ('Charles','McCarthy')}
 glued = lambda a, b: (a.strip(',.'), b) in GLUE or (a, b) in GLUE
 cues, cur = [], []
 def flush():
@@ -61,14 +54,14 @@ def covered(a, b):
     return tot / max(0.01, b - a)
 lines, shown, hidden = [], 0, 0
 for i, c in enumerate(cues):
-    start = c[0]["s"] - 0.03
+    start = c[0]["s"]
     end = c[-1]["e"] + 0.45
     if i + 1 < len(cues): end = min(end, cues[i + 1][0]["s"] - 0.04)
     shown += 1
     # words appear as they are spoken: one event per word, each adding the next word
     for k, w in enumerate(c):
-        a0 = start if k == 0 else w["s"] - 0.02
-        a1 = c[k + 1]["s"] - 0.02 if k + 1 < len(c) else end
+        a0 = start if k == 0 else w["s"]
+        a1 = c[k + 1]["s"] if k + 1 < len(c) else end
         if a1 - a0 < 0.02: continue
         txt = fix(" ".join(x["w"] for x in c[:k + 1])) + ("{\\alpha&HFF&} " + fix(" ".join(x["w"] for x in c[k + 1:])) if k + 1 < len(c) else "")
         lines.append(f"Dialogue: 0,{ts(a0)},{ts(a1)},Sub,,0,0,0,,{txt}")

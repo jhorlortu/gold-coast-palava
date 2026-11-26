@@ -1,9 +1,9 @@
 # Split each Heritage Series image (front above back) into two notes, trim the white page, upscale x4 (Lanczos),
 # denoise lightly, sharpen (unsharp mask), keep full colour with a gentle vibrance lift. Out: ed4/media/notes/ghsN-{front,back}.png
 import sys, os, numpy as np, cv2
-SRC, OUT = '/home/user/gcp/ed4/src/notes', '/home/user/gcp/ed4/media/notes'
+SRC = sys.argv[1] if len(sys.argv) > 1 else '/home/user/gcp/ed4/src/notes'; OUT = sys.argv[2] if len(sys.argv) > 2 else '/home/user/gcp/ed4/media/notes'
 os.makedirs(OUT, exist_ok=True)
-for f in sorted(os.listdir(SRC)):
+for f in sorted(x for x in os.listdir(SRC) if x.endswith(('.jpg', '.png')) and '-front' not in x and '-back' not in x):
     im = cv2.imread(os.path.join(SRC, f)); g = cv2.cvtColor(im, cv2.COLOR_BGR2GRAY)
     ink = (g < 235).astype(np.uint8)
     rows = ink.mean(1) > 0.25
