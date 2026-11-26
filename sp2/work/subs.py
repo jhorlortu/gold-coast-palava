@@ -1,6 +1,6 @@
 # Word-timed subtitles (ASS) on the final timeline, in the show's font.
 import json, re
-SUB_LEAD = 0.35
+SUB_LEAD = 0.0   # client recording: word times are corrected in fix_transcript.py (+0.15 s)
 plan = json.load(open("/home/user/gcp/sp2/work/timeline.json")); t = json.load(open("/home/user/gcp/sp2/work/transcript.json"))
 words = [w for s in t["segments"] for w in s["words"]]
 # Rejoin tokens Whisper split (e.g. " 10" + ",000.")

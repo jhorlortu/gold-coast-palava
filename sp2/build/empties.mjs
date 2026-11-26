@@ -1,6 +1,6 @@
 // Lists scenes whose first element arrives late (screen near-empty while the voice runs) and static gaps.
 // usage: node empties.mjs [sections…]   (LATE=0.9 GAP=4.5)
-process.env.GCP_WORK ||= '/home/user/gcp/sp2/work'; process.env.GCP_CUE_LEAD ??= '0.4';
+process.env.GCP_WORK ||= '/home/user/gcp/sp2/work'; process.env.GCP_CUE_LEAD ??= '0.1';
 const L = await import('/home/user/gcp/build/lib.mjs');
 const orig = L.Part.prototype.scene;
 L.Part.prototype.scene = function (start, ...r) { (this._sc ??= []).push(start); const n = this.events.length; const id = orig.call(this, start, ...r); this.events.splice(n, 1); return id; };

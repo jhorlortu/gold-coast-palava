@@ -148,7 +148,7 @@ export function cold() {
   p.mast = false; p.css.push(SP2_CSS);
   const lit = 0.35, unlock = cs(c, 'at 12 minutes') + 1.6;
   const toRight = unlock + 0.55;
-  const six = cs(c, 'six years to the day'), jj = cs(c, 'jerry john rawlings'), kb = cs(c, 'korle'), kw = cs(c, 'kwame'), gren = cs(c, 'dropped a grenade'),
+  const six = cs(c, 'six years to the day'), jj = cs(c, 'jerry john rawlings'), kb = cs(c, 'korle-bu'), kw = cs(c, 'kwame'), gren = cs(c, 'dropped a grenade'),
     yrs = cs(c, '19 years in power'), dey = cs(c, 'and ghana still dey', 'ghana still dey');
   p.scene(0, s.dur, `<div class="room"></div>`, { bg: 'none', enter: 'cut', drift: 0 });
   const ph = new Phone(p, { pinned: null, start: 0, enter: null, clock0: '11:12', x: 710, y: 25, rot: 0 });
@@ -293,14 +293,13 @@ const pinned = (key) => () => {
 // ---------------------------------------------------------------------------
 // CLOSE — the closing card, the Nest named, then COMBO2 and COMBO3.
 export function close() {
-  const [p, c, s] = make('close');
-  p.mast = false; p.css.push(SP2_CSS);
-  const nest = cs(c, 'back at the nest', 'the nest');
+  // no closing line in the client's recording: the card plays over the theme, timed by itself
+  const s = SEGMENTS.close; const p = new Part({ ...s }); p.mast = false; p.css.push(SP2_CSS);
   p.scene(0, s.dur, `${frameCard(p, 0.0, { stampText: 'SPECIAL No. 2' })}
     <div style="position:absolute;left:110px;top:296px">${p.typed('THIS HAS BEEN', 0.1, { cps: 22, cls: 'tw' }).replace('class="tw"', 'class="tw" style="font-size:40px"')}</div>
-    <div class="hl" style="left:110px;top:370px;width:1200px"><h1 style="font-size:150px;line-height:1.0">${p.words(p.id_('w'), 'A Gold Coast Palava Special', cs(c, 'a gold coast'), { stagger: 0.09 })}</h1></div>
-    <div class="hl" style="left:110px;top:720px;width:1200px"><div class="sub" style="font-size:52px;margin-top:0;color:var(--ink)">${p.words(p.id_('w'), 'We will meet you back at the Nest. *Cheers.*', cs(c, 'we will meet'), { stagger: 0.08 })}</div></div>
-    ${p.print(NEST, nest - 0.15, { x: 1270, y: 330, w: 540, rot: 3, caption: 'The Nest · 266 Sandpiper Loop' })}`, { bg: 'paper', enter: 'wipeU', drift: 0.025 });
+    <div class="hl" style="left:110px;top:370px;width:1200px"><h1 style="font-size:150px;line-height:1.0">${p.words(p.id_('w'), 'A Gold Coast Palava Special', 0.7, { stagger: 0.09 })}</h1></div>
+    <div class="hl" style="left:110px;top:720px;width:1200px"><div class="sub" style="font-size:52px;margin-top:0;color:var(--ink)">${p.words(p.id_('w'), 'We will meet you back at the Nest. *Cheers.*', 2.3, { stagger: 0.08 })}</div></div>
+    ${p.print(NEST, 2.6, { x: 1270, y: 330, w: 540, rot: 3, caption: 'The Nest · 266 Sandpiper Loop' })}`, { bg: 'paper', enter: 'wipeU', drift: 0.025 });
   fx(p, path.join(PSFX, 'heavy-swoosh.mp3'), -0.15, -8);
   return p;
 }

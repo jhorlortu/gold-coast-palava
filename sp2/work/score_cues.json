@@ -3,45 +3,45 @@
   "file": "/home/user/gcp/sp2/work/score/cold.wav",
   "T": 0.0,
   "db": -17,
-  "len": 18.791,
+  "len": 22.8,
   "fadein": 1.0,
   "fade": 1.2
  },
  {
   "file": "/home/user/gcp/sp2/work/score/q1.wav",
-  "T": 68.906,
+  "T": 77.42,
   "db": -21,
-  "len": 93.07,
+  "len": 89.87,
   "fadein": 2.5,
   "fade": 2.0
  },
  {
   "file": "/home/user/gcp/sp2/work/score/q2.wav",
-  "T": 165.376,
+  "T": 170.69,
   "db": -21,
-  "len": 100.242,
+  "len": 100.95,
   "fadein": 2.5,
   "fade": 2.0
  },
  {
   "file": "/home/user/gcp/sp2/work/score/q3.wav",
-  "T": 269.018,
+  "T": 275.04,
   "db": -21,
-  "len": 89.583,
+  "len": 93.84,
   "fadein": 2.5,
   "fade": 2.0
  },
  {
   "file": "/home/user/gcp/sp2/work/score/q4.wav",
-  "T": 362.001,
+  "T": 372.28,
   "db": -21,
-  "len": 109.071,
+  "len": 113.65,
   "fadein": 2.5,
   "fade": 2.0
  },
  {
   "file": "/home/user/gcp/sp2/work/score/riser.wav",
-  "T": 63.256,
+  "T": 71.77,
   "db": -14,
   "len": 3.0,
   "fadein": 0.5,
@@ -49,7 +49,7 @@
  },
  {
   "file": "/home/user/gcp/sp2/work/score/hit.wav",
-  "T": 66.256,
+  "T": 74.77,
   "db": -10,
   "len": 2.8,
   "fadein": 0.01,
@@ -57,7 +57,7 @@
  },
  {
   "file": "/home/user/gcp/sp2/work/score/riser.wav",
-  "T": 159.726,
+  "T": 165.04,
   "db": -14,
   "len": 3.0,
   "fadein": 0.5,
@@ -65,7 +65,7 @@
  },
  {
   "file": "/home/user/gcp/sp2/work/score/hit.wav",
-  "T": 162.726,
+  "T": 168.04,
   "db": -10,
   "len": 2.8,
   "fadein": 0.01,
@@ -73,7 +73,7 @@
  },
  {
   "file": "/home/user/gcp/sp2/work/score/riser.wav",
-  "T": 263.368,
+  "T": 269.39,
   "db": -14,
   "len": 3.0,
   "fadein": 0.5,
@@ -81,7 +81,7 @@
  },
  {
   "file": "/home/user/gcp/sp2/work/score/hit.wav",
-  "T": 266.368,
+  "T": 272.39,
   "db": -10,
   "len": 2.8,
   "fadein": 0.01,
@@ -89,7 +89,7 @@
  },
  {
   "file": "/home/user/gcp/sp2/work/score/riser.wav",
-  "T": 356.351,
+  "T": 366.63,
   "db": -14,
   "len": 3.0,
   "fadein": 0.5,
@@ -97,7 +97,7 @@
  },
  {
   "file": "/home/user/gcp/sp2/work/score/hit.wav",
-  "T": 359.351,
+  "T": 369.63,
   "db": -10,
   "len": 2.8,
   "fadein": 0.01,
@@ -105,7 +105,7 @@
  },
  {
   "file": "/home/user/gcp/sp2/work/score/riser.wav",
-  "T": 468.822,
+  "T": 483.68,
   "db": -14,
   "len": 3.0,
   "fadein": 0.5,
@@ -113,7 +113,7 @@
  },
  {
   "file": "/home/user/gcp/sp2/work/score/hit.wav",
-  "T": 471.822,
+  "T": 486.68,
   "db": -10,
   "len": 2.8,
   "fadein": 0.01,

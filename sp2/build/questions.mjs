@@ -92,7 +92,7 @@ export function q2() {
     trib = t('public tribunals'), mak = t('makola'), same = t('and that same year'), abd = t('abducted and murdered'), haunts = t('still haunts'),
     evenso = t('even so'), ask = t('to ask ghanaians'), conv = t('and that slow conversation'), cons = t('1992 constitution'),
     haynes = t('the british scholar'), interviewed = t('who interviewed'), never = t('never clearly defined'), lacked = t('and lacked'),
-    brill = t('he was brilliant'), lessSure = t('and far less sure'), yet = t('yet one piece'), in88 = t('in 1988'), twoth = t('two thirds'), yours = t('and the assembly in your'), grand = t('grandchild');
+    brill = t('he was brilliant'), lessSure = t('and far less sure'), yet = t('yet one piece'), in88 = t('in 1988'), twoth = t('two-thirds'), yours = t('and the assembly in your'), grand = t('grandchild');
   const ph = new Phone(p, { pinned: 'People’s power, or one man’s power?', enter: 0.0, clock0: '11:38',
     prior: [{ who: 'Aba', text: 'Before we judge, what did he actually take over? I only know the June 4 songs 😅', time: '11:19 pm' }, { who: 'Aba', text: 'Ei. So the house was on fire before the man entered 😳', time: '11:31 pm' }] });
   const kw = t('kwame was not done');
@@ -266,7 +266,7 @@ export function q4() {
 export function lesson() {
   const [p, c, s] = make('lesson'); p.css.push(SP2_CSS); p.label = '';
   const t = (...q) => cs(c, ...q);
-  const verdict = t('aba asked for a verdict', 'asked for a verdict'), ahwoi = t('and ahwoi himself'), proverb = t('an old akan proverb'), santro = t('santrofi'),
+  const verdict = t('aba asked for a verdict', 'asked for a verdict'), ahwoi = t('and ahwoi himself'), proverb = t('an old akan proverb'),
     catchIt = t('catch it and'), letGo = t('let it go and'), man = t('that is the man'), rev = t('the revolutionary who'), prag = t('the pragmatist'), strong = t('the strongman'),
     lesson_ = t('so here is the lesson'), anger = t('anger can diagnose'), only = t('but only a plan'), nineteen = t('and 19 years', '19 years of power'),
     turn = t('now it is your turn'), write = t('write it in the comments'), L = c('with respect', { end: true });
@@ -283,11 +283,10 @@ export function lesson() {
     ${chip(p, 'close to half past one', 0.6, LX, 300, 'chip light')}
     ${chip(p, 'Aba asks for a verdict', verdict, LX, 396, 'chip gold')}
     ${prt(p, 'ahwoi-book', ahwoi, { x: 760, y: 300, w: 300, rot: 3, caption: 'the best verdict: Ahwoi’s' })}`, { enter: 'cut' });
-  sceneP(p, proverb - 0.2, catchIt - 0.2, `${H(p, 'Santrofi anomaa', santro - 0.2, { size: 120, kicker: 'AN OLD AKAN PROVERB · THE NIGHTJAR' })}
-    ${stk(p, 'nightjar', proverb + 0.4, { x: 640, y: 560, w: 540, rot: -3, life: 'bob', until: catchIt + 6, sfx: path.join(ED1SFX, 'wind.wav') })}
-    <div style="position:absolute;left:${LX}px;top:330px">${tw(p, 'wokye no a, wakye mmusuo;', santro + 1.0, 50, 'var(--ink)', 14)}</div>
-    <div style="position:absolute;left:${LX}px;top:400px">${tw(p, 'wogyae no a, wagyae adeɛ.', santro + 3.0, 50, 'var(--ink)', 14)}</div>
-    ${chip(p, 'catch it… or let it go?', t('wagyae') - 0.2, LX, 500, 'chip gold')}`, { enter: 'iris' });
+  // the proverb: its Akan name on the page, the nightjar; the narrator gives only its English meaning
+  sceneP(p, proverb - 0.2, catchIt - 0.2, `${H(p, 'Santrofi anomaa', proverb, { size: 120, kicker: 'AN OLD AKAN PROVERB', kat: proverb - 0.15 })}
+    ${stk(p, 'nightjar', t('the nightjar') - 0.2, { x: 640, y: 420, w: 540, rot: -3, life: 'bob', until: catchIt + 6, sfx: path.join(ED1SFX, 'wind.wav') })}
+    ${chip(p, 'the nightjar bird', t('the nightjar') + 0.2, LX, 330, 'chip gold')}`, { enter: 'iris' });
   sceneP(p, catchIt - 0.2, man - 0.2, `${card(p, `<div style="font-family:'Playfair Display',serif;font-weight:900;font-size:72px;line-height:1.05">Catch it: <span style="color:var(--red)">a curse.</span></div>`, catchIt, { y: 150, w: 980, rot: -1.5 })}
     ${card(p, `<div style="font-family:'Playfair Display',serif;font-weight:900;font-size:72px;line-height:1.05">Let it go: <span style="color:#8E6A1E">something precious.</span></div>`, letGo, { y: 360, w: 980, rot: 1.2 })}
     ${stk(p, 'nightjar', catchIt + 0.2, { x: 700, y: 620, w: 420, rot: 2, life: 'bob', until: man })}`, { enter: 'wipeU' });

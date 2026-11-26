@@ -272,8 +272,13 @@ Masthead lists only members already introduced; the rest stay "Empty desk … To
   lines, curtain, sprout) or reuse the sticker libraries.
 
 ## Special No. 2 ("Nineteen Years: The Rawlings Question", Nov 2026) — what changed
-- Tree `sp2/`. The voiceover is recorded by the client (Joshua Horlortu); `work/build_vo.py` joins paragraph files and
-  writes `edl.json`. Spans open 0.45 s early so Whisper's early first word stays inside.
+- Tree `sp2/`. The voiceover is the client's own recording (`src/vo.mp3`); `work/edl.py` cuts the spoken section
+  labels and read-out timestamps at measured silence (search windows must reach past the real onset: the onset finder
+  returns the window edge if the silence runs on). The client cut the Twi proverb from the voice (English meaning only;
+  the Akan name stays on the page) and recorded no closing line: `plan.py` then adds a 5.5 s voiceless close card.
+- **Sync, measure every recording:** on this one Whisper's word starts ran ~0.15 s EARLY (median vs energy onsets), the
+  opposite of Special No. 1. `fix_transcript.py` shifts words +0.15 s and clamps each span's first word into the span;
+  `GCP_CUE_LEAD=0.1`, `SUB_LEAD=0`.
 - `work/fix_transcript.py` corrects Whisper at word level (names, Twi proverb, UK spelling), matching on joined
   characters (Whisper splits "A-Chi" into tokens) and keeping each word in one segment. Cue phrases use the corrected
   words; possessives drop the apostrophe in cues ("world banks", "south koreas", "two thirds").

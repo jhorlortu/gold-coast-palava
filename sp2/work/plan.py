@@ -4,12 +4,13 @@
 import json, subprocess, numpy as np
 W = "/home/user/gcp/sp2/work"
 EDL = json.load(open(f"{W}/edl.json"))
-VOF = "/home/user/gcp/sp2/src/vo.mp3"
+VOF = "/home/user/gcp/sp2/src/vo.mp3"   # the client's own recording
 COLD_IN = 1.4                 # black, the phone lights up with a notification, then the voice
 COMBO1 = 14.0                 # INTRO1 (0-7 s) + COMBO1 (7-14 s)
 PIN = 4.2                     # a pinned question card lands, holds, swipes away
 CLOSE_GAP = 5.2             # the chat signs off (Aba, Kofi, three 🙏🏾), then the phone drops away before the closing line
 OUTRO = 17.0                  # COMBO2
+CLOSE_CARD = 5.5               # closing card without voice (no closing line in the recording)
 CREDITS = 5.8                 # COMBO3, in silence
 SENT_PAUSE, PARA_PAUSE = 0.8, 1.2
 
@@ -47,6 +48,11 @@ for k, sp in enumerate(EDL):
     elif gap == "close":
         T += 0.6
         parts.append({"id": "pre-close", "kind": "gap", "T0": round(T, 3), "dur": CLOSE_GAP}); T += CLOSE_GAP
+        if k == len(EDL) - 1:   # the client's recording has no closing line: the closing card plays over the theme alone
+            parts.append({"id": "close", "kind": "card", "T0": round(T, 3), "dur": CLOSE_CARD}); T += CLOSE_CARD
+            T += 0.3
+            parts.append({"id": "outro", "kind": "outro", "T0": round(T, 3), "dur": OUTRO}); T += OUTRO
+            parts.append({"id": "credits", "kind": "credits", "T0": round(T, 3), "dur": CREDITS}); T += CREDITS
     elif gap == "outro":
         T += 0.5
         parts.append({"id": "outro", "kind": "outro", "T0": round(T, 3), "dur": OUTRO}); T += OUTRO

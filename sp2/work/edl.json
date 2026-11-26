@@ -1,79 +1,44 @@
 [
  {
   "id": "cold-open",
-  "vo_in": 0.05,
-  "vo_out": 15.741,
-  "gap_after": "combo1",
-  "paras": [
-   "s1a"
-  ]
+  "vo_in": 4.69,
+  "vo_out": 22.39,
+  "gap_after": "combo1"
  },
  {
   "id": "welcome",
-  "vo_in": 17.741,
-  "vo_out": 46.256,
-  "gap_after": "pin:q1",
-  "paras": [
-   "s1b"
-  ]
+  "vo_in": 22.39,
+  "vo_out": 53.41,
+  "gap_after": "pin:q1"
  },
  {
   "id": "q1",
-  "vo_in": 48.256,
-  "vo_out": 130.826,
-  "gap_after": "pin:q2",
-  "paras": [
-   "s2a",
-   "s2b"
-  ]
+  "vo_in": 63.07,
+  "vo_out": 142.04,
+  "gap_after": "pin:q2"
  },
  {
   "id": "q2",
-  "vo_in": 132.826,
-  "vo_out": 220.168,
-  "gap_after": "pin:q3",
-  "paras": [
-   "s3a",
-   "s3b"
-  ]
+  "vo_in": 151.79,
+  "vo_out": 241.04,
+  "gap_after": "pin:q3"
  },
  {
   "id": "q3",
-  "vo_in": 222.168,
-  "vo_out": 300.051,
-  "gap_after": "pin:q4",
-  "paras": [
-   "s4a",
-   "s4b"
-  ]
+  "vo_in": 251.2,
+  "vo_out": 334.54,
+  "gap_after": "pin:q4"
  },
  {
   "id": "q4",
-  "vo_in": 302.051,
-  "vo_out": 398.622,
-  "gap_after": "pin:lesson",
-  "paras": [
-   "s5a",
-   "s5b"
-  ]
+  "vo_in": 344.56,
+  "vo_out": 446.51,
+  "gap_after": "pin:lesson"
  },
  {
   "id": "lesson",
-  "vo_in": 400.622,
-  "vo_out": 458.409,
-  "gap_after": "close",
-  "paras": [
-   "s6a",
-   "s6b"
-  ]
- },
- {
-  "id": "close",
-  "vo_in": 460.409,
-  "vo_out": 467.362,
-  "gap_after": "outro",
-  "paras": [
-   "s7"
-  ]
+  "vo_in": 453.82,
+  "vo_out": 510.575,
+  "gap_after": "close"
  }
 ]
