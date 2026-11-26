@@ -52,3 +52,5 @@ sp2/work/sfx_cues.json
 sp2/work/mix.filter
 reels/*/clips/
 reels/*/hf/
+**/vo16k.raw
+ed4/build/sfx/
