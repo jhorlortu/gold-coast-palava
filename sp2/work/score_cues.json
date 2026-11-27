@@ -1,0 +1,122 @@
+[
+ {
+  "file": "/home/user/gcp/sp2/work/score/cold.wav",
+  "T": 0.0,
+  "db": -17,
+  "len": 22.8,
+  "fadein": 1.0,
+  "fade": 1.2
+ },
+ {
+  "file": "/home/user/gcp/sp2/work/score/q1.wav",
+  "T": 77.42,
+  "db": -21,
+  "len": 89.87,
+  "fadein": 2.5,
+  "fade": 2.0
+ },
+ {
+  "file": "/home/user/gcp/sp2/work/score/q2.wav",
+  "T": 170.69,
+  "db": -21,
+  "len": 100.95,
+  "fadein": 2.5,
+  "fade": 2.0
+ },
+ {
+  "file": "/home/user/gcp/sp2/work/score/q3.wav",
+  "T": 275.04,
+  "db": -21,
+  "len": 93.84,
+  "fadein": 2.5,
+  "fade": 2.0
+ },
+ {
+  "file": "/home/user/gcp/sp2/work/score/q4.wav",
+  "T": 372.28,
+  "db": -21,
+  "len": 113.65,
+  "fadein": 2.5,
+  "fade": 2.0
+ },
+ {
+  "file": "/home/user/gcp/sp2/work/score/riser.wav",
+  "T": 71.77,
+  "db": -14,
+  "len": 3.0,
+  "fadein": 0.5,
+  "fade": 0.1
+ },
+ {
+  "file": "/home/user/gcp/sp2/work/score/hit.wav",
+  "T": 74.77,
+  "db": -10,
+  "len": 2.8,
+  "fadein": 0.01,
+  "fade": 1.6
+ },
+ {
+  "file": "/home/user/gcp/sp2/work/score/riser.wav",
+  "T": 165.04,
+  "db": -14,
+  "len": 3.0,
+  "fadein": 0.5,
+  "fade": 0.1
+ },
+ {
+  "file": "/home/user/gcp/sp2/work/score/hit.wav",
+  "T": 168.04,
+  "db": -10,
+  "len": 2.8,
+  "fadein": 0.01,
+  "fade": 1.6
+ },
+ {
+  "file": "/home/user/gcp/sp2/work/score/riser.wav",
+  "T": 269.39,
+  "db": -14,
+  "len": 3.0,
+  "fadein": 0.5,
+  "fade": 0.1
+ },
+ {
+  "file": "/home/user/gcp/sp2/work/score/hit.wav",
+  "T": 272.39,
+  "db": -10,
+  "len": 2.8,
+  "fadein": 0.01,
+  "fade": 1.6
+ },
+ {
+  "file": "/home/user/gcp/sp2/work/score/riser.wav",
+  "T": 366.63,
+  "db": -14,
+  "len": 3.0,
+  "fadein": 0.5,
+  "fade": 0.1
+ },
+ {
+  "file": "/home/user/gcp/sp2/work/score/hit.wav",
+  "T": 369.63,
+  "db": -10,
+  "len": 2.8,
+  "fadein": 0.01,
+  "fade": 1.6
+ },
+ {
+  "file": "/home/user/gcp/sp2/work/score/riser.wav",
+  "T": 483.68,
+  "db": -14,
+  "len": 3.0,
+  "fadein": 0.5,
+  "fade": 0.1
+ },
+ {
+  "file": "/home/user/gcp/sp2/work/score/hit.wav",
+  "T": 486.68,
+  "db": -10,
+  "len": 2.8,
+  "fadein": 0.01,
+  "fade": 1.6
+ }
+]

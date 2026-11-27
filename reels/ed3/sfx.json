@@ -1,0 +1,795 @@
+[
+ {
+  "file": "/home/user/gcp/ed3/media/sfx/peel.wav",
+  "T": 2.64,
+  "db": -24,
+  "len": 1.2
+ },
+ {
+  "file": "/home/user/gcp/ed3/media/sfx/pin.wav",
+  "T": 2.44,
+  "db": -14
+ },
+ {
+  "file": "/home/user/gcp/ed3/media/sfx/pin.wav",
+  "T": 3.86,
+  "db": -14
+ },
+ {
+  "file": "/home/user/gcp/project/media/sfx/syn-tick.wav",
+  "T": 0.1,
+  "db": -24
+ },
+ {
+  "file": "/home/user/gcp/project/media/sfx/syn-swish.wav",
+  "T": 0.1,
+  "db": -21
+ },
+ {
+  "file": "/home/user/gcp/project/media/sfx/syn-tick.wav",
+  "T": 0.27,
+  "db": -25
+ },
+ {
+  "file": "/home/user/gcp/ed3/media/sfx/waves.wav",
+  "T": 2.37,
+  "db": -14
+ },
+ {
+  "file": "/home/user/gcp/ed3/media/sfx/peel.wav",
+  "T": 5.5,
+  "db": -24,
+  "len": 1.2
+ },
+ {
+  "file": "/home/user/gcp/ed3/media/sfx/pin.wav",
+  "T": 8.22,
+  "db": -14
+ },
+ {
+  "file": "/home/user/gcp/ed3/media/sfx/pin.wav",
+  "T": 6,
+  "db": -14
+ },
+ {
+  "file": "/home/user/gcp/project/media/sfx/syn-tick.wav",
+  "T": 5.2,
+  "db": -24
+ },
+ {
+  "file": "/home/user/gcp/project/media/sfx/syn-swish.wav",
+  "T": 5.2,
+  "db": -21
+ },
+ {
+  "file": "/home/user/gcp/project/media/sfx/syn-tick.wav",
+  "T": 5.37,
+  "db": -25
+ },
+ {
+  "file": "/home/user/gcp/project/media/sfx/whoosh-2.mp3",
+  "T": 5.02,
+  "db": -18
+ },
+ {
+  "file": "/home/user/gcp/ed3/media/sfx/snap.wav",
+  "T": 5.5,
+  "db": -10
+ },
+ {
+  "file": "/home/user/gcp/ed3/media/sfx/scribble.wav",
+  "T": 11.775,
+  "db": -14,
+  "len": 2.6
+ },
+ {
+  "file": "/home/user/gcp/ed3/media/sfx/scribble.wav",
+  "T": 14.475,
+  "db": -16,
+  "len": 2.6
+ },
+ {
+  "file": "/home/user/gcp/ed3/media/sfx/hit.wav",
+  "T": 17.39,
+  "db": -12
+ },
+ {
+  "file": "/home/user/gcp/ed3/media/sfx/pencil.wav",
+  "T": 12.005,
+  "db": -12
+ },
+ {
+  "file": "/home/user/gcp/project/media/sfx/whoosh-2.mp3",
+  "T": 11.595,
+  "db": -18
+ },
+ {
+  "file": "/home/user/gcp/project/media/sfx/page-turn-4.mp3",
+  "T": 18.51,
+  "db": -18
+ },
+ {
+  "file": "/home/user/gcp/project/media/sfx/whoosh-1.mp3",
+  "T": 18.29,
+  "db": -24
+ },
+ {
+  "file": "/home/user/gcp/project/media/sfx/page-turn-3.mp3",
+  "T": 18.64,
+  "db": -18
+ },
+ {
+  "file": "/home/user/gcp/project/media/sfx/whoosh-1.mp3",
+  "T": 18.42,
+  "db": -24
+ },
+ {
+  "file": "/home/user/gcp/project/media/sfx/page-turn-4.mp3",
+  "T": 18.77,
+  "db": -18
+ },
+ {
+  "file": "/home/user/gcp/project/media/sfx/whoosh-1.mp3",
+  "T": 18.55,
+  "db": -24
+ },
+ {
+  "file": "/home/user/gcp/project/media/sfx/page-turn-3.mp3",
+  "T": 18.9,
+  "db": -18
+ },
+ {
+  "file": "/home/user/gcp/project/media/sfx/whoosh-1.mp3",
+  "T": 18.68,
+  "db": -24
+ },
+ {
+  "file": "/home/user/gcp/project/media/sfx/page-turn-4.mp3",
+  "T": 19.03,
+  "db": -18
+ },
+ {
+  "file": "/home/user/gcp/project/media/sfx/whoosh-1.mp3",
+  "T": 18.81,
+  "db": -24
+ },
+ {
+  "file": "/home/user/gcp/project/media/sfx/page-turn-3.mp3",
+  "T": 19.16,
+  "db": -18
+ },
+ {
+  "file": "/home/user/gcp/project/media/sfx/whoosh-1.mp3",
+  "T": 18.94,
+  "db": -24
+ },
+ {
+  "file": "/home/user/gcp/project/media/sfx/page-turn-4.mp3",
+  "T": 19.29,
+  "db": -18
+ },
+ {
+  "file": "/home/user/gcp/project/media/sfx/whoosh-1.mp3",
+  "T": 19.07,
+  "db": -24
+ },
+ {
+  "file": "/home/user/gcp/project/media/sfx/page-turn-3.mp3",
+  "T": 19.42,
+  "db": -18
+ },
+ {
+  "file": "/home/user/gcp/project/media/sfx/whoosh-1.mp3",
+  "T": 19.2,
+  "db": -24
+ },
+ {
+  "file": "/home/user/gcp/project/media/sfx/whoosh-2.mp3",
+  "T": 17.87,
+  "db": -12
+ },
+ {
+  "file": "/home/user/gcp/project/media/sfx/press-2.mp3",
+  "T": 17.99,
+  "db": -18,
+  "len": 2.5
+ },
+ {
+  "file": "/home/user/gcp/project/media/sfx/stamp-2.mp3",
+  "T": 18.34,
+  "db": -16
+ },
+ {
+  "file": "/home/user/gcp/project/media/sfx/whoosh-2.mp3",
+  "T": 17.81,
+  "db": -18
+ },
+ {
+  "file": "/home/user/gcp/project/media/sfx/syn-tick.wav",
+  "T": 22.59,
+  "db": -24
+ },
+ {
+  "file": "/home/user/gcp/project/media/sfx/syn-swish.wav",
+  "T": 22.59,
+  "db": -21
+ },
+ {
+  "file": "/home/user/gcp/project/media/sfx/syn-tick.wav",
+  "T": 22.76,
+  "db": -25
+ },
+ {
+  "file": "/home/user/gcp/project/media/sfx/syn-thud.wav",
+  "T": 23.07,
+  "db": -20
+ },
+ {
+  "file": "/home/user/gcp/ed1/media/sfx/paper-slap.wav",
+  "T": 23.07,
+  "db": -24
+ },
+ {
+  "file": "/home/user/gcp/ed1/media/sfx/pop-1.wav",
+  "T": 28.46,
+  "db": -18
+ },
+ {
+  "file": "/home/user/gcp/project/media/sfx/stamp-1.mp3",
+  "T": 32,
+  "db": -9
+ },
+ {
+  "file": "/home/user/gcp/project/media/sfx/whoosh-2.mp3",
+  "T": 22.41,
+  "db": -18
+ },
+ {
+  "file": "/home/user/gcp/ed3/media/sfx/thump.wav",
+  "T": 32.23,
+  "db": -8
+ },
+ {
+  "file": "/home/user/gcp/ed1/media/sfx/murmur.wav",
+  "T": 23.09,
+  "db": -24,
+  "len": 4
+ },
+ {
+  "file": "/home/user/gcp/ed3/media/sfx/pin.wav",
+  "T": 34.79,
+  "db": -14
+ },
+ {
+  "file": "/home/user/gcp/ed3/media/sfx/pin.wav",
+  "T": 35.65,
+  "db": -14
+ },
+ {
+  "file": "/home/user/gcp/project/media/sfx/syn-tick.wav",
+  "T": 34.29,
+  "db": -24
+ },
+ {
+  "file": "/home/user/gcp/project/media/sfx/syn-swish.wav",
+  "T": 37.2,
+  "db": -21
+ },
+ {
+  "file": "/home/user/gcp/project/media/sfx/syn-tick.wav",
+  "T": 37.37,
+  "db": -25
+ },
+ {
+  "file": "/home/user/gcp/ed1/media/sfx/pop-2.wav",
+  "T": 34.51,
+  "db": -18
+ },
+ {
+  "file": "/home/user/gcp/project/media/sfx/whoosh-2.mp3",
+  "T": 34.11,
+  "db": -18
+ },
+ {
+  "file": "/home/user/gcp/ed3/media/sfx/fire.wav",
+  "T": 41.81,
+  "db": -10
+ },
+ {
+  "file": "/home/user/gcp/ed3/media/sfx/fire-far.wav",
+  "T": 43.31,
+  "db": -16
+ },
+ {
+  "file": "/home/user/gcp/ed3/media/sfx/pin.wav",
+  "T": 44.26,
+  "db": -14
+ },
+ {
+  "file": "/home/user/gcp/project/media/sfx/syn-tick.wav",
+  "T": 43.56,
+  "db": -24
+ },
+ {
+  "file": "/home/user/gcp/project/media/sfx/syn-swish.wav",
+  "T": 43.56,
+  "db": -21
+ },
+ {
+  "file": "/home/user/gcp/project/media/sfx/syn-tick.wav",
+  "T": 43.73,
+  "db": -25
+ },
+ {
+  "file": "/home/user/gcp/ed1/media/sfx/whip.wav",
+  "T": 43.76,
+  "db": -17
+ },
+ {
+  "file": "/home/user/gcp/ed1/media/sfx/pop-3.wav",
+  "T": 50.79,
+  "db": -18
+ },
+ {
+  "file": "/home/user/gcp/project/media/sfx/whoosh-2.mp3",
+  "T": 43.38,
+  "db": -18
+ },
+ {
+  "file": "/home/user/gcp/ed3/media/sfx/rifle.wav",
+  "T": 46.24,
+  "db": -4
+ },
+ {
+  "file": "/home/user/gcp/ed3/media/sfx/peel.wav",
+  "T": 54.955,
+  "db": -24,
+  "len": 1.2
+ },
+ {
+  "file": "/home/user/gcp/ed3/media/sfx/pin.wav",
+  "T": 57.415,
+  "db": -14
+ },
+ {
+  "file": "/home/user/gcp/project/media/sfx/syn-tick.wav",
+  "T": 53.97,
+  "db": -24
+ },
+ {
+  "file": "/home/user/gcp/project/media/sfx/syn-swish.wav",
+  "T": 53.97,
+  "db": -21
+ },
+ {
+  "file": "/home/user/gcp/project/media/sfx/syn-tick.wav",
+  "T": 54.14,
+  "db": -25
+ },
+ {
+  "file": "/home/user/gcp/ed1/media/sfx/pop-1.wav",
+  "T": 60.435,
+  "db": -18
+ },
+ {
+  "file": "/home/user/gcp/project/media/sfx/whoosh-2.mp3",
+  "T": 53.79,
+  "db": -18
+ },
+ {
+  "file": "/home/user/gcp/ed3/media/sfx/snip.wav",
+  "T": 55.655,
+  "db": -8
+ },
+ {
+  "file": "/home/user/gcp/ed3/media/sfx/snip.wav",
+  "T": 60.615,
+  "db": -8
+ },
+ {
+  "file": "/home/user/gcp/ed3/media/sfx/kachunk.wav",
+  "T": 67.6,
+  "db": -10
+ },
+ {
+  "file": "/home/user/gcp/ed3/media/sfx/kachunk.wav",
+  "T": 73.105,
+  "db": -10
+ },
+ {
+  "file": "/home/user/gcp/project/media/sfx/syn-tick.wav",
+  "T": 62.74,
+  "db": -24
+ },
+ {
+  "file": "/home/user/gcp/project/media/sfx/syn-swish.wav",
+  "T": 62.74,
+  "db": -21
+ },
+ {
+  "file": "/home/user/gcp/project/media/sfx/syn-tick.wav",
+  "T": 62.91,
+  "db": -25
+ },
+ {
+  "file": "/home/user/gcp/ed3/media/sfx/blip.wav",
+  "T": 64.87,
+  "db": -26
+ },
+ {
+  "file": "/home/user/gcp/ed3/media/sfx/blip.wav",
+  "T": 65.087,
+  "db": -26
+ },
+ {
+  "file": "/home/user/gcp/ed3/media/sfx/blip.wav",
+  "T": 65.303,
+  "db": -26
+ },
+ {
+  "file": "/home/user/gcp/ed3/media/sfx/blip.wav",
+  "T": 65.52,
+  "db": -26
+ },
+ {
+  "file": "/home/user/gcp/ed3/media/sfx/blip.wav",
+  "T": 65.737,
+  "db": -26
+ },
+ {
+  "file": "/home/user/gcp/ed3/media/sfx/register.wav",
+  "T": 66.07,
+  "db": -22
+ },
+ {
+  "file": "/home/user/gcp/ed3/media/sfx/blip.wav",
+  "T": 70.27,
+  "db": -26
+ },
+ {
+  "file": "/home/user/gcp/ed3/media/sfx/blip.wav",
+  "T": 70.487,
+  "db": -26
+ },
+ {
+  "file": "/home/user/gcp/ed3/media/sfx/blip.wav",
+  "T": 70.703,
+  "db": -26
+ },
+ {
+  "file": "/home/user/gcp/ed3/media/sfx/blip.wav",
+  "T": 70.92,
+  "db": -26
+ },
+ {
+  "file": "/home/user/gcp/ed3/media/sfx/blip.wav",
+  "T": 71.137,
+  "db": -26
+ },
+ {
+  "file": "/home/user/gcp/ed3/media/sfx/register.wav",
+  "T": 71.47,
+  "db": -22
+ },
+ {
+  "file": "/home/user/gcp/ed3/media/sfx/ballot.wav",
+  "T": 63.07,
+  "db": -12
+ },
+ {
+  "file": "/home/user/gcp/project/media/sfx/whoosh-2.mp3",
+  "T": 62.56,
+  "db": -18
+ },
+ {
+  "file": "/home/user/gcp/ed3/media/sfx/pin.wav",
+  "T": 77.035,
+  "db": -14
+ },
+ {
+  "file": "/home/user/gcp/project/media/sfx/syn-tick.wav",
+  "T": 75.585,
+  "db": -24
+ },
+ {
+  "file": "/home/user/gcp/project/media/sfx/syn-swish.wav",
+  "T": 75.585,
+  "db": -21
+ },
+ {
+  "file": "/home/user/gcp/project/media/sfx/syn-tick.wav",
+  "T": 75.755,
+  "db": -25
+ },
+ {
+  "file": "/home/user/gcp/ed1/media/sfx/pop-2.wav",
+  "T": 78.715,
+  "db": -18
+ },
+ {
+  "file": "/home/user/gcp/project/media/sfx/whoosh-2.mp3",
+  "T": 75.405,
+  "db": -18
+ },
+ {
+  "file": "/home/user/gcp/ed3/media/sfx/nib.wav",
+  "T": 89.5,
+  "db": -10
+ },
+ {
+  "file": "/home/user/gcp/ed3/media/sfx/nib.wav",
+  "T": 96.1,
+  "db": -10
+ },
+ {
+  "file": "/home/user/gcp/ed3/media/sfx/eraser.wav",
+  "T": 95.8,
+  "db": -12
+ },
+ {
+  "file": "/home/user/gcp/project/media/sfx/syn-tick.wav",
+  "T": 84.21,
+  "db": -24
+ },
+ {
+  "file": "/home/user/gcp/project/media/sfx/syn-swish.wav",
+  "T": 84.21,
+  "db": -21
+ },
+ {
+  "file": "/home/user/gcp/project/media/sfx/syn-tick.wav",
+  "T": 84.38,
+  "db": -25
+ },
+ {
+  "file": "/home/user/gcp/ed3/media/sfx/nib.wav",
+  "T": 85.77,
+  "db": -10
+ },
+ {
+  "file": "/home/user/gcp/project/media/sfx/whoosh-2.mp3",
+  "T": 84.03,
+  "db": -18
+ },
+ {
+  "file": "/home/user/gcp/ed3/media/sfx/peel.wav",
+  "T": 103.245,
+  "db": -24,
+  "len": 1.2
+ },
+ {
+  "file": "/home/user/gcp/ed3/media/sfx/peel.wav",
+  "T": 104.245,
+  "db": -24,
+  "len": 1.2
+ },
+ {
+  "file": "/home/user/gcp/project/media/sfx/syn-tick.wav",
+  "T": 98.255,
+  "db": -24
+ },
+ {
+  "file": "/home/user/gcp/project/media/sfx/syn-swish.wav",
+  "T": 98.255,
+  "db": -21
+ },
+ {
+  "file": "/home/user/gcp/project/media/sfx/syn-tick.wav",
+  "T": 98.425,
+  "db": -25
+ },
+ {
+  "file": "/home/user/gcp/ed1/media/sfx/whip.wav",
+  "T": 99.885,
+  "db": -17
+ },
+ {
+  "file": "/home/user/gcp/ed1/media/sfx/pop-3.wav",
+  "T": 105.985,
+  "db": -18
+ },
+ {
+  "file": "/home/user/gcp/project/media/sfx/whoosh-2.mp3",
+  "T": 98.075,
+  "db": -18
+ },
+ {
+  "file": "/home/user/gcp/ed3/media/sfx/peel.wav",
+  "T": 104.845,
+  "db": -12
+ },
+ {
+  "file": "/home/user/gcp/ed3/media/sfx/peel.wav",
+  "T": 109.55,
+  "db": -24,
+  "len": 1.2
+ },
+ {
+  "file": "/home/user/gcp/ed3/media/sfx/peel.wav",
+  "T": 116.95,
+  "db": -24,
+  "len": 1.2
+ },
+ {
+  "file": "/home/user/gcp/project/media/sfx/syn-tick.wav",
+  "T": 107.81,
+  "db": -24
+ },
+ {
+  "file": "/home/user/gcp/project/media/sfx/syn-swish.wav",
+  "T": 107.81,
+  "db": -21
+ },
+ {
+  "file": "/home/user/gcp/project/media/sfx/syn-tick.wav",
+  "T": 107.98,
+  "db": -25
+ },
+ {
+  "file": "/home/user/gcp/ed1/media/sfx/pop-1.wav",
+  "T": 110.91,
+  "db": -18
+ },
+ {
+  "file": "/home/user/gcp/ed1/media/sfx/pop-2.wav",
+  "T": 113.05,
+  "db": -18
+ },
+ {
+  "file": "/home/user/gcp/ed3/media/sfx/pencil.wav",
+  "T": 109.68,
+  "db": -12
+ },
+ {
+  "file": "/home/user/gcp/ed3/media/sfx/nib.wav",
+  "T": 116.98,
+  "db": -10
+ },
+ {
+  "file": "/home/user/gcp/project/media/sfx/whoosh-2.mp3",
+  "T": 107.63,
+  "db": -18
+ },
+ {
+  "file": "/home/user/gcp/project/media/sfx/syn-swish.wav",
+  "T": 119.27,
+  "db": -21
+ },
+ {
+  "file": "/home/user/gcp/project/media/sfx/syn-tick.wav",
+  "T": 119.44,
+  "db": -25
+ },
+ {
+  "file": "/home/user/gcp/ed3/media/sfx/nest-room.wav",
+  "T": 119.27,
+  "db": -22,
+  "len": 7.685000000000002
+ },
+ {
+  "file": "/home/user/gcp/ed3/media/sfx/tick.wav",
+  "T": 120.02,
+  "db": -32
+ },
+ {
+  "file": "/home/user/gcp/ed3/media/sfx/tick.wav",
+  "T": 121.02,
+  "db": -32
+ },
+ {
+  "file": "/home/user/gcp/ed3/media/sfx/tick.wav",
+  "T": 122.02,
+  "db": -32
+ },
+ {
+  "file": "/home/user/gcp/ed3/media/sfx/tick.wav",
+  "T": 123.02,
+  "db": -32
+ },
+ {
+  "file": "/home/user/gcp/ed3/media/sfx/tick.wav",
+  "T": 124.02,
+  "db": -32
+ },
+ {
+  "file": "/home/user/gcp/ed3/media/sfx/tick.wav",
+  "T": 125.02,
+  "db": -32
+ },
+ {
+  "file": "/home/user/gcp/ed3/media/sfx/tick.wav",
+  "T": 126.02,
+  "db": -32
+ },
+ {
+  "file": "/home/user/gcp/project/media/sfx/syn-thud.wav",
+  "T": 119.5,
+  "db": -20
+ },
+ {
+  "file": "/home/user/gcp/ed1/media/sfx/paper-slap.wav",
+  "T": 119.5,
+  "db": -24
+ },
+ {
+  "file": "/home/user/gcp/ed1/media/sfx/pop-3.wav",
+  "T": 124.7,
+  "db": -18
+ },
+ {
+  "file": "/home/user/gcp/project/media/sfx/whoosh-2.mp3",
+  "T": 119.19,
+  "db": -18
+ },
+ {
+  "file": "/home/user/gcp/project/media/sfx/page-turn-4.mp3",
+  "T": 127.031,
+  "db": -18
+ },
+ {
+  "file": "/home/user/gcp/project/media/sfx/whoosh-1.mp3",
+  "T": 126.811,
+  "db": -24
+ },
+ {
+  "file": "/home/user/gcp/project/media/sfx/page-turn-3.mp3",
+  "T": 127.124,
+  "db": -18
+ },
+ {
+  "file": "/home/user/gcp/project/media/sfx/whoosh-1.mp3",
+  "T": 126.904,
+  "db": -24
+ },
+ {
+  "file": "/home/user/gcp/project/media/sfx/page-turn-4.mp3",
+  "T": 127.216,
+  "db": -18
+ },
+ {
+  "file": "/home/user/gcp/project/media/sfx/whoosh-1.mp3",
+  "T": 126.996,
+  "db": -24
+ },
+ {
+  "file": "/home/user/gcp/project/media/sfx/page-turn-3.mp3",
+  "T": 127.309,
+  "db": -18
+ },
+ {
+  "file": "/home/user/gcp/project/media/sfx/whoosh-1.mp3",
+  "T": 127.089,
+  "db": -24
+ },
+ {
+  "file": "/home/user/gcp/project/media/sfx/whoosh-2.mp3",
+  "T": 126.505,
+  "db": -12
+ },
+ {
+  "file": "/home/user/gcp/project/media/sfx/press-2.mp3",
+  "T": 126.625,
+  "db": -18,
+  "len": 2.5
+ },
+ {
+  "file": "/home/user/gcp/project/media/sfx/stamp-2.mp3",
+  "T": 126.875,
+  "db": -16
+ },
+ {
+  "file": "/home/user/gcp/project/media/sfx/syn-ding.wav",
+  "T": 127.725,
+  "db": -12
+ },
+ {
+  "file": "/home/user/gcp/ed1/media/sfx/bell.wav",
+  "T": 127.975,
+  "db": -18
+ },
+ {
+  "file": "/home/user/gcp/project/media/sfx/whoosh-2.mp3",
+  "T": 126.495,
+  "db": -18
+ }
+]

@@ -7,8 +7,16 @@ const args = process.argv.slice(2);
 const name = args.find((a) => !a.startsWith('--') && !['draft', 'looks'].includes(a));
 const quality = args.includes('--quality') ? args[args.indexOf('--quality') + 1] : 'looks';
 if (name === 'sp1') process.env.GCP_CUE_LEAD ??= '0.4';   // client: voice slightly ahead of graphics in the Special
+if (name === 'sp2') process.env.GCP_CUE_LEAD ??= '0.1';   // client's own recording, word times corrected in fix_transcript.py
 const M = await import(`./${name}.mjs`);
-const { p } = M.build();
+let { p } = M.build();
+const miss = (M.CLIPS || []).filter((r) => !fs.existsSync(r.file));
+if (miss.length) {   // Remotion cards the reel asks for: render, then build again so they are placed
+  const { RemotionEngine } = await import('/home/user/video-studio/src/engines/remotion.js');
+  const eng = new RemotionEngine({ publicDir: '/home/user/gcp/build/remotion-public', log: () => {} });
+  for (const r of miss) { fs.mkdirSync(path.dirname(r.file), { recursive: true }); await eng.render({ compositionId: r.comp, props: r.props, outFile: r.file, concurrency: 3 }); }
+  M.CLIPS.length = 0; ({ p } = M.build());
+}
 const dir = path.join('/home/user/gcp/reels', name, 'hf');
 const { sfx } = p.write(dir);
 // fonts the Special's components reference (typewriter face, colour emoji)

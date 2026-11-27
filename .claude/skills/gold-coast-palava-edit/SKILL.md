@@ -58,6 +58,17 @@ events slide in along the line with a travelling pulse (keep drift small enough 
 - Section stings: brief pause, sting, pause, voice continues.
 - Subtitles run the whole video, small (40 px), low, words revealed as spoken in short phrases with fixed positions
   (unspoken words transparent). UK spellings and name fixes live in `work/subs.py`.
+- **CAPTION SYNC IS A HARD RULE (client, Edition 4, after earlier editions' captions lagged the voice):** captions must
+  be exactly in sync with the voiceover, never late and never early; the voice must never run ahead of the captions,
+  and captions must never show a word before it is spoken. On every recording: measure Whisper's word-start bias
+  against energy onsets (it differs per recording: Sp1 +0.38 s late, Sp2 −0.15 s early), set `SUB_LEAD` / reel
+  `cap_lead` from that measurement, then verify on the FINAL assembled MP4 (not the timeline) by sampling caption
+  word-reveal times against the audio's word onsets across the whole video; median error within ±0.04 s and no word
+  off by more than 0.1 s. Fix drift section by section (sting/heading gaps shift timing) before delivering.
+- **Pronunciation:** "Chale" is said "Cha-ley" (two syllables, NOT "Charlie"); for TTS write "Cha-ley" (captions keep "Chale").
+- **Voice (client, Edition 4):** Chatterbox one-off voice matching (Creative Claw) was tried and rejected: stale, flat,
+  rushed, slightly hoarse, less clear than the original. Cartesia cloning needs a paid Creative Claw plan. Default: the
+  client records the voiceover himself.
 - Loudness −14 LUFS, true peak ≤ −1 dBTP after AAC (limiter at −3 dBFS before encode).
 
 ## Sound effects
@@ -245,6 +256,61 @@ Masthead lists only members already introduced; the rest stay "Empty desk … To
 - Videos sit above scene content: keep stamps/stickers out from under video frames. ≤ 5.5 s without a new element.
 - **Reel captions:** whole phrase visible (upcoming words dimmed), spoken word in red, cream card, 60 px.
 
+## Edition 2 (cocoa) — what changed (client asks)
+- **Everything stays at 1080p**, COMBO3 included (client: "just keep everything at 1080").
+- **COMBO1 comes after the Nest intro**: cold open (the Nest scene + the hook question) → COMBO1 → "My squad, how you dey?…".
+- **The living Nest** (`ed2/build/nestlive.mjs`, `livingNest(p, t0, t1, opts)`): the Nest still plays like a real shot. Layers
+  in `ed2/media/nest/`: `nest-bg.jpg` (fan blades painted out), `nest-fg.png` (desk, separate layer → parallax truck),
+  `fan-hub.png`, `glass-alpha.png` (window mask), `clouds.png`. Pure GSAP: ceiling fan turning (SVG blades in a squashed
+  circle), clock second hand ticking, clouds drifting behind the louvres, moon glow, lagoon glints, tea steam, lamp
+  breathing + seeded flickers, dust in the lamplight, handheld breathing, warm evening grade; `aim(spot, scale, at)`
+  moves the camera on springs. Pair it with `nestBed()` (room tone + clock tick each second). Use it every time the Nest
+  is on screen for more than a beat; a still print is fine for a passing mention.
+- **Canva stickers, full size without a design export:** generate-image → open ONE scratch design transaction
+  (read-design open_transaction) → add a 1024² page → `insert_fill` the media once → then `update_fill` the same element
+  with each media id: every edit-design result returns a 600 px render that is saved under tool-results; copy those,
+  then `cancel` the transaction (nothing saved). create-design with references ignores them (stock template).
+  Canva rate limits: ~5 generations per burst, then a cooldown. Cut-outs: `ed2/work/scripts/cutout.py` (fixed-range
+  flood fill keeps the white sticker outline).
+- **Whisper drifts after long digital silences** (first word after a spoken title starts 1–2 s early, and it invents
+  "7." / "8." over silence): snap word starts to energy onsets and delete invented tokens before planning.
+- **SFX:** `ed2/work/scripts/ed2_sfx.py` (synth: nest room tone, tick, typewriter key, snap, crinkle, shutter, register,
+  ship, waves, fire, chant, drop, snip, bike bell, grind, thump, blip, kachunk, riser, crackle, hit, sparkle, scribble,
+  bundle, swoop) + raw-take / mastered pair cut from the theme. SFX bus raised to −1 dB (was −3) for clearer effects.
+- Masthead from Ed2: Kofi, Aba (The Restless), Kwame (The Combative), Baaba (The Ascendant, introduced Ed2), one empty desk.
+## Edition 3 notes
+- Voiceover: the client supplies the voiceover file. Respell "Ewe" as "Ay-vay" if it is ever synthesised. When the
+  voice is generated from a known script, take words from the script and times from Whisper (ed3/work/align.py).
+- Canva: generate in **Olahub's Team** (the connector must be connected with that team selected; the old team's AI
+  credits are used up). Ed3 shipped with code-drawn stickers (ed3/build/art.mjs); Canva stickers resume from Ed4.
+  Saved for the next edition: media_next/canva_stickers.json.
+- Maps: ed3/build/maps.mjs (Natural Earth shapes, string-map look). Never paste flat graphics onto the Nest photo
+  (client: no artificial-looking objects on the table); show such objects as full-frame close-ups instead.
+
+## Edition 4 ("What Is a Cedi?", Nov 2026) — what changed
+- Voiceover: the client's file (`ed4/src/vo.mp3`, ElevenLabs-generated by the client in his own voice, supplied as a file;
+  we still never call ElevenLabs). Voice cloning via Creative Claw: Cartesia clone needs a paid Creative Claw plan;
+  Chatterbox one-off matching was rejected (stale, rushed, hoarse). Never present another voice as the client's.
+- Script alignment: `work/align.py` (script words, Whisper times) then `work/scripts/fix_sync.py` snaps every phrase start to
+  the voice onset (−0.02 s) and pulls inner words −0.06 s; `work/scripts/bias.py` measures; `subs.py` reveals words at their
+  exact start (no lead). Final check on the delivered MP4: `work/scripts/verify_sync.py <final.mp4>` (voice placement by
+  cross-correlation + caption-vs-onset error). Graphics cue with `GCP_CUE_LEAD=0.05`.
+- Banknotes: client photos keep full colour; `work/scripts/notes.py` splits front/back, denoises, upscales ×4, sharpens.
+  `crumple.py` makes a worn, creased note. Commons: upload.wikimedia.org rate-limits this host (429); fetch through
+  `https://commons.wikimedia.org/w/thumb.php?f=<File_name>&w=<px>` instead — it works.
+- Code-drawn stickers for Ed4 in `ed4/build/art4.mjs` (cowrie, wallet, goldweight, pesewa, tap/bucket, plantain …); a Canva
+  PNG of the same name in `ed4/media/stickers_cut/` replaces one automatically.
+- Team Aside: hands and objects only — no Kwame face sticker (script rule).
+- **SYNC BUGS FOUND AND FIXED AT ED4 (they explain the earlier "captions late" complaints):**
+  (1) `build_audio.py`: an amix group re-timed itself to its first clip, so the whole narration played 0.4 s (= COLD_IN)
+  EARLY against the picture and captions. Every amix now gets a silent `anullsrc` anchor from t=0 (`anchor()`).
+  (2) `subs.py`: a word starting a few ms before a sentence cut was mapped to the previous piece and lost the inserted
+  pause (caption up to 1.2 s early). `toT` now gives words within 0.08 s before a cut to the next piece.
+  (3) `fix_sync.py` and `verify_sync.py` use the same onset detector. Ed4 result: 286/286 phrase starts within 0.1 s,
+  median −0.02 s. Port (1) and (2) to any older edition's scripts before re-using them.
+- Delivery for Ed4 (client): the 1080p final only, no 720p preview. Reel ends on the on-screen CTA
+  "Watch the full edition on YouTube — link in bio" (no extra spoken line); `endCard(..., { html })`.
+
 ## Specials (from Special No. 1, "The Eyes of Ghana: Rev. Chris Hesse", Nov 2026)
 - A Special is not an edition: no price line, no Dispatch, no Nest scenes, no segment stings. Tree `sp<N>/` (same layout
   as `ed<N>/`); `GCP_WORK=/home/user/gcp/sp<N>/work GCP_EDITION="SPECIAL No. <N>"`.
@@ -270,6 +336,28 @@ Masthead lists only members already introduced; the rest stay "Empty desk … To
 - **Never use ElevenLabs anywhere in this project (client, Special No. 1).** Canva AI's image quota ran out after 5
   generations at Special No. 1; draw the rest in code (signposts, cinema screen, eye chart, flames, film strips, route
   lines, curtain, sprout) or reuse the sticker libraries.
+
+## Special No. 2 ("Nineteen Years: The Rawlings Question", Nov 2026) — what changed
+- Tree `sp2/`. The voiceover is the client's own recording (`src/vo.mp3`); `work/edl.py` cuts the spoken section
+  labels and read-out timestamps at measured silence (search windows must reach past the real onset: the onset finder
+  returns the window edge if the silence runs on). The client cut the Twi proverb from the voice (English meaning only;
+  the Akan name stays on the page) and recorded no closing line: `plan.py` then adds a 5.5 s voiceless close card.
+- **Sync, measure every recording:** on this one Whisper's word starts ran ~0.15 s EARLY (median vs energy onsets), the
+  opposite of Special No. 1. `fix_transcript.py` shifts words +0.15 s and clamps each span's first word into the span;
+  `GCP_CUE_LEAD=0.1`, `SUB_LEAD=0`.
+- `work/fix_transcript.py` corrects Whisper at word level (names, Twi proverb, UK spelling), matching on joined
+  characters (Whisper splits "A-Chi" into tokens) and keeping each word in one segment. Cue phrases use the corrected
+  words; possessives drop the apostrophe in cues ("world banks", "south koreas", "two thirds").
+- **Remotion data cards** (client: let Remotion do heavy lifting): `video-studio/src/remotion/compositions/GcpCharts.jsx`
+  — `GcpTimeline`, `GcpBars` (vertical/horizontal), `GcpGrid`, `GcpLedger` (balance beam = one spring per entry).
+  `rclip()` in `sp2.mjs` asks for a card with cue-timed props; `build.mjs` renders missing ones (cached by props hash in
+  `build/remotion/`) and places them with `vprint`. Playwright stills show them blank; check in a real render.
+- **Suspense score synthesized in code** (`work/scripts/make_score.py`: drone + clock under the cold open, a bed per
+  question — tense/dark — risers into hits on each pinned card), planned by `plan.py` into `score_cues.json` and mixed
+  with the effects. The client wanted a plugin for music: HeyGen (HyperFrames media-use) needs a
+  sign-in via `auth login --device` that the client approves in a browser; the code expired at Special No. 2.
+- Supplied photographs are used as originals (client: "preserve the originals"), not the drawn treatment.
+- Cue misses: `CUE_SOFT=1 node build.mjs …` lists every missing cue phrase at once.
 
 ## Next
 

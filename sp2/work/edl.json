@@ -1,0 +1,44 @@
+[
+ {
+  "id": "cold-open",
+  "vo_in": 4.69,
+  "vo_out": 22.39,
+  "gap_after": "combo1"
+ },
+ {
+  "id": "welcome",
+  "vo_in": 22.39,
+  "vo_out": 53.41,
+  "gap_after": "pin:q1"
+ },
+ {
+  "id": "q1",
+  "vo_in": 63.07,
+  "vo_out": 142.04,
+  "gap_after": "pin:q2"
+ },
+ {
+  "id": "q2",
+  "vo_in": 151.79,
+  "vo_out": 241.04,
+  "gap_after": "pin:q3"
+ },
+ {
+  "id": "q3",
+  "vo_in": 251.2,
+  "vo_out": 334.54,
+  "gap_after": "pin:q4"
+ },
+ {
+  "id": "q4",
+  "vo_in": 344.56,
+  "vo_out": 446.51,
+  "gap_after": "pin:lesson"
+ },
+ {
+  "id": "lesson",
+  "vo_in": 453.82,
+  "vo_out": 510.575,
+  "gap_after": "close"
+ }
+]

@@ -1,0 +1,125 @@
+{
+ "transcript": "/home/user/gcp/ed2/work/transcript.json",
+ "vo": "/home/user/gcp/ed2/src/vo.mp3",
+ "subs": "/home/user/gcp/ed2/work/subs.py",
+ "gap": 0.35,
+ "lead_in": 0.15,
+ "tail": 0.0,
+ "items": [
+  {
+   "id": "hook",
+   "vo": [
+    "He cut the price paid",
+    "to 41,392."
+   ],
+   "near": 270,
+   "gap": 0.45
+  },
+  {
+   "id": "question",
+   "vo": [
+    "Why does Ghana send",
+    "back in wrappers?"
+   ],
+   "gap": 0.3
+  },
+  {
+   "beat": "brand",
+   "id": "brand",
+   "dur": 4.6
+  },
+  {
+   "id": "teshie",
+   "vo": [
+    "The man from Teshi",
+    "Mampong in Akwapem."
+   ],
+   "near": 117
+  },
+  {
+   "id": "holdup",
+   "vo": [
+    "the farmers did what",
+    "matches and tobacco."
+   ]
+  },
+  {
+   "id": "bag",
+   "vo": [
+    "So, a 64",
+    "worth, how much I, 2,587."
+   ],
+   "near": 283
+  },
+  {
+   "id": "share",
+   "vo": [
+    "A study cited by",
+    "takes about 11."
+   ]
+  },
+  {
+   "id": "stop",
+   "vo": [
+    "That is why this editor",
+    "dollars here."
+   ]
+  },
+  {
+   "id": "then",
+   "vo": [
+    "Then, in 1947,",
+    "one for its gold."
+   ],
+   "near": 460
+  },
+  {
+   "id": "smuggle",
+   "vo": [
+    "The smuggling has turned around.",
+    "off as Ghanaian."
+   ],
+   "gap": 0.2
+  },
+  {
+   "id": "small",
+   "vo": [
+    "It would be",
+    "small thing."
+   ],
+   "near": 540,
+   "gap": 0.5
+  },
+  {
+   "id": "raw",
+   "vo": [
+    "nobody pays for",
+    "the raw take."
+   ],
+   "near": 610,
+   "gap": 0.3
+  },
+  {
+   "id": "mix",
+   "vo": [
+    "For 147 years,",
+    "doing the mixing."
+   ],
+   "gap": 0.5
+  },
+  {
+   "id": "chale",
+   "vo": [
+    "Chale,",
+    "we go crush."
+   ],
+   "near": 683,
+   "gap": 0.3
+  },
+  {
+   "beat": "endcard",
+   "id": "endcard",
+   "dur": 3.6
+  }
+ ]
+}

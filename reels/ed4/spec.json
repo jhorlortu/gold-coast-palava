@@ -1,0 +1,161 @@
+{
+ "transcript": "/home/user/gcp/ed4/work/transcript.json",
+ "vo": "/home/user/gcp/ed4/src/vo.mp3",
+ "subs": "/home/user/gcp/ed4/work/subs.py",
+ "gap": 0.35,
+ "lead_in": 0.15,
+ "tail": 0.0,
+ "items": [
+  {
+   "id": "hook",
+   "vo": [
+    "Is the cedi really",
+    "every funeral?"
+   ],
+   "near": 76,
+   "gap": 0.45
+  },
+  {
+   "id": "question",
+   "vo": [
+    "how did a little",
+    "in your pocket?"
+   ],
+   "near": 70,
+   "gap": 0.3
+  },
+  {
+   "beat": "brand",
+   "id": "brand",
+   "dur": 4.6
+  },
+  {
+   "id": "sika",
+   "vo": [
+    "In Twi, gold",
+    "one word, sika,"
+   ],
+   "near": 113
+  },
+  {
+   "id": "pinch",
+   "vo": [
+    "the smallest weight",
+    "pinch of gold."
+   ],
+   "near": 125
+  },
+  {
+   "id": "shells",
+   "vo": [
+    "Then, in the",
+    "too few goods."
+   ],
+   "near": 153
+  },
+  {
+   "id": "light",
+   "vo": [
+    "In the silent film",
+    "had a watermark."
+   ],
+   "near": 246
+  },
+  {
+   "id": "zeros",
+   "vo": [
+    "and by two thousand",
+    "one Ghana cedi."
+   ],
+   "near": 301
+  },
+  {
+   "id": "record",
+   "vo": [
+    "So there is no",
+    "printed in Switzerland;"
+   ],
+   "near": 369
+  },
+  {
+   "id": "machine",
+   "vo": [
+    "But chale, that question",
+    "printed at all:"
+   ],
+   "near": 385
+  },
+  {
+   "id": "plantain",
+   "vo": [
+    "If you asked",
+    "met monetary policy."
+   ],
+   "near": 426
+  },
+  {
+   "id": "eight",
+   "vo": [
+    "launched the Heritage Series:",
+    "eight faces."
+   ],
+   "near": 504
+  },
+  {
+   "id": "nkrumah",
+   "vo": [
+    "and on the two",
+    "Kwame Nkrumah."
+   ],
+   "near": 536
+  },
+  {
+   "id": "decimal",
+   "vo": [
+    "Ghana dropped pounds,",
+    "the empire did."
+   ],
+   "near": 599
+  },
+  {
+   "id": "belief",
+   "vo": [
+    "Britain or America",
+    "print the belief;"
+   ],
+   "near": 693,
+   "gap": 0.5
+  },
+  {
+   "beat": "endcard",
+   "id": "endcard",
+   "dur": 4.2
+  }
+ ],
+ "fix_extra": [
+  [
+   "printed in Switzerland;$",
+   "printed in Switzerland."
+  ],
+  [
+   "printed at all:$",
+   "printed at all."
+  ],
+  [
+   "print the belief;$",
+   "print the belief."
+  ],
+  [
+   "one word, sika,$",
+   "one word: sika."
+  ],
+  [
+   ";$",
+   "."
+  ],
+  [
+   ",$",
+   "."
+  ]
+ ]
+}
