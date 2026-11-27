@@ -364,3 +364,14 @@ Masthead lists only members already introduced; the rest stay "Empty desk … To
 ## Open items carried forward
 - Subtitles still use the trial font "Haas Grot Disp R Trial" — swap for a licensed or free font before publishing.
 - Each new edition: expect iterative client notes; build, run review sheets, fix, then deliver master + preview.
+
+## YouTube thumbnails (client, Nov 2026)
+- **Editions** (The Introduction, The Headline Edition, every numbered edition) use the **client's front-page template**:
+  tilted front page (places line, masthead, dateline "EDITION NO. N · PRICE: ~NMB", all-caps Playfair headline with a red
+  last line, Libre Baskerville italic deck, hatched Ghana line map with typewriter labels) + red Special Elite pill + a feature card
+  (oval print, red date, name, italic line) + "THE NEST · FIVE DESKS" card showing desks revealed so far (newest outlined
+  red). `thumbnails/src/editions.html` (add an entry to `T`), `render-editions.cjs`, maps from `edmaps.mjs`.
+- **Specials** use the Specials style: cream newsprint, print cards, stamp, WhatsApp chat bubble from a team member
+  (`thumbnails/src/thumbs.html`, `render.cjs`).
+- `project/media/img/mccarthy.png` is NOT McCarthy (a later photograph; he died in 1824). Use the profile engraving from the
+  client's template (`thumbnails/src/mccarthy-profile.png`).

@@ -1,0 +1,132 @@
+<!doctype html>
+<html><head><meta charset="utf-8">
+<!-- Edition thumbnails: the client's front-page template (Introduction + "Read this first" designs). Specials use thumbs.html. -->
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;800;900&family=Libre+Baskerville:ital@1&family=Special+Elite&display=block" rel="stylesheet">
+<style>
+:root { --paper:#FAF5E8; --cream:#F3EBD7; --ink:#1A1612; --red:#A4241B; --gold:#C8962F; --tile:#EFE6D2; --hi:#F5E3A8; }
+* { margin:0; padding:0; box-sizing:border-box; }
+html,body { width:1280px; height:720px; overflow:hidden; background:var(--cream); color:var(--ink); }
+.t { position:relative; width:1280px; height:720px; overflow:hidden; }
+.papers { position:absolute; inset:0; background:url('../../build/assets/papers-bg.jpg') center/cover; }
+.wash { position:absolute; inset:0; background:var(--cream); opacity:.45; }
+.kente { position:absolute; left:0; right:0; height:14px; background:url('../../build/assets/banner2/kente-top.png') center/auto 14px repeat-x; z-index:9; }
+.kente.top { top:0; } .kente.bot { bottom:0; }
+.type { font-family:'Special Elite', monospace; }
+
+/* the front page */
+.page { position:absolute; left:36px; top:50px; height:628px; background:var(--paper); border:2px solid var(--ink);
+  box-shadow:12px 12px 0 rgba(26,22,18,.22); transform:rotate(-1.6deg); transform-origin:0 0; padding:20px 44px 0; z-index:2; }
+.page .r2 { border-top:3px solid var(--ink); padding-top:3px; } .page .r2:after { content:''; display:block; border-top:1px solid var(--ink); }
+.places { font-family:'Special Elite'; font-size:15.5px; letter-spacing:.06em; text-align:center; margin-top:8px; }
+.mast { font:900 64px/1 'Playfair Display', serif; letter-spacing:-.01em; text-align:center; margin-top:6px; }
+.dateline { display:flex; justify-content:space-between; font-family:'Special Elite'; font-size:20px; border-top:2px solid var(--ink);
+  border-bottom:2px solid var(--ink); padding:4px 0 6px; margin-top:10px; }
+.hl { display:inline-block; white-space:nowrap; font:900 106px/.9 'Playfair Display', serif; text-transform:uppercase; letter-spacing:-.01em; margin-top:22px; }
+.hl em { font-style:normal; color:var(--red); display:block; }
+.deck { font:italic 21px/1.35 'Libre Baskerville', serif; margin-top:12px; transform:rotate(-1deg); transform-origin:0 0; }
+.map { position:absolute; right:30px; bottom:44px; }
+
+/* right column */
+.pill { position:absolute; background:var(--red); color:var(--paper); font-family:'Special Elite'; font-size:30px; letter-spacing:.04em;
+  padding:6px 24px 4px; border-radius:30px; box-shadow:3px 4px 0 rgba(26,22,18,.25); z-index:4; }
+.card { position:absolute; background:var(--paper); border:3px solid var(--ink); border-radius:22px; box-shadow:4px 5px 0 rgba(26,22,18,.18); z-index:3; }
+.feat { display:flex; align-items:center; gap:22px; padding:18px 24px; }
+.oval { width:184px; height:220px; flex:none; border-radius:50%; border:3px solid var(--ink); background-size:cover; background-position:center;
+  filter:grayscale(1) contrast(1.15) sepia(.12); }
+.feat .date { font-family:'Special Elite'; color:var(--red); font-size:19px; letter-spacing:.04em; }
+.feat h2 { font:900 34px/1 'Playfair Display', serif; margin:10px 0 8px; letter-spacing:-.01em; }
+.feat p { font:italic 19.5px/1.4 'Libre Baskerville', serif; }
+.desks { padding:14px 18px 0; }
+.desks .hd { display:flex; justify-content:space-between; font-family:'Special Elite'; font-size:18.5px; }
+.desks .hd b { color:var(--red); font-weight:400; }
+.row { display:flex; gap:10px; margin-top:12px; }
+.tile { width:83px; height:120px; border-radius:10px; border:2px solid var(--ink); background:var(--tile); display:flex; flex-direction:column;
+  align-items:center; justify-content:flex-end; padding-bottom:8px; font-family:'Special Elite'; font-size:19px; }
+.tile.ed { background:var(--hi); }
+.tile.new { border-color:var(--red); box-shadow:0 0 0 2px var(--red); }
+.tile.new span { color:var(--red); }
+.tile.empty { background:transparent; border:2px dashed var(--ink); color:#3a332b; }
+.tile svg { margin-bottom:6px; }
+.desks .ft { position:absolute; left:18px; bottom:16px; font:italic 19.5px 'Libre Baskerville', serif; }
+
+/* The Introduction */
+.every { padding:20px 22px; }
+.every .type { color:var(--red); font-size:19px; letter-spacing:.04em; }
+.every div.l { font:800 27px/1.6 'Playfair Display', serif; letter-spacing:-.01em; }
+</style></head><body>
+<div class="t" id="root">
+  <div class="papers"></div><div class="wash"></div><div class="kente top"></div><div class="kente bot"></div>
+</div>
+<script src="edmaps.js"></script>
+<script>
+const PLACES = 'ACCRA · KUMASI · BUNKPURUGU · HALF ASSINI · THE WORLD';
+// Desk icons (simple ink drawings): editor's lamp + laptop, then each member's object on the desk.
+const desk = (obj) => `<svg width="60" height="54" viewBox="0 0 60 54">${obj}<rect x="4" y="34" width="52" height="5" rx="1.5" fill="#1A1612"/><rect x="10" y="39" width="4" height="13" fill="#1A1612"/><rect x="46" y="39" width="4" height="13" fill="#1A1612"/></svg>`;
+const laptop = '<rect x="14" y="12" width="26" height="18" rx="2" fill="#FAF5E8" stroke="#1A1612" stroke-width="3"/><rect x="11" y="29" width="32" height="4" rx="1" fill="#1A1612"/>';
+const ICON = {
+  Kofi: desk('<circle cx="24" cy="18" r="17" fill="#E9C46A" opacity=".55"/>' + laptop + '<path d="M44 33 L44 10 L36 6" fill="none" stroke="#1A1612" stroke-width="3"/><path d="M33 3 L43 9 L37 14Z" fill="#E9C46A" stroke="#1A1612" stroke-width="2"/>'),
+  Aba: desk(laptop.replace('#FAF5E8', '#FAF5E8') + '<line x1="19" y1="18" x2="35" y2="18" stroke="#1A1612" stroke-width="2.5"/><line x1="19" y1="23" x2="30" y2="23" stroke="#1A1612" stroke-width="2.5"/><rect x="44" y="21" width="10" height="12" rx="1.5" fill="#A4241B" stroke="#1A1612" stroke-width="2"/><circle cx="49" cy="27" r="2" fill="#C8962F"/>'),
+  Kwame: desk(laptop + '<path d="M44 33 v-9 a7 7 0 0 1 14 0 v9z" fill="#A4241B" stroke="#1A1612" stroke-width="2"/><path d="M47 26 h8" stroke="#1A1612" stroke-width="2"/>'),
+  Baaba: desk(laptop + '<rect x="42" y="18" width="13" height="13" fill="#F2D24B" stroke="#1A1612" stroke-width="2" transform="rotate(8 48 24)"/><line x1="44" y1="23" x2="52" y2="24" stroke="#1A1612" stroke-width="1.6"/>'),
+  Amo: desk(laptop + '<circle cx="49" cy="27" r="6" fill="#A4241B" stroke="#1A1612" stroke-width="2"/><path d="M43 28 C 38 30, 36 33, 30 33" fill="none" stroke="#A4241B" stroke-width="2"/>'),
+  empty: desk('<rect x="16" y="10" width="26" height="22" rx="3" fill="none" stroke="#8C7E62" stroke-width="3"/><text x="29" y="27" text-anchor="middle" font-family="Special Elite" font-size="18" fill="#8C7E62">?</text>').replaceAll('#1A1612', '#8C7E62'),
+};
+const COUNT = ['', 'ONE', 'TWO', 'THREE', 'FOUR'];
+function desks(members, latest, foot) {
+  const tiles = ['Kofi', ...members].map((n) => `<div class="tile ${n === 'Kofi' ? 'ed' : ''} ${n === latest ? 'new' : ''}">${ICON[n]}<span>${n.toUpperCase()}</span></div>`);
+  while (tiles.length < 5) tiles.push(`<div class="tile empty">${ICON.empty}<span>???</span></div>`);
+  return `<div class="desks"><div class="hd"><span>THE NEST · FIVE DESKS</span><b>${members.length === 4 ? 'ALL REVEALED' : COUNT[members.length] + ' REVEALED'}</b></div>
+    <div class="row">${tiles.join('')}</div><div class="ft">${foot}</div></div>`;
+}
+const T = {
+  intro: { intro: true, left: 'THE INTRODUCTION', right: "THE NEST'S NEWSROOM, OPEN", hl: 'Welcome<br>to', red: 'The front<br>page.',
+    deck: "Ghana's history, printed as editions.", pill: 'INTRODUCING' },
+  pilot: { left: 'THE HEADLINE EDITION', right: 'PRICE: ~35MB', hl: 'Read<br>this', red: 'first.', deck: "Ghana's story, explained, and<br>how the world handled theirs.",
+    pill: 'START HERE', img: 'mccarthy-profile.png', pos: 'center', date: '22 JANUARY 1824', name: 'Sir Charles<br>McCarthy',
+    blurb: 'The governor who<br>ordered the band to play.', members: ['Aba'], latest: 'Aba', foot: 'Meet one desk. Guess the rest.' },
+  ed1: { left: 'EDITION NO. 1', right: 'PRICE: ~70MB', hl: 'A war<br>over a', red: 'stool?', deck: 'Asante v Britain, 1824 to 1900: seventy-seven years, one Golden Stool.',
+    pill: 'THE LEAD STORY', img: '../../ed1/media/real/golden-stool-1935.jpg', pos: 'center 45%', date: '28 MARCH 1900', name: 'The Golden<br>Stool',
+    blurb: 'The seat a British<br>governor asked to sit on.', members: ['Aba', 'Kwame'], latest: 'Kwame', foot: 'New desk: Kwame, The Combative.' },
+  ed2: { left: 'EDITION NO. 2', right: 'PRICE: ~50MB', hl: 'Sold raw,<br>bought', red: 'back.', deck: 'Why Ghana sends its cocoa away in sacks and buys it back in wrappers.',
+    pill: 'THE LEAD STORY', img: '../../ed2/media/real/quarshie-tree.jpg', pos: '35% center', date: 'MAMPONG, 1879', name: "Tetteh Quarshie's<br>tree",
+    blurb: 'Where Ghana’s first<br>cocoa beans were planted.', members: ['Aba', 'Kwame', 'Baaba'], latest: 'Baaba', foot: 'New desk: Baaba, The Ascendant.' },
+  ed3: { left: 'EDITION NO. 3', right: 'PRICE: ~50MB', hl: 'Who drew<br>these', red: 'lines?', deck: 'Bawku, the Volta and Dagbon all trace back to lines drawn before 1914.',
+    pill: 'THE LEAD STORY', img: '../../ed3/media/real/berlin-1884.jpg', pos: '40% center', date: 'BERLIN, 1884–85', name: 'The Berlin<br>Conference',
+    blurb: 'Europe split Africa with<br>not one African in the room.', members: ['Aba', 'Kwame', 'Baaba', 'Amo'], latest: 'Amo', foot: 'New desk: Amo, The Discerning.' },
+  ed4: { left: 'EDITION NO. 4', right: 'PRICE: ~50MB', hl: 'What<br>is a', red: 'cedi?', deck: 'From cowrie shells to the GH¢200 note, and who decides what our money is worth.',
+    pill: 'THE LEAD STORY', img: '../../ed4/media/real/cedi1-1965-front.png', pos: '88% center', color: true, date: '19 JULY 1965', name: 'The first<br>cedi',
+    blurb: 'The day Ghana began<br>counting in tens.', members: ['Aba', 'Kwame', 'Baaba', 'Amo'], latest: null, foot: 'Every desk filled. The Nest is complete.' },
+};
+const id = new URLSearchParams(location.search).get('t') || 'pilot';
+const d = T[id];
+const W = d.intro ? 770 : 668;
+let html = `<div class="page" style="width:${W}px"><div class="r2"></div><div class="places">${PLACES}</div><div class="mast">Gold Coast Palava</div>
+  <div class="dateline"><span>${d.left}</span><span>${d.right}</span></div>
+  <div class="hl" ${d.small ? 'style="font-size:96px"' : ''}>${d.hl}<em>${d.red}</em></div><div class="deck">${d.deck}</div>
+  ${d.intro ? '' : `<div class="map">${EDMAPS[id]}</div>`}</div>`;
+if (d.intro) {
+  html += `<div class="pill" style="left:842px; top:44px">${d.pill}</div>
+  <div class="card" style="left:842px; top:112px; width:396px; height:330px; display:flex; align-items:center; justify-content:center">
+    <img src="../../build/assets/gcp-symbol-transparent-1024.svg" style="width:270px"></div>
+  <div class="card every" style="left:842px; top:466px; width:396px; height:206px"><div class="type">IN EVERY EDITION</div>
+    <div class="l">What happened.</div><div class="l">What the world was doing.</div><div class="l">What it means today.</div></div>`;
+} else {
+  html += `<div class="pill" style="left:748px; top:44px">${d.pill}</div>
+  <div class="card feat" style="left:748px; top:112px; width:490px; height:262px">
+    <div class="oval" style="background-image:url('${d.img}'); background-position:${d.pos}; ${d.color ? 'filter:saturate(1.1)' : ''}"></div>
+    <div><div class="date">${d.date}</div><h2>${d.name}</h2><p>${d.blurb}</p></div></div>
+  <div class="card" style="left:748px; top:396px; width:490px; height:276px">${desks(d.members, d.latest, d.foot)}</div>`;
+}
+document.getElementById('root').insertAdjacentHTML('beforeend', html);
+// Fit the headline and deck into the column left of the map (template: the map never sits on the type).
+const pg = document.querySelector('.page'), hlEl = pg.querySelector('.hl'), deckEl = pg.querySelector('.deck'), mapEl = pg.querySelector('.map');
+if (mapEl && id !== 'pilot') { mapEl.style.transform = 'scale(.84)'; mapEl.style.transformOrigin = '100% 100%'; }
+document.fonts.ready.then(() => {
+  const mapLeft = mapEl ? mapEl.offsetLeft + (id !== 'pilot' ? mapEl.offsetWidth * .16 : 0) : pg.clientWidth - 44;
+  const avail = mapLeft - hlEl.offsetLeft - 18;
+  let fs = 106; while (hlEl.offsetWidth > avail && fs > 56) { fs -= 1; hlEl.style.fontSize = fs + 'px'; }
+  if (d.deck.indexOf('<br>') < 0) deckEl.style.maxWidth = avail + 'px';
+  document.body.dataset.ready = '1';
+});
+</script>
+</body></html>
