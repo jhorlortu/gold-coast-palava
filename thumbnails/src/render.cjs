@@ -2,9 +2,10 @@
 // usage: node thumbnails/src/render.cjs [id ...]
 const { chromium } = require('playwright');
 const path = require('path');
-const ids = process.argv.slice(2).length ? process.argv.slice(2) : ['intro', 'pilot', 'ed1', 'sp1'];
+const ids = process.argv.slice(2).length ? process.argv.slice(2) : ['intro', 'pilot', 'ed1', 'ed2', 'ed3', 'ed4', 'sp1', 'sp2'];
 const names = { intro: 'GCP_thumb_00_The-Introduction', pilot: 'GCP_thumb_01_Headline-Edition',
-  ed1: 'GCP_thumb_02_Edition-1', sp1: 'GCP_thumb_03_Special-No-1' };
+  ed1: 'GCP_thumb_02_Edition-1', ed2: 'GCP_thumb_03_Edition-2', ed3: 'GCP_thumb_04_Edition-3',
+  ed4: 'GCP_thumb_05_Edition-4', sp1: 'GCP_thumb_S1_Special-No-1', sp2: 'GCP_thumb_S2_Special-No-2' };
 (async () => {
   const b = await chromium.launch();
   const p = await b.newPage({ viewport: { width: 1280, height: 720 }, deviceScaleFactor: 1.5 });
