@@ -84,13 +84,13 @@ const T = {
   pilot: { left: 'THE HEADLINE EDITION', right: 'PRICE: ~35MB', hl: 'Read<br>this', red: 'first.', deck: "Ghana's story, explained, and<br>how the world handled theirs.",
     pill: 'START HERE', img: 'mccarthy-profile.png', pos: 'center', date: '22 JANUARY 1824', name: 'Sir Charles<br>McCarthy',
     blurb: 'The governor who<br>ordered the band to play.', members: ['Aba'], latest: 'Aba', foot: 'Meet one desk. Guess the rest.' },
-  ed1: { left: 'EDITION NO. 1', right: 'PRICE: ~70MB', hl: 'A war<br>over a', red: 'stool?', deck: 'Asante v Britain, 1824 to 1900: seventy-seven years, one Golden Stool.',
+  ed1: { left: 'EDITION NO. 1', right: 'PRICE: ~70MB', hl: 'A war<br>over a', red: 'stool?', deck: 'Asante v Britain, 1824 to 1900: <span style="white-space:nowrap">seventy-seven</span> years, one Golden Stool.',
     pill: 'THE LEAD STORY', img: '../../ed1/media/real/golden-stool-1935.jpg', pos: 'center 45%', date: '28 MARCH 1900', name: 'The Golden<br>Stool',
     blurb: 'The seat a British<br>governor asked to sit on.', members: ['Aba', 'Kwame'], latest: 'Kwame', foot: 'New desk: Kwame, The Combative.' },
-  ed2: { left: 'EDITION NO. 2', right: 'PRICE: ~50MB', hl: 'Sold raw,<br>bought', red: 'back.', deck: 'Why Ghana sends its cocoa away in sacks and buys it back in wrappers.',
+  ed2: { left: 'EDITION NO. 2', right: 'PRICE: ~50MB', hl: 'Whose<br>cocoa', red: 'is it?', deck: 'Why Ghana sends its cocoa away in sacks and buys it back in wrappers.',
     pill: 'THE LEAD STORY', img: '../../ed2/media/real/quarshie-tree.jpg', pos: '35% center', date: 'MAMPONG, 1879', name: "Tetteh Quarshie's<br>tree",
     blurb: 'Where Ghana’s first<br>cocoa beans were planted.', members: ['Aba', 'Kwame', 'Baaba'], latest: 'Baaba', foot: 'New desk: Baaba, The Ascendant.' },
-  ed3: { left: 'EDITION NO. 3', right: 'PRICE: ~50MB', hl: 'Who drew<br>these', red: 'lines?', deck: 'Bawku, the Volta and Dagbon all trace back to lines drawn before 1914.',
+  ed3: { left: 'EDITION NO. 3', right: 'PRICE: ~50MB', hl: 'Lines<br>on the', red: 'map.', deck: 'Bawku, the Volta and Dagbon all trace back to lines drawn before 1914.',
     pill: 'THE LEAD STORY', img: '../../ed3/media/real/berlin-1884.jpg', pos: '40% center', date: 'BERLIN, 1884–85', name: 'The Berlin<br>Conference',
     blurb: 'Europe split Africa with<br>not one African in the room.', members: ['Aba', 'Kwame', 'Baaba', 'Amo'], latest: 'Amo', foot: 'New desk: Amo, The Discerning.' },
   ed4: { left: 'EDITION NO. 4', right: 'PRICE: ~50MB', hl: 'What<br>is a', red: 'cedi?', deck: 'From cowrie shells to the GH¢200 note, and who decides what our money is worth.',
@@ -120,13 +120,21 @@ if (d.intro) {
 document.getElementById('root').insertAdjacentHTML('beforeend', html);
 // Fit the headline and deck into the column left of the map (template: the map never sits on the type).
 const pg = document.querySelector('.page'), hlEl = pg.querySelector('.hl'), deckEl = pg.querySelector('.deck'), mapEl = pg.querySelector('.map');
-if (mapEl && id !== 'pilot') { mapEl.style.transform = 'scale(.84)'; mapEl.style.transformOrigin = '100% 100%'; }
+if (mapEl) { mapEl.style.transform = 'scale(.74)'; mapEl.style.transformOrigin = '100% 100%'; }
 document.fonts.ready.then(() => {
-  const mapLeft = mapEl ? mapEl.offsetLeft + (id !== 'pilot' ? mapEl.offsetWidth * .16 : 0) : pg.clientWidth - 44;
+  const mapLeft = mapEl ? mapEl.offsetLeft + mapEl.offsetWidth * .26 : pg.clientWidth - 44;
   const avail = mapLeft - hlEl.offsetLeft - 18;
-  let fs = 106; while (hlEl.offsetWidth > avail && fs > 56) { fs -= 1; hlEl.style.fontSize = fs + 'px'; }
+  // ONE headline size for every edition (intro excluded): the widest line across all editions must fit the column.
+  if (!d.intro) {
+    const m = document.createElement('span'); m.style.cssText = "position:absolute;visibility:hidden;white-space:nowrap;font:900 100px 'Playfair Display';letter-spacing:-.01em;text-transform:uppercase";
+    document.body.appendChild(m);
+    let widest = 0;
+    for (const e of Object.values(T)) if (!e.intro) for (const ln of (e.hl + '<br>' + e.red).split('<br>')) { m.textContent = ln; widest = Math.max(widest, m.offsetWidth); }
+    m.remove();
+    hlEl.style.fontSize = Math.min(106, Math.floor(avail * 100 / widest)) + 'px';
+  }
   if (d.deck.indexOf('<br>') < 0) deckEl.style.maxWidth = avail + 'px';
-  document.body.dataset.ready = '1';
+  document.body.dataset.size = hlEl.style.fontSize; document.body.dataset.ready = '1';
 });
 </script>
 </body></html>

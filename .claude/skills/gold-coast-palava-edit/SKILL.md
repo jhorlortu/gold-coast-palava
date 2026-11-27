@@ -371,6 +371,8 @@ Masthead lists only members already introduced; the rest stay "Empty desk … To
   last line, Libre Baskerville italic deck, hatched Ghana line map with typewriter labels) + red Special Elite pill + a feature card
   (oval print, red date, name, italic line) + "THE NEST · FIVE DESKS" card showing desks revealed so far (newest outlined
   red). `thumbnails/src/editions.html` (add an entry to `T`), `render-editions.cjs`, maps from `edmaps.mjs`.
+  **Headlines are one size across all editions** (client): three short lines, sized from the widest line of ALL editions
+  (now 99 px). Keep each line about as wide as "STOOL?" or "ON THE"; rephrase a longer line rather than shrink one edition.
 - **Specials** use the Specials style: cream newsprint, print cards, stamp, WhatsApp chat bubble from a team member
   (`thumbnails/src/thumbs.html`, `render.cjs`).
 - `project/media/img/mccarthy.png` is NOT McCarthy (a later photograph; he died in 1824). Use the profile engraving from the
